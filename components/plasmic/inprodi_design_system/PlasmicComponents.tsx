@@ -59,7 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Card from "../../Card"; // plasmic-import: 49oQpRNcEL8M/component
+import { Card } from "../../../src/components/Card"; // plasmic-import: nDtozaD8mTAX/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -161,9 +161,12 @@ function PlasmicComponents__RenderFunc(props: {
             data-plasmic-name={"card"}
             data-plasmic-override={overrides.card}
             className={classNames("__wab_instance", sty.card)}
-            hideHeader={true}
-            padding={"md22Px"}
-            shadow={"largeShadow"}
+            description={"description"}
+            loading={false}
+            shadow={"none"}
+            showTitle={true}
+            title={"Tester"}
+            width={"450px"}
           />
         </div>
       </div>
