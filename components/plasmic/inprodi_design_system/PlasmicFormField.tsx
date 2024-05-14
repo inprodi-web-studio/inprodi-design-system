@@ -60,7 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
-import { TextInput } from "../../../src/components/TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
+import { TextInput } from "../../../TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -403,6 +403,60 @@ function PlasmicFormField__RenderFunc(props: {
           ) : null}
         </div>
       ) : null}
+      {renderPlasmicSlot({
+        defaultContents: (
+          <TextInput
+            allowClear={false}
+            className={classNames("__wab_instance", sty.textInput__wp59)}
+            defaultValue={""}
+            disabled={false}
+            leftIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__mdE
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            placeholder={"Placeholder"}
+            rightIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__h4Ypg
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            showLeftIcon={false}
+            showRightIcon={false}
+            size={"middle"}
+            status={(() => {
+              try {
+                return (() => {
+                  if ($state.error) return "error";
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            variant={"outlined"}
+          />
+        ),
+
+        value: args.input
+      })}
       {(() => {
         try {
           return (() => {
@@ -461,60 +515,6 @@ function PlasmicFormField__RenderFunc(props: {
           </div>
         </Stack__>
       ) : null}
-      {renderPlasmicSlot({
-        defaultContents: (
-          <TextInput
-            allowClear={false}
-            className={classNames("__wab_instance", sty.textInput__wp59)}
-            defaultValue={""}
-            disabled={false}
-            leftIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__mdE
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            placeholder={"Placeholder"}
-            rightIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__h4Ypg
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            showLeftIcon={false}
-            showRightIcon={false}
-            size={"middle"}
-            status={(() => {
-              try {
-                return (() => {
-                  if ($state.error) return "error";
-                })();
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            variant={"outlined"}
-          />
-        ),
-
-        value: args.input
-      })}
     </div>
   ) as React.ReactElement | null;
 }

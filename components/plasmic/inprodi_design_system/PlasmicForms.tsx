@@ -61,9 +61,9 @@ import {
 
 import Form from "../../Form"; // plasmic-import: rb5_PS-3AnYe/component
 import FormField from "../../FormField"; // plasmic-import: yLHiIXcGvJuv/component
-import { TextInput } from "../../../src/components/TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
-import { PasswordInput } from "../../../src/components/TextInput"; // plasmic-import: Tuix-QVl_vRD/codeComponent
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { TextInput } from "../../../TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
+import { PasswordInput } from "../../../PasswordInput"; // plasmic-import: Tuix-QVl_vRD/codeComponent
+import { Button } from "../../../Button"; // plasmic-import: kQTcb2I1HqhX/codeComponent
 
 import {
   ColorSchemeValue,
@@ -95,7 +95,7 @@ export type PlasmicForms__OverridesType = {
   textInput?: Flex__<typeof TextInput>;
   formField2?: Flex__<typeof FormField>;
   passwordInput?: Flex__<typeof PasswordInput>;
-  button?: Flex__<typeof AntdButton>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultFormsProps {}
@@ -507,26 +507,22 @@ function PlasmicForms__RenderFunc(props: {
                   ])}
                 />
 
-                <AntdButton
+                <Button
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
+                  block={true}
                   className={classNames("__wab_instance", sty.button)}
-                  onClick={async () => {
-                    const $steps = {};
-                  }}
-                  shape={"default"}
-                  submitsForm={true}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lf72J
-                    )}
-                  >
-                    {"Submit"}
-                  </div>
-                </AntdButton>
+                  danger={false}
+                  ghost={false}
+                  icon={null}
+                  iconPosition={"start"}
+                  isSubmit={true}
+                  label={"Submit Form"}
+                  loading={false}
+                  size={"middle"}
+                  variant={"default"}
+                  withIcon={false}
+                />
               </React.Fragment>
             }
             errors={generateStateValueProp($state, ["form", "errors"])}
@@ -628,7 +624,7 @@ type NodeDefaultElementType = {
   textInput: typeof TextInput;
   formField2: typeof FormField;
   passwordInput: typeof PasswordInput;
-  button: typeof AntdButton;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";

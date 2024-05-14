@@ -659,19 +659,25 @@
           "id": "nDtozaD8mTAX",
           "name": "Card",
           "displayName": "Card",
-          "componentImportPath": "./src/components/Card"
+          "componentImportPath": "./Card.tsx"
         },
         {
           "id": "jViHg3nb4YL3",
           "name": "TextInput",
           "displayName": "TextInput",
-          "componentImportPath": "./src/components/TextInput"
+          "componentImportPath": "./TextInput.tsx"
         },
         {
           "id": "Tuix-QVl_vRD",
           "name": "PasswordInput",
           "displayName": "PasswordInput",
-          "componentImportPath": "./src/components/TextInput"
+          "componentImportPath": "./PasswordInput.tsx"
+        },
+        {
+          "id": "kQTcb2I1HqhX",
+          "name": "Button",
+          "displayName": "Button",
+          "componentImportPath": "./Button.tsx"
         }
       ],
       "customFunctions": [
