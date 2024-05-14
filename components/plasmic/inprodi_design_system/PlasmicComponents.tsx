@@ -163,7 +163,7 @@ function PlasmicComponents__RenderFunc(props: {
             className={classNames("__wab_instance", sty.card)}
             description={"description"}
             loading={false}
-            shadow={"none"}
+            shadow={"lg"}
             showTitle={true}
             title={"Tester"}
             width={"450px"}

@@ -576,15 +576,29 @@
           "path": "/inputs"
         },
         {
-          "id": "CIVsP_JANCLm",
-          "name": "TextInput",
+          "id": "KNXf3kuM8MY0",
+          "name": "Forms",
           "type": "managed",
           "projectId": "5nPYJMkHKsudqrrya3SLGq",
-          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicTextInput.tsx",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicForms.tsx",
           "importSpec": {
-            "modulePath": "TextInput.tsx"
+            "modulePath": "../pages/forms.tsx"
           },
-          "cssFilePath": "plasmic/inprodi_design_system/PlasmicTextInput.module.css",
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicForms.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/forms"
+        },
+        {
+          "id": "rb5_PS-3AnYe",
+          "name": "Form",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicForm.tsx",
+          "importSpec": {
+            "modulePath": "Form.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicForm.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -623,9 +637,23 @@
           "name": "Card",
           "displayName": "Card",
           "componentImportPath": "./src/components/Card"
+        },
+        {
+          "id": "9j0HqeR2PssL",
+          "name": "textInput",
+          "displayName": "textInput",
+          "componentImportPath": "./src/components/TextInput"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [
+        {
+          "defaultExport": false,
+          "id": "validateEmail",
+          "importPath": "../helpers/validateEmail.ts",
+          "name": "validateEmail",
+          "namespace": null
+        }
+      ]
     }
   ],
   "globalVariants": {
