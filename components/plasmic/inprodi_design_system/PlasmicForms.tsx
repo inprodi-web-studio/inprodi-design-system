@@ -161,7 +161,7 @@ function PlasmicForms__RenderFunc(props: {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "test"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "formField.error",
