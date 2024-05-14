@@ -144,6 +144,7 @@ function PlasmicFormField__RenderFunc(props: {
     () =>
       Object.assign(
         {
+          label2: "Form Label",
           isRequired: false
         },
         props.args
