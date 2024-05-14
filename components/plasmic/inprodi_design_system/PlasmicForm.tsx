@@ -75,16 +75,24 @@ export const PlasmicForm__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicForm__ArgsType = {
   content?: React.ReactNode;
-  initValues?: any;
-  onInitValuesChange?: (val: string) => void;
+  values?: any;
+  onValuesChange?: (val: string) => void;
+  errors?: any;
   onErrorsChange?: (val: string) => void;
+  onSubmit?: () => void;
+  validation?: any;
+  onValidationChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicForm__ArgsType;
 export const PlasmicForm__ArgProps = new Array<ArgPropType>(
   "content",
-  "initValues",
-  "onInitValuesChange",
-  "onErrorsChange"
+  "values",
+  "onValuesChange",
+  "errors",
+  "onErrorsChange",
+  "onSubmit",
+  "validation",
+  "onValidationChange"
 );
 
 export type PlasmicForm__OverridesType = {
@@ -93,9 +101,13 @@ export type PlasmicForm__OverridesType = {
 
 export interface DefaultFormProps {
   content?: React.ReactNode;
-  initValues?: any;
-  onInitValuesChange?: (val: string) => void;
+  values?: any;
+  onValuesChange?: (val: string) => void;
+  errors?: any;
   onErrorsChange?: (val: string) => void;
+  onSubmit?: () => void;
+  validation?: any;
+  onValidationChange?: (val: string) => void;
   className?: string;
 }
 
@@ -133,20 +145,28 @@ function PlasmicForm__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "initValues",
+        path: "values",
         type: "writable",
         variableType: "object",
 
-        valueProp: "initValues",
-        onChangeProp: "onInitValuesChange"
+        valueProp: "values",
+        onChangeProp: "onValuesChange"
       },
       {
         path: "errors",
-        type: "readonly",
+        type: "writable",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({}),
 
+        valueProp: "errors",
         onChangeProp: "onErrorsChange"
+      },
+      {
+        path: "validation",
+        type: "writable",
+        variableType: "object",
+
+        valueProp: "validation",
+        onChangeProp: "onValidationChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -176,6 +196,45 @@ function PlasmicForm__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.formContainer
       )}
+      onSubmit={async event => {
+        const $steps = {};
+
+        $steps["runCode"] = true
+          ? (() => {
+              const actionArgs = {
+                customFunction: async () => {
+                  return event.preventDefault();
+                }
+              };
+              return (({ customFunction }) => {
+                return customFunction();
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["runCode"] != null &&
+          typeof $steps["runCode"] === "object" &&
+          typeof $steps["runCode"].then === "function"
+        ) {
+          $steps["runCode"] = await $steps["runCode"];
+        }
+
+        $steps["runOnSubmit"] = true
+          ? (() => {
+              const actionArgs = { eventRef: $props["onSubmit"] };
+              return (({ eventRef, args }) => {
+                return eventRef?.(...(args ?? []));
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["runOnSubmit"] != null &&
+          typeof $steps["runOnSubmit"] === "object" &&
+          typeof $steps["runOnSubmit"].then === "function"
+        ) {
+          $steps["runOnSubmit"] = await $steps["runOnSubmit"];
+        }
+      }}
     >
       {renderPlasmicSlot({
         defaultContents: null,
