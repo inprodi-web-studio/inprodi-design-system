@@ -436,21 +436,6 @@ function PlasmicFormField__RenderFunc(props: {
             showLeftIcon={false}
             showRightIcon={false}
             size={"middle"}
-            status={(() => {
-              try {
-                return (() => {
-                  if ($state.error) return "error";
-                })();
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
             variant={"outlined"}
           />
         ),
