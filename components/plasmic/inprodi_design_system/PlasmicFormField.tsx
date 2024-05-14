@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import { TextInput } from "../../../src/components/TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -105,6 +106,7 @@ export type PlasmicFormField__OverridesType = {
   container2?: Flex__<"div">;
   label?: Flex__<"div">;
   requiredIndicator?: Flex__<"div">;
+  popover?: Flex__<typeof AntdPopover>;
   icon?: Flex__<"svg">;
   description?: Flex__<"div">;
   errorContainer?: Flex__<"div">;
@@ -173,6 +175,12 @@ function PlasmicFormField__RenderFunc(props: {
 
         valueProp: "error",
         onChangeProp: "onErrorChange"
+      },
+      {
+        path: "popover.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -286,12 +294,73 @@ function PlasmicFormField__RenderFunc(props: {
                 </div>
               ) : null}
             </Stack__>
-            <InfosvgIcon
-              data-plasmic-name={"icon"}
-              data-plasmic-override={overrides.icon}
-              className={classNames(projectcss.all, sty.icon)}
-              role={"img"}
-            />
+            {(() => {
+              try {
+                return $props.help;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <AntdPopover
+                data-plasmic-name={"popover"}
+                data-plasmic-override={overrides.popover}
+                arrow={true}
+                className={classNames("__wab_instance", sty.popover)}
+                content={null}
+                contentText={(() => {
+                  try {
+                    return $props.help;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                defaultOpen={false}
+                defaultStylesClassName={classNames(
+                  projectcss.root_reset,
+                  projectcss.plasmic_default_styles,
+                  projectcss.plasmic_mixins,
+                  projectcss.plasmic_tokens,
+                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                  plasmic_plasmic_rich_components_css.plasmic_tokens
+                )}
+                mouseEnterDelay={0.25}
+                mouseLeaveDelay={0}
+                onOpenChange={generateStateOnChangeProp($state, [
+                  "popover",
+                  "open"
+                ])}
+                open={generateStateValueProp($state, ["popover", "open"])}
+                overlayClassName={classNames({
+                  [sty["pcls_g4In339b9YNF"]]: true
+                })}
+                placement={"left"}
+                popoverContentClassName={classNames({
+                  [sty["pcls_2nYcygesNg9S"]]: true
+                })}
+                popoverScopeClassName={sty["popover__popover"]}
+                title={null}
+                trigger={"hover"}
+              >
+                <InfosvgIcon
+                  data-plasmic-name={"icon"}
+                  data-plasmic-override={overrides.icon}
+                  className={classNames(projectcss.all, sty.icon)}
+                  role={"img"}
+                />
+              </AntdPopover>
+            ) : null}
           </div>
           {(() => {
             try {
@@ -460,6 +529,7 @@ const PlasmicDescendants = {
     "container2",
     "label",
     "requiredIndicator",
+    "popover",
     "icon",
     "description",
     "errorContainer",
@@ -472,13 +542,22 @@ const PlasmicDescendants = {
     "container2",
     "label",
     "requiredIndicator",
+    "popover",
     "icon",
     "description"
   ],
-  container: ["container", "container2", "label", "requiredIndicator", "icon"],
+  container: [
+    "container",
+    "container2",
+    "label",
+    "requiredIndicator",
+    "popover",
+    "icon"
+  ],
   container2: ["container2", "label", "requiredIndicator"],
   label: ["label"],
   requiredIndicator: ["requiredIndicator"],
+  popover: ["popover", "icon"],
   icon: ["icon"],
   description: ["description"],
   errorContainer: ["errorContainer", "errorIcon", "errorLabel"],
@@ -495,6 +574,7 @@ type NodeDefaultElementType = {
   container2: "div";
   label: "div";
   requiredIndicator: "div";
+  popover: typeof AntdPopover;
   icon: "svg";
   description: "div";
   errorContainer: "div";
@@ -567,6 +647,7 @@ export const PlasmicFormField = Object.assign(
     container2: makeNodeComponent("container2"),
     label: makeNodeComponent("label"),
     requiredIndicator: makeNodeComponent("requiredIndicator"),
+    popover: makeNodeComponent("popover"),
     icon: makeNodeComponent("icon"),
     description: makeNodeComponent("description"),
     errorContainer: makeNodeComponent("errorContainer"),

@@ -292,6 +292,7 @@ function PlasmicForms__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.formField)}
                   description2={"Input Description"}
                   error={generateStateValueProp($state, ["formField", "error"])}
+                  help={"This is help por the user"}
                   input={
                     <TextInput
                       data-plasmic-name={"textInput"}

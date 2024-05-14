@@ -98,13 +98,23 @@
   height: auto;
   max-width: 100%;
 }
+.popover:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.popover__popover:global(.ant-popover) :global(.ant-popover-inner) {
+  font-size: 12px;
+  font-weight: 500;
+  outline: none;
+  padding: 6px 10px;
+}
 .icon {
   object-fit: cover;
   max-width: 100%;
   width: 16px;
   height: 16px;
   cursor: pointer;
-  flex-shrink: 0;
 }
 .description {
   font-family: "Geist Sans";
