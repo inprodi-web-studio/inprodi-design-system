@@ -444,7 +444,7 @@ function PlasmicForms__RenderFunc(props: {
                   data-plasmic-name={"formField2"}
                   data-plasmic-override={overrides.formField2}
                   className={classNames("__wab_instance", sty.formField2)}
-                  description2={"Input Description"}
+                  description2={``}
                   error={generateStateValueProp($state, [
                     "formField2",
                     "error"
