@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -41,7 +41,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -95,7 +96,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -495,7 +497,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "5nPYJMkHKsudqrrya3SLGq",
@@ -546,19 +549,6 @@
           "path": "/components"
         },
         {
-          "id": "49oQpRNcEL8M",
-          "name": "Card",
-          "type": "managed",
-          "projectId": "5nPYJMkHKsudqrrya3SLGq",
-          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicCard.tsx",
-          "importSpec": {
-            "modulePath": "Card.tsx"
-          },
-          "cssFilePath": "plasmic/inprodi_design_system/PlasmicCard.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "NxJEJ3yCzHgk",
           "name": "TitleText",
           "type": "managed",
@@ -586,15 +576,29 @@
           "path": "/inputs"
         },
         {
-          "id": "CIVsP_JANCLm",
-          "name": "TextInput",
+          "id": "KNXf3kuM8MY0",
+          "name": "Forms",
           "type": "managed",
           "projectId": "5nPYJMkHKsudqrrya3SLGq",
-          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicTextInput.tsx",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicForms.tsx",
           "importSpec": {
-            "modulePath": "TextInput.tsx"
+            "modulePath": "../pages/forms.tsx"
           },
-          "cssFilePath": "plasmic/inprodi_design_system/PlasmicTextInput.module.css",
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicForms.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/forms"
+        },
+        {
+          "id": "rb5_PS-3AnYe",
+          "name": "Form",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicForm.tsx",
+          "importSpec": {
+            "modulePath": "Form.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicForm.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -627,9 +631,29 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "nDtozaD8mTAX",
+          "name": "Card",
+          "displayName": "Card",
+          "componentImportPath": "./src/components/Card"
+        },
+        {
+          "id": "9j0HqeR2PssL",
+          "name": "textInput",
+          "displayName": "textInput",
+          "componentImportPath": "./src/components/TextInput"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [
+        {
+          "defaultExport": false,
+          "id": "validateEmail",
+          "importPath": "../helpers/validateEmail.ts",
+          "name": "validateEmail",
+          "namespace": null
+        }
+      ]
     }
   ],
   "globalVariants": {
