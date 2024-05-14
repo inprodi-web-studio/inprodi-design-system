@@ -203,7 +203,9 @@ function PlasmicForm__RenderFunc(props: {
           ? (() => {
               const actionArgs = {
                 customFunction: async () => {
-                  return event.preventDefault();
+                  return (() => {
+                    return event.preventDefault();
+                  })();
                 }
               };
               return (({ customFunction }) => {

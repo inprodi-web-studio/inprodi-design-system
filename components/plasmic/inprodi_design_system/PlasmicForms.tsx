@@ -176,7 +176,7 @@ function PlasmicForms__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.form.errors.test1;
+              return $state.form?.errors.test1;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -195,7 +195,7 @@ function PlasmicForms__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.form.errors.test2;
+              return $state.form?.errors.test2;
             } catch (e) {
               if (
                 e instanceof TypeError ||
