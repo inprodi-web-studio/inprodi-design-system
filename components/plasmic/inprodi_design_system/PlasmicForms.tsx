@@ -149,12 +149,6 @@ function PlasmicForms__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "variable",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
         path: "form.validation",
         type: "private",
         variableType: "object",
@@ -167,7 +161,7 @@ function PlasmicForms__RenderFunc(props: {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => "test"
       },
       {
         path: "formField.error",
