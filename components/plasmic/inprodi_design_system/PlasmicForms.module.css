@@ -38,15 +38,53 @@
 .formField:global(.__wab_instance) {
   position: relative;
 }
+.textInput:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.text__qEd4A {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__n1OZe {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .formField2:global(.__wab_instance) {
   position: relative;
+}
+.textInput2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.text__tvaOy {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__pi6N {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 .button:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
 }
-.text {
+.text__lf72J {
   position: relative;
   width: 100%;
   height: auto;

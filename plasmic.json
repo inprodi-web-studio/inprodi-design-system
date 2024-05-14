@@ -662,9 +662,9 @@
           "componentImportPath": "./src/components/Card"
         },
         {
-          "id": "9j0HqeR2PssL",
-          "name": "textInput",
-          "displayName": "textInput",
+          "id": "jViHg3nb4YL3",
+          "name": "TextInput",
+          "displayName": "TextInput",
           "componentImportPath": "./src/components/TextInput"
         }
       ],
