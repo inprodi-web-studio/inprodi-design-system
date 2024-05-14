@@ -59,7 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Card from "../../Card/Card"; // plasmic-import: nDtozaD8mTAX/codeComponent
+import { Card } from "../../../Card"; // plasmic-import: nDtozaD8mTAX/codeComponent
+import { Divider } from "../../../Divider"; // plasmic-import: 7-ylPAFdGTBs/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -82,6 +83,7 @@ export const PlasmicComponents__ArgProps = new Array<ArgPropType>();
 export type PlasmicComponents__OverridesType = {
   mainSection?: Flex__<"div">;
   card?: Flex__<typeof Card>;
+  divider?: Flex__<typeof Divider>;
 };
 
 export interface DefaultComponentsProps {}
@@ -168,6 +170,18 @@ function PlasmicComponents__RenderFunc(props: {
             title={"Tester"}
             width={"450px"}
           />
+
+          <Divider
+            data-plasmic-name={"divider"}
+            data-plasmic-override={overrides.divider}
+            className={classNames("__wab_instance", sty.divider)}
+            dashed={true}
+            direction={"horizontal"}
+            orientation={"left"}
+            orientationMargin={"0px"}
+            plain={false}
+            text={"Text"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -175,8 +189,9 @@ function PlasmicComponents__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  mainSection: ["mainSection", "card"],
-  card: ["card"]
+  mainSection: ["mainSection", "card", "divider"],
+  card: ["card"],
+  divider: ["divider"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -184,6 +199,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   mainSection: "div";
   card: typeof Card;
+  divider: typeof Divider;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -247,6 +263,7 @@ export const PlasmicComponents = Object.assign(
   {
     // Helper components rendering sub-elements
     card: makeNodeComponent("card"),
+    divider: makeNodeComponent("divider"),
 
     // Metadata about props expected for PlasmicComponents
     internalVariantProps: PlasmicComponents__VariantProps,

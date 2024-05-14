@@ -678,6 +678,12 @@
           "name": "Button",
           "displayName": "Button",
           "componentImportPath": "./Button.tsx"
+        },
+        {
+          "id": "7-ylPAFdGTBs",
+          "name": "Divider",
+          "displayName": "Divider",
+          "componentImportPath": "./Divider.tsx"
         }
       ],
       "customFunctions": [
