@@ -1,4 +1,4 @@
-.textField {
+.formField {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,7 +8,7 @@
   min-width: 0;
   padding: 0px;
 }
-.textField > :global(.__wab_flex-container) {
+.formField > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -16,10 +16,10 @@
   margin-top: calc(0px - 4px);
   height: calc(100% + 4px);
 }
-.textField > :global(.__wab_flex-container) > *,
-.textField > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.textField > :global(.__wab_flex-container) > picture > img,
-.textField
+.formField > :global(.__wab_flex-container) > *,
+.formField > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.formField > :global(.__wab_flex-container) > picture > img,
+.formField
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture

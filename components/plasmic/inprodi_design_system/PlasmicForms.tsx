@@ -264,6 +264,17 @@ function PlasmicForms__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  inputProps={{
+                    placeholder: "Placeholder",
+                    size: "large",
+                    addonBefore: "",
+                    leftIcon: "",
+                    addonAfter: "",
+                    rightIcon: "",
+                    variant: "outlined",
+                    allowClear: false,
+                    disabled: false
+                  }}
                   isRequired={true}
                   label2={"Form Input 1"}
                   onValueChange={async (...eventArgs: any) => {
@@ -369,6 +380,17 @@ function PlasmicForms__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  inputProps={{
+                    placeholder: "Placeholder",
+                    size: "middle",
+                    addonBefore: "",
+                    leftIcon: "",
+                    addonAfter: "",
+                    rightIcon: "",
+                    variant: "outlined",
+                    allowClear: false,
+                    disabled: false
+                  }}
                   isRequired={false}
                   label2={"Form Input 2"}
                   onValueChange={async (...eventArgs: any) => {

@@ -86,6 +86,7 @@ export type PlasmicFormField__ArgsType = {
   error?: string;
   value?: string;
   onValueChange?: (val: string) => void;
+  inputProps?: any;
 };
 type ArgPropType = keyof PlasmicFormField__ArgsType;
 export const PlasmicFormField__ArgProps = new Array<ArgPropType>(
@@ -95,11 +96,12 @@ export const PlasmicFormField__ArgProps = new Array<ArgPropType>(
   "isRequired",
   "error",
   "value",
-  "onValueChange"
+  "onValueChange",
+  "inputProps"
 );
 
 export type PlasmicFormField__OverridesType = {
-  textField?: Flex__<"div">;
+  formField?: Flex__<"div">;
   labelContainer?: Flex__<"div">;
   container?: Flex__<"div">;
   container2?: Flex__<"div">;
@@ -122,6 +124,7 @@ export interface DefaultFormFieldProps {
   error?: string;
   value?: string;
   onValueChange?: (val: string) => void;
+  inputProps?: any;
   className?: string;
 }
 
@@ -146,7 +149,18 @@ function PlasmicFormField__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          isRequired: false
+          isRequired: false,
+          inputProps: {
+            placeholder: "Placeholder",
+            size: "middle",
+            addonBefore: "",
+            leftIcon: "",
+            addonAfter: "",
+            rightIcon: "",
+            variant: "outlined",
+            allowClear: false,
+            disabled: false
+          }
         },
         props.args
       ),
@@ -168,18 +182,18 @@ function PlasmicFormField__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
-      },
-      {
         path: "value",
         type: "writable",
         variableType: "text",
 
         valueProp: "value",
         onChangeProp: "onValueChange"
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
     [$props, $ctx, $refs]
@@ -194,8 +208,8 @@ function PlasmicFormField__RenderFunc(props: {
   return (
     <Stack__
       as={"div"}
-      data-plasmic-name={"textField"}
-      data-plasmic-override={overrides.textField}
+      data-plasmic-name={"formField"}
+      data-plasmic-override={overrides.formField}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       hasGap={true}
@@ -207,7 +221,7 @@ function PlasmicFormField__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.textField
+        sty.formField
       )}
     >
       {(() => {
@@ -351,9 +365,45 @@ function PlasmicFormField__RenderFunc(props: {
         <textInput
           data-plasmic-name={"textInput"}
           data-plasmic-override={overrides.textInput}
-          addonAfter={"MXN"}
-          addonBefore={"$"}
-          allowClear={false}
+          addonAfter={(() => {
+            try {
+              return $props.inputProps.addonAfter;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          addonBefore={(() => {
+            try {
+              return $props.inputProps.addonBefore;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          allowClear={(() => {
+            try {
+              return $props.inputProps.allowClear;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
           className={classNames("__wab_instance", sty.textInput)}
           defaultValue={(() => {
             try {
@@ -368,7 +418,19 @@ function PlasmicFormField__RenderFunc(props: {
               throw e;
             }
           })()}
-          disabled={false}
+          disabled={(() => {
+            try {
+              return $props.inputProps.disabled;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
           onChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["textInput", "value"]).apply(
               null,
@@ -385,9 +447,7 @@ function PlasmicFormField__RenderFunc(props: {
                         variablePath: ["value"]
                       },
                       operation: 0,
-                      value: (() => {
-                        return $state.textInput.value;
-                      })()
+                      value: $state.textInput.value
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -409,10 +469,58 @@ function PlasmicFormField__RenderFunc(props: {
               }
             }).apply(null, eventArgs);
           }}
-          placeholder={"Placeholder"}
-          showLeftIcon={false}
-          showRightIcon={false}
-          size={"large"}
+          placeholder={(() => {
+            try {
+              return $props.inputProps.placeholder;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          showLeftIcon={(() => {
+            try {
+              return $props.inputProps.leftIcon;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
+          showRightIcon={(() => {
+            try {
+              return $props.inputProps.rightIcon;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()}
+          size={(() => {
+            try {
+              return $props.inputProps.size;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "middle";
+              }
+              throw e;
+            }
+          })()}
           status={(() => {
             try {
               return (() => {
@@ -429,7 +537,19 @@ function PlasmicFormField__RenderFunc(props: {
             }
           })()}
           value={generateStateValueProp($state, ["textInput", "value"])}
-          variant={"outlined"}
+          variant={(() => {
+            try {
+              return $props.inputProps.variant;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "outlined";
+              }
+              throw e;
+            }
+          })()}
         />
       </div>
       {(() => {
@@ -495,8 +615,8 @@ function PlasmicFormField__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  textField: [
-    "textField",
+  formField: [
+    "formField",
     "labelContainer",
     "container",
     "container2",
@@ -535,7 +655,7 @@ type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
-  textField: "div";
+  formField: "div";
   labelContainer: "div";
   container: "div";
   container2: "div";
@@ -597,7 +717,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       forNode: nodeName
     });
   };
-  if (nodeName === "textField") {
+  if (nodeName === "formField") {
     func.displayName = "PlasmicFormField";
   } else {
     func.displayName = `PlasmicFormField.${nodeName}`;
@@ -607,7 +727,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
 
 export const PlasmicFormField = Object.assign(
   // Top-level PlasmicFormField renders the root element
-  makeNodeComponent("textField"),
+  makeNodeComponent("formField"),
   {
     // Helper components rendering sub-elements
     labelContainer: makeNodeComponent("labelContainer"),

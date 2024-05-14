@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { textInput } from "../../../src/components/TextInput"; // plasmic-import: 9j0HqeR2PssL/codeComponent
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -79,6 +81,7 @@ export const PlasmicInputs__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicInputs__OverridesType = {
   mainSection?: Flex__<"div">;
+  textInput?: Flex__<typeof textInput>;
 };
 
 export interface DefaultInputsProps {}
@@ -113,6 +116,24 @@ function PlasmicInputs__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   return (
     <React.Fragment>
@@ -153,20 +174,60 @@ function PlasmicInputs__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.mainSection
           )}
-        />
+        >
+          <textInput
+            data-plasmic-name={"textInput"}
+            data-plasmic-override={overrides.textInput}
+            allowClear={false}
+            className={classNames("__wab_instance", sty.textInput)}
+            defaultValue={""}
+            disabled={false}
+            leftIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___3U9Dw
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            onChange={generateStateOnChangeProp($state, ["textInput", "value"])}
+            placeholder={"Placeholder"}
+            rightIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__cn7Bd
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            showLeftIcon={false}
+            showRightIcon={false}
+            size={"middle"}
+            value={generateStateValueProp($state, ["textInput", "value"])}
+            variant={"outlined"}
+          />
+        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  mainSection: ["mainSection"]
+  mainSection: ["mainSection", "textInput"],
+  textInput: ["textInput"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   mainSection: "div";
+  textInput: typeof textInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -229,6 +290,7 @@ export const PlasmicInputs = Object.assign(
   makeNodeComponent("mainSection"),
   {
     // Helper components rendering sub-elements
+    textInput: makeNodeComponent("textInput"),
 
     // Metadata about props expected for PlasmicInputs
     internalVariantProps: PlasmicInputs__VariantProps,

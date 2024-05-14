@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.module.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -42,7 +42,6 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": [],
       "jsBundleThemes": []
     },
     {
@@ -98,7 +97,6 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": [],
       "jsBundleThemes": []
     },
     {
@@ -500,7 +498,6 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": [],
       "jsBundleThemes": []
     },
     {
@@ -669,29 +666,8 @@
           "name": "textInput",
           "displayName": "textInput",
           "componentImportPath": "./src/components/TextInput"
-        },
-        {
-          "id": "nDtozaD8mTAX",
-          "name": "Card",
-          "displayName": "Card",
-          "componentImportPath": "./src/components/Card"
-        },
-        {
-          "id": "9j0HqeR2PssL",
-          "name": "textInput",
-          "displayName": "textInput",
-          "componentImportPath": "./src/components/TextInput"
         }
       ],
-      "customFunctions": [
-        {
-          "defaultExport": false,
-          "id": "validateEmail",
-          "importPath": "../helpers/validateEmail.ts",
-          "name": "validateEmail",
-          "namespace": null
-        }
-      ]
       "customFunctions": [
         {
           "defaultExport": false,
