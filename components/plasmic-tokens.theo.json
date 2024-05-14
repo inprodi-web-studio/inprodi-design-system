@@ -113,7 +113,7 @@
     {
       "name": "Primary Font Family",
       "type": "fontfamily",
-      "value": "var(--GeistSans)",
+      "value": "Geist Sans",
       "category": "fontfamily",
       "meta": {
         "projectId": "5nPYJMkHKsudqrrya3SLGq",
@@ -2163,7 +2163,7 @@
     {
       "name": "White",
       "type": "color",
-      "value": "#ffffff",
+      "value": "#FFFFFF",
       "category": "color",
       "meta": {
         "projectId": "5nPYJMkHKsudqrrya3SLGq",

@@ -25,7 +25,7 @@
   --plasmic-token-white: var(--token-2YFuS4TfIvaj);
   --token-nxgj4HT_seIz: #000000;
   --plasmic-token-black: var(--token-nxgj4HT_seIz);
-  --token-YkEIUuf_BriZ: var(--GeistSans);
+  --token-YkEIUuf_BriZ: Geist Sans;
   --plasmic-token-primary-font-family: var(--token-YkEIUuf_BriZ);
 }
 
@@ -39,8 +39,10 @@
   );
 }
 
-.plasmic_default_styles {
-  --mixin-cKAfqA-EN4HU_font-family: var(--GeistSans);
+.plasmic_default_styles,
+.plasmic_default_styles:where(.global_colorScheme_light),
+.plasmic_default_styles:where(.global_colorScheme_dark) {
+  --mixin-cKAfqA-EN4HU_font-family: "Geist Sans";
   --mixin-cKAfqA-EN4HU_font-size: 14px;
   --mixin-cKAfqA-EN4HU_font-weight: 500;
   --mixin-cKAfqA-EN4HU_font-style: normal;
@@ -161,7 +163,9 @@
   --mixin-Uq90J6dErY-F_white-space: pre-wrap;
 }
 
-.plasmic_mixins {
+.plasmic_mixins,
+.plasmic_mixins:where(.global_colorScheme_light),
+.plasmic_mixins:where(.global_colorScheme_dark) {
   --mixin-14PvI7feVwfR_white-space: pre-wrap;
   --plasmic-mixin-xs-text_white-space: var(--mixin-14PvI7feVwfR_white-space);
   --mixin-hSNltJStyUEp_white-space: pre-wrap;

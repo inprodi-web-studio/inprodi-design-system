@@ -60,7 +60,13 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Form from "../../Form"; // plasmic-import: rb5_PS-3AnYe/component
-import { textInput } from "../../../src/components/TextInput"; // plasmic-import: 9j0HqeR2PssL/codeComponent
+import FormField from "../../FormField"; // plasmic-import: yLHiIXcGvJuv/component
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+
+import {
+  ColorSchemeValue,
+  useColorScheme
+} from "./PlasmicGlobalVariant__ColorScheme"; // plasmic-import: xZl8SJOonq1s/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -83,7 +89,10 @@ export const PlasmicForms__ArgProps = new Array<ArgPropType>();
 export type PlasmicForms__OverridesType = {
   mainSection?: Flex__<"div">;
   form?: Flex__<typeof Form>;
-  textInput?: Flex__<typeof textInput>;
+  formField?: Flex__<typeof FormField>;
+  formField2?: Flex__<typeof FormField>;
+  button?: Flex__<typeof AntdButton>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultFormsProps {}
@@ -122,19 +131,19 @@ function PlasmicForms__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "form.initValues",
+        path: "form.values",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({
-          email: "",
-          password: ""
+          test1: "",
+          test2: ""
         })
       },
       {
         path: "form.errors",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "variable",
@@ -143,10 +152,25 @@ function PlasmicForms__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "textInput.value",
+        path: "formField.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "formField2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "form.validation",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          test1: { isRequired: true },
+          test2: { isRequired: true }
+        })
       }
     ],
     [$props, $ctx, $refs]
@@ -156,6 +180,10 @@ function PlasmicForms__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    colorScheme: useColorScheme()
   });
 
   return (
@@ -197,7 +225,19 @@ function PlasmicForms__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.mainSection
+            sty.mainSection,
+            {
+              [sty.mainSectionglobal_colorScheme_dark]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "dark"
+              ),
+              [sty.mainSectionglobal_colorScheme_light]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "light"
+              )
+            }
           )}
         >
           <Form
@@ -205,78 +245,302 @@ function PlasmicForms__RenderFunc(props: {
             data-plasmic-override={overrides.form}
             className={classNames("__wab_instance", sty.form)}
             content={
-              <textInput
-                data-plasmic-name={"textInput"}
-                data-plasmic-override={overrides.textInput}
-                addonAfter={"MXN"}
-                addonBefore={"$"}
-                allowClear={false}
-                className={classNames("__wab_instance", sty.textInput)}
-                defaultValue={""}
-                disabled={false}
-                onChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "textInput",
-                    "value"
-                  ]).apply(null, eventArgs);
-                  (async value => {
-                    const $steps = {};
-
-                    $steps["updateFormInitValuesEmail"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["form", "initValues", "email"]
-                            },
-                            operation: 0,
-                            value: $state.textInput.value
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateFormInitValuesEmail"] != null &&
-                      typeof $steps["updateFormInitValuesEmail"] === "object" &&
-                      typeof $steps["updateFormInitValuesEmail"].then ===
-                        "function"
-                    ) {
-                      $steps["updateFormInitValuesEmail"] = await $steps[
-                        "updateFormInitValuesEmail"
-                      ];
+              <React.Fragment>
+                <FormField
+                  data-plasmic-name={"formField"}
+                  data-plasmic-override={overrides.formField}
+                  className={classNames("__wab_instance", sty.formField)}
+                  description2={"Input Description"}
+                  error={(() => {
+                    try {
+                      return $state.form.errors?.test1;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
                     }
-                  }).apply(null, eventArgs);
-                }}
-                placeholder={"Placeholder"}
-                showLeftIcon={false}
-                showRightIcon={false}
-                size={"large"}
-                value={generateStateValueProp($state, ["textInput", "value"])}
-                variant={"outlined"}
-              />
+                  })()}
+                  isRequired={true}
+                  label2={"Form Input 1"}
+                  onValueChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "formField",
+                      "value"
+                    ]).apply(null, eventArgs);
+                    (async val => {
+                      const $steps = {};
+
+                      $steps["updateFormInitValues"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["form", "values", "test1"]
+                              },
+                              operation: 0,
+                              value: $state.formField.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateFormInitValues"] != null &&
+                        typeof $steps["updateFormInitValues"] === "object" &&
+                        typeof $steps["updateFormInitValues"].then ===
+                          "function"
+                      ) {
+                        $steps["updateFormInitValues"] = await $steps[
+                          "updateFormInitValues"
+                        ];
+                      }
+
+                      $steps["updateFormErrorsTest1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["form", "errors", "test1"]
+                              },
+                              operation: 1
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, undefined);
+                              return undefined;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateFormErrorsTest1"] != null &&
+                        typeof $steps["updateFormErrorsTest1"] === "object" &&
+                        typeof $steps["updateFormErrorsTest1"].then ===
+                          "function"
+                      ) {
+                        $steps["updateFormErrorsTest1"] = await $steps[
+                          "updateFormErrorsTest1"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
+                  }}
+                  value={generateStateValueProp($state, ["formField", "value"])}
+                />
+
+                <FormField
+                  data-plasmic-name={"formField2"}
+                  data-plasmic-override={overrides.formField2}
+                  className={classNames("__wab_instance", sty.formField2)}
+                  description2={"Input Description"}
+                  error={(() => {
+                    try {
+                      return $state.form.errors?.test2;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  isRequired={false}
+                  label2={"Form Input 2"}
+                  onValueChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "formField2",
+                      "value"
+                    ]).apply(null, eventArgs);
+                    (async val => {
+                      const $steps = {};
+
+                      $steps["updateFormValuesTest2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["form", "values", "test2"]
+                              },
+                              operation: 0,
+                              value: $state.formField2.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateFormValuesTest2"] != null &&
+                        typeof $steps["updateFormValuesTest2"] === "object" &&
+                        typeof $steps["updateFormValuesTest2"].then ===
+                          "function"
+                      ) {
+                        $steps["updateFormValuesTest2"] = await $steps[
+                          "updateFormValuesTest2"
+                        ];
+                      }
+
+                      $steps["updateFormErrorsTest2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["form", "errors", "test2"]
+                              },
+                              operation: 1
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, undefined);
+                              return undefined;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateFormErrorsTest2"] != null &&
+                        typeof $steps["updateFormErrorsTest2"] === "object" &&
+                        typeof $steps["updateFormErrorsTest2"].then ===
+                          "function"
+                      ) {
+                        $steps["updateFormErrorsTest2"] = await $steps[
+                          "updateFormErrorsTest2"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
+                  }}
+                  value={generateStateValueProp($state, [
+                    "formField2",
+                    "value"
+                  ])}
+                />
+
+                <AntdButton
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  onClick={async () => {
+                    const $steps = {};
+                  }}
+                  shape={"default"}
+                  submitsForm={true}
+                >
+                  <div
+                    data-plasmic-name={"text"}
+                    data-plasmic-override={overrides.text}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text
+                    )}
+                  >
+                    {"Submit"}
+                  </div>
+                </AntdButton>
+              </React.Fragment>
             }
-            initValues={generateStateValueProp($state, ["form", "initValues"])}
+            errors={generateStateValueProp($state, ["form", "errors"])}
             onErrorsChange={generateStateOnChangeProp($state, [
               "form",
               "errors"
             ])}
-            onInitValuesChange={generateStateOnChangeProp($state, [
+            onSubmit={async () => {
+              const $steps = {};
+
+              $steps["updateFormErrors"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["form", "errors"]
+                      },
+                      operation: 0,
+                      value: (() => {
+                        const validation = $state.form.validation;
+                        const keys = Object.keys(validation);
+                        const values = $state.form.values;
+                        let errors = {};
+                        for (const key of keys) {
+                          if (validation[key].isRequired && !values[key]) {
+                            errors[key] = "Este campo es obligatorio";
+                          }
+                        }
+                        return errors;
+                      })()
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateFormErrors"] != null &&
+                typeof $steps["updateFormErrors"] === "object" &&
+                typeof $steps["updateFormErrors"].then === "function"
+              ) {
+                $steps["updateFormErrors"] = await $steps["updateFormErrors"];
+              }
+            }}
+            onValidationChange={generateStateOnChangeProp($state, [
               "form",
-              "initValues"
+              "validation"
             ])}
+            onValuesChange={generateStateOnChangeProp($state, [
+              "form",
+              "values"
+            ])}
+            validation={generateStateValueProp($state, ["form", "validation"])}
+            values={generateStateValueProp($state, ["form", "values"])}
           />
         </Stack__>
       </div>
@@ -285,9 +549,19 @@ function PlasmicForms__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  mainSection: ["mainSection", "form", "textInput"],
-  form: ["form", "textInput"],
-  textInput: ["textInput"]
+  mainSection: [
+    "mainSection",
+    "form",
+    "formField",
+    "formField2",
+    "button",
+    "text"
+  ],
+  form: ["form", "formField", "formField2", "button", "text"],
+  formField: ["formField"],
+  formField2: ["formField2"],
+  button: ["button", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -295,7 +569,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   mainSection: "div";
   form: typeof Form;
-  textInput: typeof textInput;
+  formField: typeof FormField;
+  formField2: typeof FormField;
+  button: typeof AntdButton;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -359,7 +636,10 @@ export const PlasmicForms = Object.assign(
   {
     // Helper components rendering sub-elements
     form: makeNodeComponent("form"),
-    textInput: makeNodeComponent("textInput"),
+    formField: makeNodeComponent("formField"),
+    formField2: makeNodeComponent("formField2"),
+    button: makeNodeComponent("button"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicForms
     internalVariantProps: PlasmicForms__VariantProps,

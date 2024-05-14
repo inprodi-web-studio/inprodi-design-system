@@ -98,7 +98,7 @@ export default function GlobalContextsProvider(
           ? antdConfigProviderProps.themeStyles!
           : true
           ? {
-              fontFamily: "var(--GeistSans)",
+              fontFamily: "Geist Sans",
               fontSize: "14px",
               fontWeight: "500",
               lineHeight: "20px",

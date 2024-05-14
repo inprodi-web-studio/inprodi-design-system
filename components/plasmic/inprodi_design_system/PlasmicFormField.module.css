@@ -1,0 +1,183 @@
+.textField {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  min-width: 0;
+  padding: 0px;
+}
+.textField > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 4px);
+  height: calc(100% + 4px);
+}
+.textField > :global(.__wab_flex-container) > *,
+.textField > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.textField > :global(.__wab_flex-container) > picture > img,
+.textField
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 4px;
+}
+.labelContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.container2 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.container2 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 6px);
+  width: calc(100% + 6px);
+}
+.container2 > :global(.__wab_flex-container) > *,
+.container2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.container2 > :global(.__wab_flex-container) > picture > img,
+.container2
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 6px;
+}
+.label {
+  font-family: "Geist Sans";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--token-nxgj4HT_seIz);
+  line-height: 20px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.requiredIndicator {
+  font-family: "Geist Sans";
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--token-E2BCnNKcvWxo);
+  line-height: 20px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+.icon {
+  object-fit: cover;
+  max-width: 100%;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.description {
+  font-family: "Geist Sans";
+  font-size: 12px;
+  font-weight: 400;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-n3trVzkrA_FT);
+  min-width: 0;
+}
+.input {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.textInput:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.errorContainer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.errorContainer > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 6px);
+  width: calc(100% + 6px);
+}
+.errorContainer > :global(.__wab_flex-container) > *,
+.errorContainer > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.errorContainer > :global(.__wab_flex-container) > picture > img,
+.errorContainer
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 6px;
+}
+.errorIcon {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 14px;
+  height: 14px;
+  color: var(--token--ypw6enySR1T);
+  flex-shrink: 0;
+}
+.errorLabel {
+  font-family: "Geist Sans";
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--token--ypw6enySR1T);
+  line-height: 16px;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
