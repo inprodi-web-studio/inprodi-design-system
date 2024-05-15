@@ -60,7 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
-import { TextInput } from "../../../TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
+import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 

@@ -28,9 +28,6 @@
   > img {
   margin-top: 20px;
 }
-.mainSectionglobal_colorScheme_dark {
-  background: var(--token-nxgj4HT_seIz);
-}
 .form:global(.__wab_instance) {
   position: relative;
   width: 600px;
