@@ -614,6 +614,19 @@
           "cssFilePath": "plasmic/inprodi_design_system/PlasmicFormField.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XTNsZrFRrZal",
+          "name": "Statistic",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicStatistic.tsx",
+          "importSpec": {
+            "modulePath": "Statistic.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicStatistic.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -684,6 +697,12 @@
           "name": "Divider",
           "displayName": "Divider",
           "componentImportPath": "./Divider.tsx"
+        },
+        {
+          "id": "qbYBio9o21Vq",
+          "name": "AnimatedNumber",
+          "displayName": "AnimatedNumber",
+          "componentImportPath": "./AnimatedNumber.tsx"
         }
       ],
       "customFunctions": [
