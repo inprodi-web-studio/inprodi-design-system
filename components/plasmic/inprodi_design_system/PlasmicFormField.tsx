@@ -59,7 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { textInput } from "../../../src/components/TextInput"; // plasmic-import: 9j0HqeR2PssL/codeComponent
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
+import { TextInput } from "../../../TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -83,10 +84,9 @@ export type PlasmicFormField__ArgsType = {
   description2?: string;
   help?: string;
   isRequired?: boolean;
+  input?: React.ReactNode;
   error?: string;
-  value?: string;
-  onValueChange?: (val: string) => void;
-  inputProps?: any;
+  onErrorChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicFormField__ArgsType;
 export const PlasmicFormField__ArgProps = new Array<ArgPropType>(
@@ -94,10 +94,9 @@ export const PlasmicFormField__ArgProps = new Array<ArgPropType>(
   "description2",
   "help",
   "isRequired",
+  "input",
   "error",
-  "value",
-  "onValueChange",
-  "inputProps"
+  "onErrorChange"
 );
 
 export type PlasmicFormField__OverridesType = {
@@ -107,10 +106,9 @@ export type PlasmicFormField__OverridesType = {
   container2?: Flex__<"div">;
   label?: Flex__<"div">;
   requiredIndicator?: Flex__<"div">;
+  popover?: Flex__<typeof AntdPopover>;
   icon?: Flex__<"svg">;
   description?: Flex__<"div">;
-  input?: Flex__<"div">;
-  textInput?: Flex__<typeof textInput>;
   errorContainer?: Flex__<"div">;
   errorIcon?: Flex__<"svg">;
   errorLabel?: Flex__<"div">;
@@ -121,10 +119,9 @@ export interface DefaultFormFieldProps {
   description2?: string;
   help?: string;
   isRequired?: boolean;
+  input?: React.ReactNode;
   error?: string;
-  value?: string;
-  onValueChange?: (val: string) => void;
-  inputProps?: any;
+  onErrorChange?: (val: string) => void;
   className?: string;
 }
 
@@ -149,18 +146,8 @@ function PlasmicFormField__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          isRequired: false,
-          inputProps: {
-            placeholder: "Placeholder",
-            size: "middle",
-            addonBefore: "",
-            leftIcon: "",
-            addonAfter: "",
-            rightIcon: "",
-            variant: "outlined",
-            allowClear: false,
-            disabled: false
-          }
+          label2: "Form Label",
+          isRequired: false
         },
         props.args
       ),
@@ -182,18 +169,18 @@ function PlasmicFormField__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "value",
+        path: "error",
         type: "writable",
         variableType: "text",
 
-        valueProp: "value",
-        onChangeProp: "onValueChange"
+        valueProp: "error",
+        onChangeProp: "onErrorChange"
       },
       {
-        path: "textInput.value",
+        path: "popover.open",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -206,13 +193,11 @@ function PlasmicFormField__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"formField"}
       data-plasmic-override={overrides.formField}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -307,12 +292,73 @@ function PlasmicFormField__RenderFunc(props: {
                 </div>
               ) : null}
             </Stack__>
-            <InfosvgIcon
-              data-plasmic-name={"icon"}
-              data-plasmic-override={overrides.icon}
-              className={classNames(projectcss.all, sty.icon)}
-              role={"img"}
-            />
+            {(() => {
+              try {
+                return $props.help;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <AntdPopover
+                data-plasmic-name={"popover"}
+                data-plasmic-override={overrides.popover}
+                arrow={true}
+                className={classNames("__wab_instance", sty.popover)}
+                content={null}
+                contentText={(() => {
+                  try {
+                    return $props.help;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                defaultOpen={false}
+                defaultStylesClassName={classNames(
+                  projectcss.root_reset,
+                  projectcss.plasmic_default_styles,
+                  projectcss.plasmic_mixins,
+                  projectcss.plasmic_tokens,
+                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                  plasmic_plasmic_rich_components_css.plasmic_tokens
+                )}
+                mouseEnterDelay={0.25}
+                mouseLeaveDelay={0}
+                onOpenChange={generateStateOnChangeProp($state, [
+                  "popover",
+                  "open"
+                ])}
+                open={generateStateValueProp($state, ["popover", "open"])}
+                overlayClassName={classNames({
+                  [sty["pcls_g4In339b9YNF"]]: true
+                })}
+                placement={"left"}
+                popoverContentClassName={classNames({
+                  [sty["pcls_2nYcygesNg9S"]]: true
+                })}
+                popoverScopeClassName={sty["popover__popover"]}
+                title={null}
+                trigger={"hover"}
+              >
+                <InfosvgIcon
+                  data-plasmic-name={"icon"}
+                  data-plasmic-override={overrides.icon}
+                  className={classNames(projectcss.all, sty.icon)}
+                  role={"img"}
+                />
+              </AntdPopover>
+            ) : null}
           </div>
           {(() => {
             try {
@@ -357,201 +403,45 @@ function PlasmicFormField__RenderFunc(props: {
           ) : null}
         </div>
       ) : null}
-      <div
-        data-plasmic-name={"input"}
-        data-plasmic-override={overrides.input}
-        className={classNames(projectcss.all, sty.input)}
-      >
-        <textInput
-          data-plasmic-name={"textInput"}
-          data-plasmic-override={overrides.textInput}
-          addonAfter={(() => {
-            try {
-              return $props.inputProps.addonAfter;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
+      {renderPlasmicSlot({
+        defaultContents: (
+          <TextInput
+            allowClear={false}
+            className={classNames("__wab_instance", sty.textInput__wp59)}
+            defaultValue={""}
+            disabled={false}
+            leftIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__mdE
+                )}
+              >
+                {"Drop Icon"}
+              </div>
             }
-          })()}
-          addonBefore={(() => {
-            try {
-              return $props.inputProps.addonBefore;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
+            placeholder={"Placeholder"}
+            rightIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__h4Ypg
+                )}
+              >
+                {"Drop Icon"}
+              </div>
             }
-          })()}
-          allowClear={(() => {
-            try {
-              return $props.inputProps.allowClear;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()}
-          className={classNames("__wab_instance", sty.textInput)}
-          defaultValue={(() => {
-            try {
-              return $state.value;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-          disabled={(() => {
-            try {
-              return $props.inputProps.disabled;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()}
-          onChange={async (...eventArgs: any) => {
-            generateStateOnChangeProp($state, ["textInput", "value"]).apply(
-              null,
-              eventArgs
-            );
-            (async value => {
-              const $steps = {};
+            showLeftIcon={false}
+            showRightIcon={false}
+            size={"middle"}
+            variant={"outlined"}
+          />
+        ),
 
-              $steps["updateValue"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["value"]
-                      },
-                      operation: 0,
-                      value: $state.textInput.value
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateValue"] != null &&
-                typeof $steps["updateValue"] === "object" &&
-                typeof $steps["updateValue"].then === "function"
-              ) {
-                $steps["updateValue"] = await $steps["updateValue"];
-              }
-            }).apply(null, eventArgs);
-          }}
-          placeholder={(() => {
-            try {
-              return $props.inputProps.placeholder;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-          showLeftIcon={(() => {
-            try {
-              return $props.inputProps.leftIcon;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()}
-          showRightIcon={(() => {
-            try {
-              return $props.inputProps.rightIcon;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()}
-          size={(() => {
-            try {
-              return $props.inputProps.size;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "middle";
-              }
-              throw e;
-            }
-          })()}
-          status={(() => {
-            try {
-              return (() => {
-                if ($props.error) return "error";
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-          value={generateStateValueProp($state, ["textInput", "value"])}
-          variant={(() => {
-            try {
-              return $props.inputProps.variant;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "outlined";
-              }
-              throw e;
-            }
-          })()}
-        />
-      </div>
+        value: args.input
+      })}
       {(() => {
         try {
           return (() => {
@@ -610,7 +500,7 @@ function PlasmicFormField__RenderFunc(props: {
           </div>
         </Stack__>
       ) : null}
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -622,10 +512,9 @@ const PlasmicDescendants = {
     "container2",
     "label",
     "requiredIndicator",
+    "popover",
     "icon",
     "description",
-    "input",
-    "textInput",
     "errorContainer",
     "errorIcon",
     "errorLabel"
@@ -636,17 +525,24 @@ const PlasmicDescendants = {
     "container2",
     "label",
     "requiredIndicator",
+    "popover",
     "icon",
     "description"
   ],
-  container: ["container", "container2", "label", "requiredIndicator", "icon"],
+  container: [
+    "container",
+    "container2",
+    "label",
+    "requiredIndicator",
+    "popover",
+    "icon"
+  ],
   container2: ["container2", "label", "requiredIndicator"],
   label: ["label"],
   requiredIndicator: ["requiredIndicator"],
+  popover: ["popover", "icon"],
   icon: ["icon"],
   description: ["description"],
-  input: ["input", "textInput"],
-  textInput: ["textInput"],
   errorContainer: ["errorContainer", "errorIcon", "errorLabel"],
   errorIcon: ["errorIcon"],
   errorLabel: ["errorLabel"]
@@ -661,10 +557,9 @@ type NodeDefaultElementType = {
   container2: "div";
   label: "div";
   requiredIndicator: "div";
+  popover: typeof AntdPopover;
   icon: "svg";
   description: "div";
-  input: "div";
-  textInput: typeof textInput;
   errorContainer: "div";
   errorIcon: "svg";
   errorLabel: "div";
@@ -735,10 +630,9 @@ export const PlasmicFormField = Object.assign(
     container2: makeNodeComponent("container2"),
     label: makeNodeComponent("label"),
     requiredIndicator: makeNodeComponent("requiredIndicator"),
+    popover: makeNodeComponent("popover"),
     icon: makeNodeComponent("icon"),
     description: makeNodeComponent("description"),
-    input: makeNodeComponent("input"),
-    textInput: makeNodeComponent("textInput"),
     errorContainer: makeNodeComponent("errorContainer"),
     errorIcon: makeNodeComponent("errorIcon"),
     errorLabel: makeNodeComponent("errorLabel"),

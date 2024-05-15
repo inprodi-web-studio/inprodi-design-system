@@ -7,7 +7,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const CardConfig : ExtendedCodeComponentMeta = {
     id          : "card",
     name        : "Card",
-    importPath  : "./src/components/Card",
+    importPath  : "./Card.tsx",
     displayName : "Card",
     props : {
         width: {
@@ -31,6 +31,11 @@ const CardConfig : ExtendedCodeComponentMeta = {
             displayName: "Description",
             defaultValue: "Card description",
             hidden: ({ showTitle } : any) => !showTitle,
+        },
+        padding: {
+            type        : "number",
+            displayName : "Padding",
+            defaultValue : 20,
         },
         shadow: {
             type: "choice",

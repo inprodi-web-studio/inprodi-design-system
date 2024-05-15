@@ -15,6 +15,7 @@ export interface CardProps {
     description? : string,
     content      : React.ReactNode,
     width        : string,
+    padding      : number,
     shadow       : "sm" | "md" | "lg" | "none",
 };
 
@@ -26,6 +27,7 @@ export default function Card({
     content,
     width,
     shadow,
+    padding,
 } : CardProps) {
     return (
         <AntCard
@@ -37,6 +39,7 @@ export default function Card({
             })}
             style={{
                 maxWidth : width,
+                padding  : `${padding}px`,
             }}
         >
             { showTitle && (

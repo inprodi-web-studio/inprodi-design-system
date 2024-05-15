@@ -5,11 +5,11 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     states: Record<string, any>;
 }
 
-const TextInputConfig : ExtendedCodeComponentMeta = {
-    id          : "text-input",
-    name        : "TextInput",
-    importPath  : "./TextInput.tsx",
-    displayName : "Text Input",
+const PasswordInputConfig : ExtendedCodeComponentMeta = {
+    id          : "password-input",
+    name        : "PasswordInput",
+    importPath  : "./PasswordInput.tsx",
+    displayName : "Password Input",
     states : {
         value : {
           type         : "writable",
@@ -22,7 +22,7 @@ const TextInputConfig : ExtendedCodeComponentMeta = {
         placeholder : {
             type         : "string",
             displayName  : "Placeholder",
-            defaultValue : "Placeholder",
+            defaultValue : "••••••••••••",
         },
         size : {
             type         : "choice",
@@ -126,4 +126,4 @@ const TextInputConfig : ExtendedCodeComponentMeta = {
     }
 };
 
-export default TextInputConfig;
+export default PasswordInputConfig;

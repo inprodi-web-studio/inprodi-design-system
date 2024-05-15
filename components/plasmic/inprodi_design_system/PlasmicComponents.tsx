@@ -59,7 +59,10 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Card from "../../Card/Card"; // plasmic-import: nDtozaD8mTAX/codeComponent
+import { Card } from "../../../Card"; // plasmic-import: nDtozaD8mTAX/codeComponent
+import { Divider } from "../../../Divider"; // plasmic-import: 7-ylPAFdGTBs/codeComponent
+import { AnimatedNumber } from "../../../AnimatedNumber"; // plasmic-import: qbYBio9o21Vq/codeComponent
+import Statistic from "../../Statistic"; // plasmic-import: XTNsZrFRrZal/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -67,6 +70,8 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 5nPYJMkHKsudqrrya3SLGq/projectcss
 import sty from "./PlasmicComponents.module.css"; // plasmic-import: dV7kERlv_9b4/css
+
+import InfosvgIcon from "./icons/PlasmicIcon__Infosvg"; // plasmic-import: 2_kwtnaSzZgd/icon
 
 createPlasmicElementProxy;
 
@@ -82,6 +87,9 @@ export const PlasmicComponents__ArgProps = new Array<ArgPropType>();
 export type PlasmicComponents__OverridesType = {
   mainSection?: Flex__<"div">;
   card?: Flex__<typeof Card>;
+  divider?: Flex__<typeof Divider>;
+  animatedNumber?: Flex__<typeof AnimatedNumber>;
+  statistic?: Flex__<typeof Statistic>;
 };
 
 export interface DefaultComponentsProps {}
@@ -141,11 +149,13 @@ function PlasmicComponents__RenderFunc(props: {
       `}</style>
 
       <div className={projectcss.plasmic_page_wrapper}>
-        <div
+        <Stack__
+          as={"div"}
           data-plasmic-name={"mainSection"}
           data-plasmic-override={overrides.mainSection}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
+          hasGap={true}
           className={classNames(
             projectcss.all,
             projectcss.root_reset,
@@ -163,20 +173,55 @@ function PlasmicComponents__RenderFunc(props: {
             className={classNames("__wab_instance", sty.card)}
             description={"description"}
             loading={false}
+            padding={20}
             shadow={"lg"}
             showTitle={true}
             title={"Tester"}
             width={"450px"}
           />
-        </div>
+
+          <Divider
+            data-plasmic-name={"divider"}
+            data-plasmic-override={overrides.divider}
+            className={classNames("__wab_instance", sty.divider)}
+            dashed={true}
+            direction={"horizontal"}
+            orientation={"left"}
+            orientationMargin={"0px"}
+            plain={false}
+            text={"Text"}
+          />
+
+          <AnimatedNumber
+            data-plasmic-name={"animatedNumber"}
+            data-plasmic-override={overrides.animatedNumber}
+            className={classNames("__wab_instance", sty.animatedNumber)}
+            value={600}
+          />
+
+          <Statistic
+            data-plasmic-name={"statistic"}
+            data-plasmic-override={overrides.statistic}
+            className={classNames("__wab_instance", sty.statistic)}
+          />
+        </Stack__>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  mainSection: ["mainSection", "card"],
-  card: ["card"]
+  mainSection: [
+    "mainSection",
+    "card",
+    "divider",
+    "animatedNumber",
+    "statistic"
+  ],
+  card: ["card"],
+  divider: ["divider"],
+  animatedNumber: ["animatedNumber"],
+  statistic: ["statistic"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -184,6 +229,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   mainSection: "div";
   card: typeof Card;
+  divider: typeof Divider;
+  animatedNumber: typeof AnimatedNumber;
+  statistic: typeof Statistic;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -247,6 +295,9 @@ export const PlasmicComponents = Object.assign(
   {
     // Helper components rendering sub-elements
     card: makeNodeComponent("card"),
+    divider: makeNodeComponent("divider"),
+    animatedNumber: makeNodeComponent("animatedNumber"),
+    statistic: makeNodeComponent("statistic"),
 
     // Metadata about props expected for PlasmicComponents
     internalVariantProps: PlasmicComponents__VariantProps,

@@ -2,7 +2,7 @@ import { Input } from "antd";
 
 import { ChangeEventHandler, KeyboardEventHandler } from "react";
 
-export interface TextInputProps {
+export interface PasswordInputProps {
     placeholder: string;
     size: "small" | "middle" | "large";
     addonBefore?: string;
@@ -22,7 +22,7 @@ export interface TextInputProps {
     value?: string;
 };
 
-export default function TextInput({
+export default function PasswordInput({
     size,
     value,
     status,
@@ -40,9 +40,9 @@ export default function TextInput({
     onPressEnter,
     showLeftIcon,
     showRightIcon,
-} : TextInputProps) {
+} : PasswordInputProps) {
     return (
-        <Input
+        <Input.Password
             size={size}
             value={value}
             variant={variant}

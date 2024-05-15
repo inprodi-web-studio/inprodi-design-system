@@ -614,6 +614,19 @@
           "cssFilePath": "plasmic/inprodi_design_system/PlasmicFormField.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XTNsZrFRrZal",
+          "name": "Statistic",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicStatistic.tsx",
+          "importSpec": {
+            "modulePath": "Statistic.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicStatistic.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -659,13 +672,37 @@
           "id": "nDtozaD8mTAX",
           "name": "Card",
           "displayName": "Card",
-          "componentImportPath": "./src/components/Card"
+          "componentImportPath": "./Card.tsx"
         },
         {
-          "id": "9j0HqeR2PssL",
-          "name": "textInput",
-          "displayName": "textInput",
-          "componentImportPath": "./src/components/TextInput"
+          "id": "jViHg3nb4YL3",
+          "name": "TextInput",
+          "displayName": "TextInput",
+          "componentImportPath": "./TextInput.tsx"
+        },
+        {
+          "id": "Tuix-QVl_vRD",
+          "name": "PasswordInput",
+          "displayName": "PasswordInput",
+          "componentImportPath": "./PasswordInput.tsx"
+        },
+        {
+          "id": "kQTcb2I1HqhX",
+          "name": "Button",
+          "displayName": "Button",
+          "componentImportPath": "./Button.tsx"
+        },
+        {
+          "id": "7-ylPAFdGTBs",
+          "name": "Divider",
+          "displayName": "Divider",
+          "componentImportPath": "./Divider.tsx"
+        },
+        {
+          "id": "qbYBio9o21Vq",
+          "name": "AnimatedNumber",
+          "displayName": "AnimatedNumber",
+          "componentImportPath": "./AnimatedNumber.tsx"
         }
       ],
       "customFunctions": [
