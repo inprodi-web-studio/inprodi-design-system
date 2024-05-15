@@ -324,7 +324,7 @@ function PlasmicStatistic__RenderFunc(props: {
       shadow={"sm"}
       showTitle={false}
       title={"Card Title"}
-      width={"250px"}
+      width={``}
     />
   ) as React.ReactElement | null;
 }
