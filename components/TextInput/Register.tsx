@@ -2,13 +2,15 @@ import { CodeComponentMeta } from "@plasmicapp/cli/dist/api";
 
 interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
-    states: Record<string, any>;
+    isDefaultExport?: boolean;
+    states?: Record<string, any>;
 }
 
 const TextInputConfig : ExtendedCodeComponentMeta = {
     id          : "text-input",
     name        : "TextInput",
-    importPath  : "./TextInput.tsx",
+    importPath  : "~/components/TextInput/TextInput.tsx",
+    isDefaultExport : true,
     displayName : "Text Input",
     states : {
         value : {

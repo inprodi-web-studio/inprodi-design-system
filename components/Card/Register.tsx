@@ -2,12 +2,15 @@ import { CodeComponentMeta } from "@plasmicapp/cli/dist/api";
 
 interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
+    isDefaultExport?: boolean;
+    states?: Record<string, any>;
 }
 
 const CardConfig : ExtendedCodeComponentMeta = {
     id          : "card",
     name        : "Card",
-    importPath  : "./Card.tsx",
+    importPath  : "~/components/Card/Card.tsx",
+    isDefaultExport : true,
     displayName : "Card",
     props : {
         width: {

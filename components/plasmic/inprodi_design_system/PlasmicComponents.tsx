@@ -59,10 +59,16 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { Card } from "../../../Card"; // plasmic-import: nDtozaD8mTAX/codeComponent
-import { Divider } from "../../../Divider"; // plasmic-import: 7-ylPAFdGTBs/codeComponent
-import { AnimatedNumber } from "../../../AnimatedNumber"; // plasmic-import: qbYBio9o21Vq/codeComponent
+import Card from "~/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
+import Divider from "~/components/Divider/Divider.tsx"; // plasmic-import: 7-ylPAFdGTBs/codeComponent
+import AnimatedNumber from "~/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
 import Statistic from "../../Statistic"; // plasmic-import: XTNsZrFRrZal/component
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+
+import {
+  ColorSchemeValue,
+  useColorScheme
+} from "./PlasmicGlobalVariant__ColorScheme"; // plasmic-import: gdgBwRVFC7MJ/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -90,6 +96,7 @@ export type PlasmicComponents__OverridesType = {
   divider?: Flex__<typeof Divider>;
   animatedNumber?: Flex__<typeof AnimatedNumber>;
   statistic?: Flex__<typeof Statistic>;
+  button?: Flex__<typeof AntdButton>;
 };
 
 export interface DefaultComponentsProps {}
@@ -124,6 +131,10 @@ function PlasmicComponents__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const globalVariants = ensureGlobalVariants({
+    colorScheme: useColorScheme()
+  });
 
   return (
     <React.Fragment>
@@ -164,7 +175,19 @@ function PlasmicComponents__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.mainSection
+            sty.mainSection,
+            {
+              [sty.mainSectionglobal_colorScheme_dark]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "dark"
+              ),
+              [sty.mainSectionglobal_colorScheme_light]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "light"
+              )
+            }
           )}
         >
           <Card
@@ -180,10 +203,32 @@ function PlasmicComponents__RenderFunc(props: {
             width={"450px"}
           />
 
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__nl7Ac,
+              {
+                [sty.textglobal_colorScheme_dark__nl7AcOuga]: hasVariant(
+                  globalVariants,
+                  "colorScheme",
+                  "dark"
+                )
+              }
+            )}
+          >
+            {"Enter some text"}
+          </div>
           <Divider
             data-plasmic-name={"divider"}
             data-plasmic-override={overrides.divider}
-            className={classNames("__wab_instance", sty.divider)}
+            className={classNames("__wab_instance", sty.divider, {
+              [sty.dividerglobal_colorScheme_dark]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "dark"
+              )
+            })}
             dashed={true}
             direction={"horizontal"}
             orientation={"left"}
@@ -192,6 +237,22 @@ function PlasmicComponents__RenderFunc(props: {
             text={"Text"}
           />
 
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___6J2B,
+              {
+                [sty.textglobal_colorScheme_dark___6J2BOuga]: hasVariant(
+                  globalVariants,
+                  "colorScheme",
+                  "dark"
+                )
+              }
+            )}
+          >
+            {"Enter some text"}
+          </div>
           <AnimatedNumber
             data-plasmic-name={"animatedNumber"}
             data-plasmic-override={overrides.animatedNumber}
@@ -204,6 +265,36 @@ function PlasmicComponents__RenderFunc(props: {
             data-plasmic-override={overrides.statistic}
             className={classNames("__wab_instance", sty.statistic)}
           />
+
+          <AntdButton
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button, {
+              [sty.buttonglobal_colorScheme_dark]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "dark"
+              ),
+              [sty.buttonglobal_colorScheme_light]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "light"
+              )
+            })}
+            onClick={async () => {
+              const $steps = {};
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__vhJs4
+              )}
+            >
+              {"Button"}
+            </div>
+          </AntdButton>
         </Stack__>
       </div>
     </React.Fragment>
@@ -216,12 +307,14 @@ const PlasmicDescendants = {
     "card",
     "divider",
     "animatedNumber",
-    "statistic"
+    "statistic",
+    "button"
   ],
   card: ["card"],
   divider: ["divider"],
   animatedNumber: ["animatedNumber"],
-  statistic: ["statistic"]
+  statistic: ["statistic"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -232,6 +325,7 @@ type NodeDefaultElementType = {
   divider: typeof Divider;
   animatedNumber: typeof AnimatedNumber;
   statistic: typeof Statistic;
+  button: typeof AntdButton;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -298,6 +392,7 @@ export const PlasmicComponents = Object.assign(
     divider: makeNodeComponent("divider"),
     animatedNumber: makeNodeComponent("animatedNumber"),
     statistic: makeNodeComponent("statistic"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicComponents
     internalVariantProps: PlasmicComponents__VariantProps,

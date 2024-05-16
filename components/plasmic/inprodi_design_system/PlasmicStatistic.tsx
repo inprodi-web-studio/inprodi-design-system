@@ -59,8 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { Card } from "../../../Card"; // plasmic-import: nDtozaD8mTAX/codeComponent
-import { AnimatedNumber } from "../../../AnimatedNumber"; // plasmic-import: qbYBio9o21Vq/codeComponent
+import Card from "~/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
+import AnimatedNumber from "~/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 

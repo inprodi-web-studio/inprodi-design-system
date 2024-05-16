@@ -2,13 +2,15 @@ import { CodeComponentMeta } from "@plasmicapp/cli/dist/api";
 
 interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
+    isDefaultExport?: boolean;
     states?: Record<string, any>;
 }
 
 const DividerConfig : ExtendedCodeComponentMeta = {
     id          : "divider",
     name        : "Divider",
-    importPath  : "./Divider.tsx",
+    importPath  : "~/components/Divider/Divider.tsx",
+    isDefaultExport : true,
     displayName : "Divider",
     props : {
         text : {

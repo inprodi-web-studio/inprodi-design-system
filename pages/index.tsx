@@ -7,23 +7,9 @@ import { ScreenVariantProvider } from "../components/plasmic/inprodi_design_syst
 import { PlasmicTypographies } from "../components/plasmic/inprodi_design_system/PlasmicTypographies";
 import { useRouter } from "next/router";
 
+import {ColorSchemeContext} from "@/components/plasmic/inprodi_design_system/PlasmicGlobalVariant__ColorScheme";
+
 function Typographies() {
-  // Use PlasmicTypographies to render this component as it was
-  // designed in Plasmic, by activating the appropriate variants,
-  // attaching the appropriate event handlers, etc.  You
-  // can also install whatever React hooks you need here to manage state or
-  // fetch data.
-  //
-  // Props you can pass into PlasmicTypographies are:
-  // 1. Variants you want to activate,
-  // 2. Contents for slots you want to fill,
-  // 3. Overrides for any named node in the component to attach behavior and data,
-  // 4. Props to set on the root node.
-  //
-  // By default, PlasmicTypographies is wrapped by your project's global
-  // variant context providers. These wrappers may be moved to
-  // Next.js Custom App component
-  // (https://nextjs.org/docs/advanced-features/custom-app).
   return (
     <GlobalContextsProvider>
       <PageParamsProvider__

@@ -124,6 +124,7 @@ function PlasmicInputs__RenderFunc(props: {
           property="og:title"
           content={PlasmicInputs.pageMetadata.title}
         />
+
         <meta
           key="twitter:title"
           name="twitter:title"
@@ -174,6 +175,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicInputs__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

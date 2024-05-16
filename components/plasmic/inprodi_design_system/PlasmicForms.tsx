@@ -61,14 +61,9 @@ import {
 
 import Form from "../../Form"; // plasmic-import: rb5_PS-3AnYe/component
 import FormField from "../../FormField"; // plasmic-import: yLHiIXcGvJuv/component
-import { TextInput } from "../../../TextInput"; // plasmic-import: jViHg3nb4YL3/codeComponent
-import { PasswordInput } from "../../../PasswordInput"; // plasmic-import: Tuix-QVl_vRD/codeComponent
-import { Button } from "../../../Button"; // plasmic-import: kQTcb2I1HqhX/codeComponent
-
-import {
-  ColorSchemeValue,
-  useColorScheme
-} from "./PlasmicGlobalVariant__ColorScheme"; // plasmic-import: xZl8SJOonq1s/globalVariant
+import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
+import PasswordInput from "~/components/PasswordInput/PasswordInput.tsx"; // plasmic-import: Tuix-QVl_vRD/codeComponent
+import Button from "~/components/Button/Button.tsx"; // plasmic-import: kQTcb2I1HqhX/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -217,10 +212,6 @@ function PlasmicForms__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    colorScheme: useColorScheme()
-  });
-
   return (
     <React.Fragment>
       <Head>
@@ -260,19 +251,7 @@ function PlasmicForms__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.mainSection,
-            {
-              [sty.mainSectionglobal_colorScheme_dark]: hasVariant(
-                globalVariants,
-                "colorScheme",
-                "dark"
-              ),
-              [sty.mainSectionglobal_colorScheme_light]: hasVariant(
-                globalVariants,
-                "colorScheme",
-                "light"
-              )
-            }
+            sty.mainSection
           )}
         >
           <Form

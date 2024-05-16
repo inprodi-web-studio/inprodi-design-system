@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PlasmicCanvasHost, registerComponent, registerFunction } from "@plasmicapp/react-web/lib/host";
+import { PlasmicCanvasHost, registerComponent, registerFunction, registerGlobalContext } from "@plasmicapp/react-web/lib/host";
 
 import Card                 from "@/components/Card/Card";
 import Button               from "@/components/Button/Button";
@@ -14,6 +14,7 @@ import TextInputConfig      from "@/components/TextInput/Register";
 import PasswordInputConfig  from "@/components/PasswordInput/Register";
 import AnimatedNumber       from "@/components/AnimatedNumber/AnimatedNumber";
 import AnimatedNumberConfig from "@/components/AnimatedNumber/Register";
+import { showNotification } from "@/helpers/showNotification";
 
 // Components
 registerComponent( Card, CardConfig );
@@ -26,7 +27,7 @@ registerComponent( AnimatedNumber, AnimatedNumberConfig );
 // Functions
 registerFunction( validateEmail, {
   name       : "validateEmail",
-  importPath : "../helpers/validateEmail.ts",
+  importPath : "~/helpers/validateEmail",
   params     : [
     {
       name        : "email",
@@ -35,6 +36,20 @@ registerFunction( validateEmail, {
     },
   ],
 });
+
+registerFunction( showNotification, {
+  name       : "showNotification",
+  importPath : "~/helpers/showNotification",
+  // params     : [
+  //   {
+  //     name        : "message",
+  //     type        : "string",
+  //     description : "The message to show in the notification",
+  //   },
+  // ],
+});
+
+// Global Context
 
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;

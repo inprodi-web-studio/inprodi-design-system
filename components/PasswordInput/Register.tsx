@@ -2,13 +2,15 @@ import { CodeComponentMeta } from "@plasmicapp/cli/dist/api";
 
 interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
-    states: Record<string, any>;
+    isDefaultExport?: boolean;
+    states?: Record<string, any>;
 }
 
 const PasswordInputConfig : ExtendedCodeComponentMeta = {
     id          : "password-input",
     name        : "PasswordInput",
-    importPath  : "./PasswordInput.tsx",
+    importPath  : "~/components/PasswordInput/PasswordInput.tsx",
+    isDefaultExport : true,
     displayName : "Password Input",
     states : {
         value : {

@@ -2,13 +2,15 @@ import { CodeComponentMeta } from "@plasmicapp/cli/dist/api";
 
 interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
+    isDefaultExport?: boolean;
     states?: Record<string, any>;
 }
 
 const ButtonConfig : ExtendedCodeComponentMeta = {
     id          : "button",
     name        : "Button",
-    importPath  : "./Button.tsx",
+    importPath  : "~/components/Button/Button.tsx",
+    isDefaultExport : true,
     displayName : "Button",
     props : {
         label : {

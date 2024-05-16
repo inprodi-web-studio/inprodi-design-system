@@ -649,6 +649,26 @@
           "id": "qLqG6TErDgjs",
           "name": "WarningDiamondsvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__WarningDiamondsvg.tsx"
+        },
+        {
+          "id": "KGAOVNOp5KFl",
+          "name": "PhoneOutgoingDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PhoneOutgoingDuotonesvg.tsx"
+        },
+        {
+          "id": "gKwun_EQTujt",
+          "name": "EnvelopeOpenDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__EnvelopeOpenDuotonesvg.tsx"
+        },
+        {
+          "id": "8QgUleY3Rjyy",
+          "name": "ScrollDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__ScrollDuotonesvg.tsx"
+        },
+        {
+          "id": "AhKE7oDbzh6k",
+          "name": "HandshakeDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__HandshakeDuotonesvg.tsx"
         }
       ],
       "images": [],
@@ -672,44 +692,44 @@
           "id": "nDtozaD8mTAX",
           "name": "Card",
           "displayName": "Card",
-          "componentImportPath": "./Card.tsx"
+          "componentImportPath": "~/components/Card/Card.tsx"
         },
         {
           "id": "jViHg3nb4YL3",
           "name": "TextInput",
           "displayName": "TextInput",
-          "componentImportPath": "./TextInput.tsx"
+          "componentImportPath": "~/components/TextInput/TextInput.tsx"
         },
         {
           "id": "Tuix-QVl_vRD",
           "name": "PasswordInput",
           "displayName": "PasswordInput",
-          "componentImportPath": "./PasswordInput.tsx"
+          "componentImportPath": "~/components/PasswordInput/PasswordInput.tsx"
         },
         {
           "id": "kQTcb2I1HqhX",
           "name": "Button",
           "displayName": "Button",
-          "componentImportPath": "./Button.tsx"
+          "componentImportPath": "~/components/Button/Button.tsx"
         },
         {
           "id": "7-ylPAFdGTBs",
           "name": "Divider",
           "displayName": "Divider",
-          "componentImportPath": "./Divider.tsx"
+          "componentImportPath": "~/components/Divider/Divider.tsx"
         },
         {
           "id": "qbYBio9o21Vq",
           "name": "AnimatedNumber",
           "displayName": "AnimatedNumber",
-          "componentImportPath": "./AnimatedNumber.tsx"
+          "componentImportPath": "~/components/AnimatedNumber/AnimatedNumber.tsx"
         }
       ],
       "customFunctions": [
         {
           "defaultExport": false,
           "id": "validateEmail",
-          "importPath": "../helpers/validateEmail.ts",
+          "importPath": "~/helpers/validateEmail",
           "name": "validateEmail",
           "namespace": null
         }
@@ -725,7 +745,7 @@
         "contextFilePath": "plasmic/inprodi_design_system/PlasmicGlobalVariant__Screen.tsx"
       },
       {
-        "id": "xZl8SJOonq1s",
+        "id": "gdgBwRVFC7MJ",
         "name": "ColorScheme",
         "projectId": "5nPYJMkHKsudqrrya3SLGq",
         "contextFilePath": "plasmic/inprodi_design_system/PlasmicGlobalVariant__ColorScheme.tsx"
