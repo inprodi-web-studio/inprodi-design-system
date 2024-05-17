@@ -73,6 +73,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 5nPYJMkHKsudqr
 import sty from "./PlasmicLayout.module.css"; // plasmic-import: n6FobeB_Oas4/css
 
 import CaretUpDownsvgIcon from "./icons/PlasmicIcon__CaretUpDownsvg"; // plasmic-import: HuxtV9vRFLhq/icon
+import ScrollDuotonesvgIcon from "./icons/PlasmicIcon__ScrollDuotonesvg"; // plasmic-import: 8QgUleY3Rjyy/icon
 
 createPlasmicElementProxy;
 
@@ -88,6 +89,9 @@ export const PlasmicLayout__ArgProps = new Array<ArgPropType>();
 export type PlasmicLayout__OverridesType = {
   mainSection?: Flex__<"div">;
   navigationSidebar?: Flex__<typeof NavigationSidebar>;
+  menuItem?: Flex__<typeof MenuItem>;
+  svg?: Flex__<"svg">;
+  menuGroup?: Flex__<typeof MenuGroup>;
 };
 
 export interface DefaultLayoutProps {}
@@ -193,6 +197,70 @@ function PlasmicLayout__RenderFunc(props: {
             data-plasmic-name={"navigationSidebar"}
             data-plasmic-override={overrides.navigationSidebar}
             className={classNames("__wab_instance", sty.navigationSidebar)}
+            items={
+              <React.Fragment>
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.menuItem),
+                    icon2: (
+                      <ScrollDuotonesvgIcon
+                        data-plasmic-name={"svg"}
+                        data-plasmic-override={overrides.svg}
+                        className={classNames(projectcss.all, sty.svg)}
+                        role={"img"}
+                      />
+                    ),
+
+                    isActive: generateStateValueProp($state, [
+                      "menuItem",
+                      "isActive"
+                    ]),
+                    onIsActiveChange: generateStateOnChangeProp($state, [
+                      "menuItem",
+                      "isActive"
+                    ])
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "menuItem.isActive",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return (() => {
+                                return $ctx.pagePath.includes("itemKey");
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <MenuItem
+                      data-plasmic-name={"menuItem"}
+                      data-plasmic-override={overrides.menuItem}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+                <MenuGroup
+                  data-plasmic-name={"menuGroup"}
+                  data-plasmic-override={overrides.menuGroup}
+                  className={classNames("__wab_instance", sty.menuGroup)}
+                />
+              </React.Fragment>
+            }
           />
         </div>
       </div>
@@ -201,8 +269,17 @@ function PlasmicLayout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  mainSection: ["mainSection", "navigationSidebar"],
-  navigationSidebar: ["navigationSidebar"]
+  mainSection: [
+    "mainSection",
+    "navigationSidebar",
+    "menuItem",
+    "svg",
+    "menuGroup"
+  ],
+  navigationSidebar: ["navigationSidebar", "menuItem", "svg", "menuGroup"],
+  menuItem: ["menuItem", "svg"],
+  svg: ["svg"],
+  menuGroup: ["menuGroup"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -210,6 +287,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   mainSection: "div";
   navigationSidebar: typeof NavigationSidebar;
+  menuItem: typeof MenuItem;
+  svg: "svg";
+  menuGroup: typeof MenuGroup;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -273,6 +353,9 @@ export const PlasmicLayout = Object.assign(
   {
     // Helper components rendering sub-elements
     navigationSidebar: makeNodeComponent("navigationSidebar"),
+    menuItem: makeNodeComponent("menuItem"),
+    svg: makeNodeComponent("svg"),
+    menuGroup: makeNodeComponent("menuGroup"),
 
     // Metadata about props expected for PlasmicLayout
     internalVariantProps: PlasmicLayout__VariantProps,

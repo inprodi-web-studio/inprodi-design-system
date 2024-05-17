@@ -64,6 +64,7 @@ import Divider from "~/components/Divider/Divider.tsx"; // plasmic-import: 7-ylP
 import AnimatedNumber from "~/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
 import Statistic from "../../Statistic"; // plasmic-import: XTNsZrFRrZal/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import DropdownItem from "../../DropdownItem"; // plasmic-import: XOGoYay1a3bq/component
 import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
 
 import {
@@ -98,6 +99,7 @@ export type PlasmicComponents__OverridesType = {
   animatedNumber?: Flex__<typeof AnimatedNumber>;
   statistic?: Flex__<typeof Statistic>;
   button?: Flex__<typeof AntdButton>;
+  dropdownItem?: Flex__<typeof DropdownItem>;
   dropdown?: Flex__<typeof DropdownConfig>;
 };
 
@@ -141,6 +143,12 @@ function PlasmicComponents__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "dropdownItem.isSelected",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "isSelected"
       }
     ],
     [$props, $ctx, $refs]
@@ -315,6 +323,21 @@ function PlasmicComponents__RenderFunc(props: {
               {"Button"}
             </div>
           </AntdButton>
+          <DropdownItem
+            data-plasmic-name={"dropdownItem"}
+            data-plasmic-override={overrides.dropdownItem}
+            className={classNames("__wab_instance", sty.dropdownItem)}
+            isSelected={generateStateValueProp($state, [
+              "dropdownItem",
+              "isSelected"
+            ])}
+            leftSection={true}
+            onIsSelectedChange={generateStateOnChangeProp($state, [
+              "dropdownItem",
+              "isSelected"
+            ])}
+          />
+
           <DropdownConfig
             data-plasmic-name={"dropdown"}
             data-plasmic-override={overrides.dropdown}
@@ -337,7 +360,7 @@ function PlasmicComponents__RenderFunc(props: {
               </div>
             }
             dropdownContent={null}
-            dropdownStyle={{ width: "100%", padding: "4px" }}
+            dropdownStyle={{ width: "auto", padding: "4px" }}
             isLoading={generateStateValueProp($state, [
               "dropdown",
               "isLoading"
@@ -363,6 +386,7 @@ const PlasmicDescendants = {
     "animatedNumber",
     "statistic",
     "button",
+    "dropdownItem",
     "dropdown"
   ],
   card: ["card"],
@@ -370,6 +394,7 @@ const PlasmicDescendants = {
   animatedNumber: ["animatedNumber"],
   statistic: ["statistic"],
   button: ["button"],
+  dropdownItem: ["dropdownItem"],
   dropdown: ["dropdown"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -382,6 +407,7 @@ type NodeDefaultElementType = {
   animatedNumber: typeof AnimatedNumber;
   statistic: typeof Statistic;
   button: typeof AntdButton;
+  dropdownItem: typeof DropdownItem;
   dropdown: typeof DropdownConfig;
 };
 
@@ -450,6 +476,7 @@ export const PlasmicComponents = Object.assign(
     animatedNumber: makeNodeComponent("animatedNumber"),
     statistic: makeNodeComponent("statistic"),
     button: makeNodeComponent("button"),
+    dropdownItem: makeNodeComponent("dropdownItem"),
     dropdown: makeNodeComponent("dropdown"),
 
     // Metadata about props expected for PlasmicComponents

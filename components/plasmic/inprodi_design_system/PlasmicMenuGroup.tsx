@@ -73,15 +73,18 @@ export type PlasmicMenuGroup__VariantsArgs = {};
 type VariantPropType = keyof PlasmicMenuGroup__VariantsArgs;
 export const PlasmicMenuGroup__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicMenuGroup__ArgsType = {};
+export type PlasmicMenuGroup__ArgsType = {
+  label?: React.ReactNode;
+};
 type ArgPropType = keyof PlasmicMenuGroup__ArgsType;
-export const PlasmicMenuGroup__ArgProps = new Array<ArgPropType>();
+export const PlasmicMenuGroup__ArgProps = new Array<ArgPropType>("label");
 
 export type PlasmicMenuGroup__OverridesType = {
   root?: Flex__<"div">;
 };
 
 export interface DefaultMenuGroupProps {
+  label?: React.ReactNode;
   className?: string;
 }
 
@@ -124,7 +127,6 @@ function PlasmicMenuGroup__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         projectcss.all,
-        projectcss.__wab_text,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
@@ -134,7 +136,11 @@ function PlasmicMenuGroup__RenderFunc(props: {
         sty.root
       )}
     >
-      {"Menu Group"}
+      {renderPlasmicSlot({
+        defaultContents: "Menu Group",
+        value: args.label,
+        className: classNames(sty.slotTargetLabel)
+      })}
     </div>
   ) as React.ReactElement | null;
 }

@@ -70,11 +70,19 @@
   color: var(--token-n3trVzkrA_FT);
   flex-shrink: 0;
 }
-.menuItem__pfLtx:global(.__wab_instance) {
+.menuItem:global(.__wab_instance) {
   position: relative;
   margin-top: 4px;
 }
-.menuGroup__l2D5P:global(.__wab_instance) {
+.svg {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20px;
+  color: var(--token-n3trVzkrA_FT);
+}
+.menuGroup:global(.__wab_instance) {
   position: relative;
   margin-top: 16px;
 }

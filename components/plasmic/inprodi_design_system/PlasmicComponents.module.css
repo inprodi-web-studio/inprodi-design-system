@@ -90,6 +90,22 @@
   max-width: 100%;
   min-width: 0;
 }
+.dropdownItem:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__wuFqz {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 16px;
+  height: 16px;
+  color: var(--token-n3trVzkrA_FT);
+}
+.text___9F33T {
+  width: 100%;
+  min-width: 0;
+}
 .dropdown:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

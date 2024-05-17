@@ -8,22 +8,30 @@ import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
 import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
 import { AuthGlobalContext } from "../../AuthGlobalContext"; // plasmic-import: KV3-W_-eQ3R8/codeComponent
+import { AppGlobalContext } from "../../AppGlobalContext"; // plasmic-import: AOR__s9wDoG_/codeComponent
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   authGlobalContextProps?: Partial<
     Omit<React.ComponentProps<typeof AuthGlobalContext>, "children">
+  >;
+  appGlobalContextProps?: Partial<
+    Omit<React.ComponentProps<typeof AppGlobalContext>, "children">
   >;
 }
 
 export default function GlobalContextsProvider(
   props: GlobalContextsProviderProps
 ) {
-  const { children, antdConfigProviderProps, authGlobalContextProps } = props;
+  const {
+    children,
+    antdConfigProviderProps,
+    authGlobalContextProps,
+    appGlobalContextProps
+  } = props;
 
   return (
     <AntdConfigProvider
@@ -119,7 +127,9 @@ export default function GlobalContextsProvider(
       }
     >
       <AuthGlobalContext {...authGlobalContextProps}>
-        {children}
+        <AppGlobalContext {...appGlobalContextProps}>
+          {children}
+        </AppGlobalContext>
       </AuthGlobalContext>
     </AntdConfigProvider>
   );

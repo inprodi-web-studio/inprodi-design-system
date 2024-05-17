@@ -72,6 +72,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 5nPYJMkHKsudqr
 import sty from "./PlasmicNavigationSidebar.module.css"; // plasmic-import: rjCX_w8hD0o4/css
 
 import CaretUpDownsvgIcon from "./icons/PlasmicIcon__CaretUpDownsvg"; // plasmic-import: HuxtV9vRFLhq/icon
+import ScrollDuotonesvgIcon from "./icons/PlasmicIcon__ScrollDuotonesvg"; // plasmic-import: 8QgUleY3Rjyy/icon
 
 createPlasmicElementProxy;
 
@@ -193,7 +194,7 @@ function PlasmicNavigationSidebar__RenderFunc(props: {
                   width={"100%"}
                 />
               }
-              dropdownStyle={{ width: "100%", padding: "4px" }}
+              dropdownStyle={{ width: "auto", padding: "4px" }}
               isLoading={false}
               isSearchable={false}
               trigger={"click"}
