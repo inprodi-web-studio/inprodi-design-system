@@ -790,6 +790,11 @@
           "id": "WGk2WycioW8T",
           "name": "UserFocusDuotonesvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__UserFocusDuotonesvg.tsx"
+        },
+        {
+          "id": "6gwtn6ebVbnz",
+          "name": "TargetDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__TargetDuotonesvg.tsx"
         }
       ],
       "images": [],
