@@ -62,6 +62,8 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  background: #0000000d;
   min-width: 0;
   padding: 8px;
+  border-top: 1px solid var(--token-Pxe4wDL2kJpb);
 }
