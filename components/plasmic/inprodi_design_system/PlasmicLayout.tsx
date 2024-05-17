@@ -188,7 +188,6 @@ function PlasmicLayout__RenderFunc(props: {
             data-plasmic-name={"navigationSidebar"}
             data-plasmic-override={overrides.navigationSidebar}
             className={classNames("__wab_instance", sty.navigationSidebar)}
-            dropdown2={null}
             items={
               <React.Fragment>
                 {(() => {
@@ -253,6 +252,7 @@ function PlasmicLayout__RenderFunc(props: {
                 />
               </React.Fragment>
             }
+            topContent={null}
           />
         </div>
       </div>
