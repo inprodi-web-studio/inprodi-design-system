@@ -750,6 +750,46 @@
           "id": "una6cYu9eGPt",
           "name": "ChecksvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "8FjrKP2CTIXm",
+          "name": "SquaresFourDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__SquaresFourDuotonesvg.tsx"
+        },
+        {
+          "id": "Njq7Nbjds8eW",
+          "name": "BookOpenTextDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__BookOpenTextDuotonesvg.tsx"
+        },
+        {
+          "id": "cD8pbIid7Rh-",
+          "name": "CalculatorDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CalculatorDuotonesvg.tsx"
+        },
+        {
+          "id": "q9Sh3ZeAVlsZ",
+          "name": "InvoiceDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__InvoiceDuotonesvg.tsx"
+        },
+        {
+          "id": "OBLrHdlk3Kno",
+          "name": "GraphDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__GraphDuotonesvg.tsx"
+        },
+        {
+          "id": "sPpjVMXLxkg6",
+          "name": "PercentDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PercentDuotonesvg.tsx"
+        },
+        {
+          "id": "nkPU5o-flthE",
+          "name": "PulseDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PulseDuotonesvg.tsx"
+        },
+        {
+          "id": "WGk2WycioW8T",
+          "name": "UserFocusDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__UserFocusDuotonesvg.tsx"
         }
       ],
       "images": [],
