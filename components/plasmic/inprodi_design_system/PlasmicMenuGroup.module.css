@@ -1,0 +1,13 @@
+.root {
+  font-family: "Geist Sans";
+  font-size: 12px;
+  font-weight: 400;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: var(--token-n3trVzkrA_FT);
+  min-width: 0;
+}

@@ -41,7 +41,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -95,7 +96,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -495,7 +497,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "5nPYJMkHKsudqrrya3SLGq",
@@ -624,6 +627,59 @@
           "cssFilePath": "plasmic/inprodi_design_system/PlasmicStatistic.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "n6FobeB_Oas4",
+          "name": "Layout",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicLayout.tsx",
+          "importSpec": {
+            "modulePath": "../pages/layout.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicLayout.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/layout"
+        },
+        {
+          "id": "rjCX_w8hD0o4",
+          "name": "NavigationSidebar",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicNavigationSidebar.tsx",
+          "importSpec": {
+            "modulePath": "NavigationSidebar.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicNavigationSidebar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "KcpCffGmy6kt",
+          "name": "MenuItem",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicMenuItem.tsx",
+          "importSpec": {
+            "modulePath": "MenuItem.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicMenuItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "VPuDrZG7cL_L",
+          "name": "MenuGroup",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicMenuGroup.tsx",
+          "importSpec": {
+            "modulePath": "MenuGroup.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicMenuGroup.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -666,6 +722,16 @@
           "id": "AhKE7oDbzh6k",
           "name": "HandshakeDuotonesvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__HandshakeDuotonesvg.tsx"
+        },
+        {
+          "id": "FkQiAwWJtN2i",
+          "name": "MagnifyingGlasssvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__MagnifyingGlasssvg.tsx"
+        },
+        {
+          "id": "HuxtV9vRFLhq",
+          "name": "CaretUpDownsvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CaretUpDownsvg.tsx"
         }
       ],
       "images": [],
@@ -720,6 +786,18 @@
           "name": "AnimatedNumber",
           "displayName": "AnimatedNumber",
           "componentImportPath": "~/components/AnimatedNumber/AnimatedNumber.tsx"
+        },
+        {
+          "id": "KV3-W_-eQ3R8",
+          "name": "AuthGlobalContext",
+          "displayName": "AuthGlobalContext",
+          "componentImportPath": "./components/AuthGlobalContext"
+        },
+        {
+          "id": "2FAf85kMy1wq",
+          "name": "DropdownConfig",
+          "displayName": "DropdownConfig",
+          "componentImportPath": "~/components/Dropdown/Dropdown.tsx"
         }
       ],
       "customFunctions": [
@@ -728,6 +806,13 @@
           "id": "validateEmail",
           "importPath": "~/helpers/validateEmail",
           "name": "validateEmail",
+          "namespace": null
+        },
+        {
+          "defaultExport": false,
+          "id": "showNotification",
+          "importPath": "~/helpers/showNotification",
+          "name": "showNotification",
           "namespace": null
         }
       ]

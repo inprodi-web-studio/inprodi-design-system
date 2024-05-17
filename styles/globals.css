@@ -38,6 +38,16 @@
     src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-700-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-700-normal.woff) format('woff');
 }
 
+ul.ant-menu.ant-menu-root.ant-menu-vertical {
+    border: none;
+}
+
+.ant-menu-item {
+    width: 100% !important;
+    padding: 0 12px !important;
+    border-radius: 6px !important;
+}
+
 .ant-input-group-wrapper {
     margin: 0 !important;
 }

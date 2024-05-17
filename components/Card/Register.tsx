@@ -36,9 +36,9 @@ const CardConfig : ExtendedCodeComponentMeta = {
             hidden: ({ showTitle } : any) => !showTitle,
         },
         padding: {
-            type        : "number",
+            type        : "string",
             displayName : "Padding",
-            defaultValue : 20,
+            defaultValue : "20px",
         },
         shadow: {
             type: "choice",

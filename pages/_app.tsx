@@ -19,7 +19,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             // colorPrimary : "#000000",
             fontFamily   : "Geist Sans",
           },
-          algorithm : theme === "dark" ? darkAlgorithm : undefined,
+          // algorithm : theme === "dark" ? darkAlgorithm : undefined,
         }}>
           <PlasmicRootProvider Head={Head}>
             <Toaster

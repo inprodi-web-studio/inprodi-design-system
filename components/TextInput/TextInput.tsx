@@ -1,6 +1,6 @@
+import React, { ChangeEventHandler, KeyboardEventHandler, forwardRef } from "react";
 import { Input } from "antd";
-
-import { ChangeEventHandler, KeyboardEventHandler } from "react";
+import type { InputRef } from "antd";
 
 export interface TextInputProps {
     placeholder: string;
@@ -16,13 +16,14 @@ export interface TextInputProps {
     rightIcon?: React.ReactNode;
     status?: "error" | "warning";
     onChange: ChangeEventHandler<HTMLInputElement>;
-    onPressEnter?: KeyboardEventHandler;
+    onPressEnter?: KeyboardEventHandler<HTMLInputElement>;
     showLeftIcon?: boolean;
     showRightIcon?: boolean;
     value?: string;
+    autoFocus?: boolean;
 };
 
-export default function TextInput({
+const TextInput = forwardRef<InputRef, TextInputProps>(({
     size,
     value,
     status,
@@ -40,15 +41,16 @@ export default function TextInput({
     onPressEnter,
     showLeftIcon,
     showRightIcon,
-} : TextInputProps) {
+}, ref) => {
     return (
         <Input
+            ref={ref}
             size={size}
             value={value}
-            variant={variant}
             status={status}
+            variant={variant}
             prefix={showLeftIcon && leftIcon}
-            onChange={ (e : any ) => onChange( e.target.value ) }
+            onChange={onChange}
             suffix={showRightIcon && rightIcon}
             disabled={disabled}
             maxLength={maxLength}
@@ -60,4 +62,8 @@ export default function TextInput({
             onPressEnter={onPressEnter}
         />
     );
-};
+});
+
+TextInput.displayName = "TextInput";
+
+export default TextInput;

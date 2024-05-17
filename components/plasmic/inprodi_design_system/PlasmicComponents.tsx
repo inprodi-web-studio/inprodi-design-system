@@ -64,6 +64,7 @@ import Divider from "~/components/Divider/Divider.tsx"; // plasmic-import: 7-ylP
 import AnimatedNumber from "~/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
 import Statistic from "../../Statistic"; // plasmic-import: XTNsZrFRrZal/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
 
 import {
   ColorSchemeValue,
@@ -97,6 +98,7 @@ export type PlasmicComponents__OverridesType = {
   animatedNumber?: Flex__<typeof AnimatedNumber>;
   statistic?: Flex__<typeof Statistic>;
   button?: Flex__<typeof AntdButton>;
+  dropdown?: Flex__<typeof DropdownConfig>;
 };
 
 export interface DefaultComponentsProps {}
@@ -131,6 +133,24 @@ function PlasmicComponents__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "dropdown.isLoading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     colorScheme: useColorScheme()
@@ -196,7 +216,7 @@ function PlasmicComponents__RenderFunc(props: {
             className={classNames("__wab_instance", sty.card)}
             description={"description"}
             loading={false}
-            padding={20}
+            padding={"20px"}
             shadow={"lg"}
             showTitle={true}
             title={"Tester"}
@@ -295,6 +315,40 @@ function PlasmicComponents__RenderFunc(props: {
               {"Button"}
             </div>
           </AntdButton>
+          <DropdownConfig
+            data-plasmic-name={"dropdown"}
+            data-plasmic-override={overrides.dropdown}
+            className={classNames("__wab_instance", sty.dropdown, {
+              [sty.dropdownglobal_colorScheme_dark]: hasVariant(
+                globalVariants,
+                "colorScheme",
+                "dark"
+              )
+            })}
+            content={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kW8If
+                )}
+              >
+                {"Dropdown Content"}
+              </div>
+            }
+            dropdownContent={null}
+            dropdownStyle={{ width: "100%", padding: "4px" }}
+            isLoading={generateStateValueProp($state, [
+              "dropdown",
+              "isLoading"
+            ])}
+            isSearchable={true}
+            onIsLoadingChange={generateStateOnChangeProp($state, [
+              "dropdown",
+              "isLoading"
+            ])}
+            trigger={"click"}
+          />
         </Stack__>
       </div>
     </React.Fragment>
@@ -308,13 +362,15 @@ const PlasmicDescendants = {
     "divider",
     "animatedNumber",
     "statistic",
-    "button"
+    "button",
+    "dropdown"
   ],
   card: ["card"],
   divider: ["divider"],
   animatedNumber: ["animatedNumber"],
   statistic: ["statistic"],
-  button: ["button"]
+  button: ["button"],
+  dropdown: ["dropdown"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -326,6 +382,7 @@ type NodeDefaultElementType = {
   animatedNumber: typeof AnimatedNumber;
   statistic: typeof Statistic;
   button: typeof AntdButton;
+  dropdown: typeof DropdownConfig;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -393,6 +450,7 @@ export const PlasmicComponents = Object.assign(
     animatedNumber: makeNodeComponent("animatedNumber"),
     statistic: makeNodeComponent("statistic"),
     button: makeNodeComponent("button"),
+    dropdown: makeNodeComponent("dropdown"),
 
     // Metadata about props expected for PlasmicComponents
     internalVariantProps: PlasmicComponents__VariantProps,

@@ -15,7 +15,7 @@ export interface CardProps {
     description? : string,
     content      : React.ReactNode,
     width        : string,
-    padding      : number,
+    padding      : string,
     shadow       : "sm" | "md" | "lg" | "none",
 };
 
@@ -39,7 +39,7 @@ export default function Card({
             })}
             style={{
                 maxWidth : width,
-                padding  : `${padding}px`,
+                padding  : padding,
             }}
         >
             { showTitle && (
