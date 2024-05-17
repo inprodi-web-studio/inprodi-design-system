@@ -60,8 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import NavigationSidebar from "../../NavigationSidebar"; // plasmic-import: rjCX_w8hD0o4/component
-import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
-import Card from "~/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
 import MenuItem from "../../MenuItem"; // plasmic-import: KcpCffGmy6kt/component
 import MenuGroup from "../../MenuGroup"; // plasmic-import: VPuDrZG7cL_L/component
 
@@ -72,7 +70,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 5nPYJMkHKsudqrrya3SLGq/projectcss
 import sty from "./PlasmicLayout.module.css"; // plasmic-import: n6FobeB_Oas4/css
 
-import CaretUpDownsvgIcon from "./icons/PlasmicIcon__CaretUpDownsvg"; // plasmic-import: HuxtV9vRFLhq/icon
 import ScrollDuotonesvgIcon from "./icons/PlasmicIcon__ScrollDuotonesvg"; // plasmic-import: 8QgUleY3Rjyy/icon
 
 createPlasmicElementProxy;
@@ -129,12 +126,6 @@ function PlasmicLayout__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "dropdown.isLoading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
       {
         path: "menuItem.isActive",
         type: "private",
@@ -197,6 +188,7 @@ function PlasmicLayout__RenderFunc(props: {
             data-plasmic-name={"navigationSidebar"}
             data-plasmic-override={overrides.navigationSidebar}
             className={classNames("__wab_instance", sty.navigationSidebar)}
+            dropdown2={null}
             items={
               <React.Fragment>
                 {(() => {
