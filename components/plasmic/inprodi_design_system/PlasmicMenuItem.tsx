@@ -184,7 +184,14 @@ function PlasmicMenuItem__RenderFunc(props: {
           />
         ),
 
-        value: args.icon2
+        value: args.icon2,
+        className: classNames(sty.slotTargetIcon2, {
+          [sty.slotTargetIcon2isActive]: hasVariant(
+            $state,
+            "isActive",
+            "isActive"
+          )
+        })
       })}
       {renderPlasmicSlot({
         defaultContents: "Menu Item",

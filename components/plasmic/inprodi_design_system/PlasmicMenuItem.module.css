@@ -42,13 +42,18 @@
 .menuItem:hover {
   background: #0000000f;
 }
+.slotTargetIcon2 {
+  color: var(--token-n3trVzkrA_FT);
+}
+.slotTargetIcon2isActive {
+  color: var(--token-nxgj4HT_seIz);
+}
 .svg__hj9Hd {
   position: relative;
   object-fit: cover;
   max-width: 100%;
   width: 20px;
   height: 20px;
-  color: var(--token-nxgj4HT_seIz);
   flex-shrink: 0;
 }
 .slotTargetLabel {
