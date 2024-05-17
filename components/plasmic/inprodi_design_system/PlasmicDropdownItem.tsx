@@ -87,13 +87,15 @@ export type PlasmicDropdownItem__ArgsType = {
   icon?: React.ReactNode;
   leftSection?: boolean;
   onIsSelectedChange?: (val: any) => void;
+  onClick?: () => void;
 };
 type ArgPropType = keyof PlasmicDropdownItem__ArgsType;
 export const PlasmicDropdownItem__ArgProps = new Array<ArgPropType>(
   "label",
   "icon",
   "leftSection",
-  "onIsSelectedChange"
+  "onIsSelectedChange",
+  "onClick"
 );
 
 export type PlasmicDropdownItem__OverridesType = {
@@ -106,6 +108,7 @@ export interface DefaultDropdownItemProps {
   icon?: React.ReactNode;
   leftSection?: boolean;
   onIsSelectedChange?: (val: any) => void;
+  onClick?: () => void;
   isSelected?: SingleBooleanChoiceArg<"isSelected">;
   className?: string;
 }
@@ -195,6 +198,9 @@ function PlasmicDropdownItem__RenderFunc(props: {
           )
         }
       )}
+      onClick={async event => {
+        const $steps = {};
+      }}
     >
       {(() => {
         try {

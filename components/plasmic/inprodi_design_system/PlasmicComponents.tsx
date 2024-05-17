@@ -148,7 +148,7 @@ function PlasmicComponents__RenderFunc(props: {
         path: "dropdownItem.isSelected",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "isSelected"
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
