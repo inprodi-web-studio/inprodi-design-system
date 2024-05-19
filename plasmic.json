@@ -693,6 +693,19 @@
           "cssFilePath": "plasmic/inprodi_design_system/PlasmicDropdownItem.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "gM0_8AzGkHlf",
+          "name": "TopBar",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicTopBar.tsx",
+          "importSpec": {
+            "modulePath": "TopBar.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicTopBar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

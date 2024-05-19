@@ -29,3 +29,7 @@
   position: relative;
   margin-top: 16px;
 }
+.topBar:global(.__wab_instance) {
+  position: relative;
+  flex-shrink: 0;
+}

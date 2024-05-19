@@ -62,6 +62,7 @@ import {
 import NavigationSidebar from "../../NavigationSidebar"; // plasmic-import: rjCX_w8hD0o4/component
 import MenuItem from "../../MenuItem"; // plasmic-import: KcpCffGmy6kt/component
 import MenuGroup from "../../MenuGroup"; // plasmic-import: VPuDrZG7cL_L/component
+import TopBar from "../../TopBar"; // plasmic-import: gM0_8AzGkHlf/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -89,6 +90,7 @@ export type PlasmicLayout__OverridesType = {
   menuItem?: Flex__<typeof MenuItem>;
   svg?: Flex__<"svg">;
   menuGroup?: Flex__<typeof MenuGroup>;
+  topBar?: Flex__<typeof TopBar>;
 };
 
 export interface DefaultLayoutProps {}
@@ -254,6 +256,12 @@ function PlasmicLayout__RenderFunc(props: {
             }
             topContent={null}
           />
+
+          <TopBar
+            data-plasmic-name={"topBar"}
+            data-plasmic-override={overrides.topBar}
+            className={classNames("__wab_instance", sty.topBar)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -266,12 +274,14 @@ const PlasmicDescendants = {
     "navigationSidebar",
     "menuItem",
     "svg",
-    "menuGroup"
+    "menuGroup",
+    "topBar"
   ],
   navigationSidebar: ["navigationSidebar", "menuItem", "svg", "menuGroup"],
   menuItem: ["menuItem", "svg"],
   svg: ["svg"],
-  menuGroup: ["menuGroup"]
+  menuGroup: ["menuGroup"],
+  topBar: ["topBar"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -282,6 +292,7 @@ type NodeDefaultElementType = {
   menuItem: typeof MenuItem;
   svg: "svg";
   menuGroup: typeof MenuGroup;
+  topBar: typeof TopBar;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -348,6 +359,7 @@ export const PlasmicLayout = Object.assign(
     menuItem: makeNodeComponent("menuItem"),
     svg: makeNodeComponent("svg"),
     menuGroup: makeNodeComponent("menuGroup"),
+    topBar: makeNodeComponent("topBar"),
 
     // Metadata about props expected for PlasmicLayout
     internalVariantProps: PlasmicLayout__VariantProps,
