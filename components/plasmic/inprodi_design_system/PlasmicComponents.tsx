@@ -64,6 +64,7 @@ import Divider from "~/components/Divider/Divider.tsx"; // plasmic-import: 7-ylP
 import AnimatedNumber from "~/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
 import Statistic from "../../Statistic"; // plasmic-import: XTNsZrFRrZal/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import Avatar from "~/components/Avatar/Avatar.tsx"; // plasmic-import: tNcz9rhbc3sz/codeComponent
 import DropdownItem from "../../DropdownItem"; // plasmic-import: XOGoYay1a3bq/component
 import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
 
@@ -99,6 +100,8 @@ export type PlasmicComponents__OverridesType = {
   animatedNumber?: Flex__<typeof AnimatedNumber>;
   statistic?: Flex__<typeof Statistic>;
   button?: Flex__<typeof AntdButton>;
+  avatar?: Flex__<typeof Avatar>;
+  svg?: Flex__<"svg">;
   dropdownItem?: Flex__<typeof DropdownItem>;
   dropdown?: Flex__<typeof DropdownConfig>;
 };
@@ -323,6 +326,30 @@ function PlasmicComponents__RenderFunc(props: {
               {"Button"}
             </div>
           </AntdButton>
+          <Avatar
+            data-plasmic-name={"avatar"}
+            data-plasmic-override={overrides.avatar}
+            bordered={true}
+            circular={true}
+            className={classNames("__wab_instance", sty.avatar)}
+            color={"#868E96"}
+            content={"Avatar"}
+            icon={
+              <svg
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
+                role={"img"}
+              />
+            }
+            image={
+              "/plasmic/inprodi_design_system/images/colomos00HuevosDePascua202424Ff3F4472Jpg.jpg"
+            }
+            size={"md"}
+            type={"text"}
+            variant={"filled"}
+          />
+
           <DropdownItem
             data-plasmic-name={"dropdownItem"}
             data-plasmic-override={overrides.dropdownItem}
@@ -386,6 +413,8 @@ const PlasmicDescendants = {
     "animatedNumber",
     "statistic",
     "button",
+    "avatar",
+    "svg",
     "dropdownItem",
     "dropdown"
   ],
@@ -394,6 +423,8 @@ const PlasmicDescendants = {
   animatedNumber: ["animatedNumber"],
   statistic: ["statistic"],
   button: ["button"],
+  avatar: ["avatar", "svg"],
+  svg: ["svg"],
   dropdownItem: ["dropdownItem"],
   dropdown: ["dropdown"]
 } as const;
@@ -407,6 +438,8 @@ type NodeDefaultElementType = {
   animatedNumber: typeof AnimatedNumber;
   statistic: typeof Statistic;
   button: typeof AntdButton;
+  avatar: typeof Avatar;
+  svg: "svg";
   dropdownItem: typeof DropdownItem;
   dropdown: typeof DropdownConfig;
 };
@@ -476,6 +509,8 @@ export const PlasmicComponents = Object.assign(
     animatedNumber: makeNodeComponent("animatedNumber"),
     statistic: makeNodeComponent("statistic"),
     button: makeNodeComponent("button"),
+    avatar: makeNodeComponent("avatar"),
+    svg: makeNodeComponent("svg"),
     dropdownItem: makeNodeComponent("dropdownItem"),
     dropdown: makeNodeComponent("dropdown"),
 

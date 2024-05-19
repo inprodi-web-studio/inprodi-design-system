@@ -797,7 +797,23 @@
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__TargetDuotonesvg.tsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "uycShD4tIw3d",
+          "name": "9375274_avatars_accounts_female_woman_people_icon.png",
+          "filePath": "../public/plasmic/inprodi_design_system/images/_9375274AvatarsAccountsFemaleWomanPeopleIconpng.png"
+        },
+        {
+          "id": "a6LhCZ_HELH3",
+          "name": "pro180-logo.png",
+          "filePath": "../public/plasmic/inprodi_design_system/images/pro180Logopng.png"
+        },
+        {
+          "id": "_8bYQc1MVZgy",
+          "name": "COLOMOS_00_HUEVOS_DE_PASCUA_2024_24ff3f4472.jpg",
+          "filePath": "../public/plasmic/inprodi_design_system/images/colomos00HuevosDePascua202424Ff3F4472Jpg.jpg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/inprodi_design_system/PlasmicGlobalContextsProvider.tsx",
       "splitsProviderFilePath": "",
@@ -867,6 +883,12 @@
           "name": "AppGlobalContext",
           "displayName": "AppGlobalContext",
           "componentImportPath": "./components/AppGlobalContext"
+        },
+        {
+          "id": "tNcz9rhbc3sz",
+          "name": "Avatar",
+          "displayName": "Avatar",
+          "componentImportPath": "~/components/Avatar/Avatar.tsx"
         }
       ],
       "customFunctions": [
