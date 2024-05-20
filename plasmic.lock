@@ -406,6 +406,11 @@
           "assetId": "5nPYJMkHKsudqrrya3SLGq",
           "type": "projectCss",
           "checksum": "edd127b90cf004362ea368fd3ac078b0"
+        },
+        {
+          "type": "icon",
+          "assetId": "L1X9CaHpNz_8",
+          "checksum": "cb18d834e050f55074fba14b2c8f5a20"
         }
       ],
       "codegenVersion": "0.0.1"

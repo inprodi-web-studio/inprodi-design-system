@@ -863,6 +863,11 @@
           "id": "BKdwVE9CoTra",
           "name": "MoneyWavyDuotonesvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__MoneyWavyDuotonesvg.tsx"
+        },
+        {
+          "id": "L1X9CaHpNz_8",
+          "name": "CloudArrowUpDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CloudArrowUpDuotonesvg.tsx"
         }
       ],
       "images": [
