@@ -41,6 +41,9 @@ export default function Button({
             loading={loading}
             size={size}
             type={variant}
+            style={{
+                flexShrink : 0,
+            }}
         >
             {label}
         </AntButton>

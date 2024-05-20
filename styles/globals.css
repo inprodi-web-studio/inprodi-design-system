@@ -104,3 +104,15 @@ ul.ant-menu.ant-menu-root.ant-menu-vertical {
 .ant-message {
     display: none;
 }
+
+.ant-divider {
+    border-block-start: 1px solid var(--antd-colorBorder) !important;
+}
+
+.ant-tabs-nav::before {
+    border-bottom-color: var(--antd-colorBorder) !important;
+}
+
+.ant-tabs-tab {
+    color: var(--plasmic-token-gray-6) !important;
+}

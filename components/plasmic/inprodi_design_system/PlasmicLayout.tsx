@@ -60,10 +60,9 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import NavigationSidebar from "../../NavigationSidebar"; // plasmic-import: rjCX_w8hD0o4/component
-import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
-import Card from "~/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
 import MenuItem from "../../MenuItem"; // plasmic-import: KcpCffGmy6kt/component
 import MenuGroup from "../../MenuGroup"; // plasmic-import: VPuDrZG7cL_L/component
+import TopBar from "../../TopBar"; // plasmic-import: gM0_8AzGkHlf/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -72,7 +71,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 5nPYJMkHKsudqrrya3SLGq/projectcss
 import sty from "./PlasmicLayout.module.css"; // plasmic-import: n6FobeB_Oas4/css
 
-import CaretUpDownsvgIcon from "./icons/PlasmicIcon__CaretUpDownsvg"; // plasmic-import: HuxtV9vRFLhq/icon
+import ScrollDuotonesvgIcon from "./icons/PlasmicIcon__ScrollDuotonesvg"; // plasmic-import: 8QgUleY3Rjyy/icon
 
 createPlasmicElementProxy;
 
@@ -88,6 +87,10 @@ export const PlasmicLayout__ArgProps = new Array<ArgPropType>();
 export type PlasmicLayout__OverridesType = {
   mainSection?: Flex__<"div">;
   navigationSidebar?: Flex__<typeof NavigationSidebar>;
+  menuItem?: Flex__<typeof MenuItem>;
+  svg?: Flex__<"svg">;
+  menuGroup?: Flex__<typeof MenuGroup>;
+  topBar?: Flex__<typeof TopBar>;
 };
 
 export interface DefaultLayoutProps {}
@@ -125,12 +128,6 @@ function PlasmicLayout__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "dropdown.isLoading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
       {
         path: "menuItem.isActive",
         type: "private",
@@ -193,6 +190,77 @@ function PlasmicLayout__RenderFunc(props: {
             data-plasmic-name={"navigationSidebar"}
             data-plasmic-override={overrides.navigationSidebar}
             className={classNames("__wab_instance", sty.navigationSidebar)}
+            items={
+              <React.Fragment>
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.menuItem),
+                    icon2: (
+                      <ScrollDuotonesvgIcon
+                        data-plasmic-name={"svg"}
+                        data-plasmic-override={overrides.svg}
+                        className={classNames(projectcss.all, sty.svg)}
+                        role={"img"}
+                      />
+                    ),
+
+                    isActive: generateStateValueProp($state, [
+                      "menuItem",
+                      "isActive"
+                    ]),
+                    onIsActiveChange: generateStateOnChangeProp($state, [
+                      "menuItem",
+                      "isActive"
+                    ])
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "menuItem.isActive",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return (() => {
+                                return $ctx.pagePath.includes("itemKey");
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    []
+                  );
+                  return (
+                    <MenuItem
+                      data-plasmic-name={"menuItem"}
+                      data-plasmic-override={overrides.menuItem}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+                <MenuGroup
+                  data-plasmic-name={"menuGroup"}
+                  data-plasmic-override={overrides.menuGroup}
+                  className={classNames("__wab_instance", sty.menuGroup)}
+                />
+              </React.Fragment>
+            }
+            topContent={null}
+          />
+
+          <TopBar
+            data-plasmic-name={"topBar"}
+            data-plasmic-override={overrides.topBar}
+            className={classNames("__wab_instance", sty.topBar)}
           />
         </div>
       </div>
@@ -201,8 +269,19 @@ function PlasmicLayout__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  mainSection: ["mainSection", "navigationSidebar"],
-  navigationSidebar: ["navigationSidebar"]
+  mainSection: [
+    "mainSection",
+    "navigationSidebar",
+    "menuItem",
+    "svg",
+    "menuGroup",
+    "topBar"
+  ],
+  navigationSidebar: ["navigationSidebar", "menuItem", "svg", "menuGroup"],
+  menuItem: ["menuItem", "svg"],
+  svg: ["svg"],
+  menuGroup: ["menuGroup"],
+  topBar: ["topBar"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -210,6 +289,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   mainSection: "div";
   navigationSidebar: typeof NavigationSidebar;
+  menuItem: typeof MenuItem;
+  svg: "svg";
+  menuGroup: typeof MenuGroup;
+  topBar: typeof TopBar;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -273,6 +356,10 @@ export const PlasmicLayout = Object.assign(
   {
     // Helper components rendering sub-elements
     navigationSidebar: makeNodeComponent("navigationSidebar"),
+    menuItem: makeNodeComponent("menuItem"),
+    svg: makeNodeComponent("svg"),
+    menuGroup: makeNodeComponent("menuGroup"),
+    topBar: makeNodeComponent("topBar"),
 
     // Metadata about props expected for PlasmicLayout
     internalVariantProps: PlasmicLayout__VariantProps,

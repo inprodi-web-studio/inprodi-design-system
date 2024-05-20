@@ -7,6 +7,7 @@ export interface DividerProps {
     plain ?: boolean;
     direction: "vertical" | "horizontal"
     text ?: string;
+    margin: string;
 };
 
 export default function Divider({
@@ -16,6 +17,7 @@ export default function Divider({
     plain,
     direction,
     text,
+    margin,
 } : DividerProps) {
     return (
         <AntDivider
@@ -24,6 +26,9 @@ export default function Divider({
             orientation={orientation}
             orientationMargin={orientationMargin}
             type={direction}
+            style={{
+                margin,
+            }}
         >
             {text}
         </AntDivider>

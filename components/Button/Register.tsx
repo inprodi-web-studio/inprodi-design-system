@@ -4,6 +4,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
     isDefaultExport?: boolean;
     states?: Record<string, any>;
+    styleSections?: any[] | boolean;
 }
 
 const ButtonConfig : ExtendedCodeComponentMeta = {
@@ -12,6 +13,7 @@ const ButtonConfig : ExtendedCodeComponentMeta = {
     importPath  : "~/components/Button/Button.tsx",
     isDefaultExport : true,
     displayName : "Button",
+    styleSections : true,
     props : {
         label : {
             type         : "string",

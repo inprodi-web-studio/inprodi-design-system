@@ -11,9 +11,9 @@ const { darkAlgorithm } = theme;
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useUserThemePreference();
-
+  
   return (
-    <ColorSchemeContext.Provider value={theme}>
+    <ColorSchemeContext.Provider value={ theme }>
         <ConfigProvider theme={{
           token : {
             // colorPrimary : "#000000",

@@ -35,3 +35,21 @@ export const showNotification = (message: string, config : {
             });
     }
 }
+
+export const showNotificationConfig = {
+    name       : "showNotification",
+    importPath : "~/helpers/showNotification",
+    params     : [
+      {
+        name        : "message",
+        type        : "string",
+        description : "The message to show in the notification",
+      },
+      {
+        name        : "config",
+        type        : "object",
+        description : "The config for the notification",
+      },
+    ],
+    isDefaultExport : false,
+} as any;

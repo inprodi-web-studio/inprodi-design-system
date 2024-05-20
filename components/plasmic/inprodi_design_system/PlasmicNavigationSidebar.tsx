@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
-import Card from "~/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
 import MenuItem from "../../MenuItem"; // plasmic-import: KcpCffGmy6kt/component
 import MenuGroup from "../../MenuGroup"; // plasmic-import: VPuDrZG7cL_L/component
 
@@ -71,7 +69,7 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 5nPYJMkHKsudqrrya3SLGq/projectcss
 import sty from "./PlasmicNavigationSidebar.module.css"; // plasmic-import: rjCX_w8hD0o4/css
 
-import CaretUpDownsvgIcon from "./icons/PlasmicIcon__CaretUpDownsvg"; // plasmic-import: HuxtV9vRFLhq/icon
+import ScrollDuotonesvgIcon from "./icons/PlasmicIcon__ScrollDuotonesvg"; // plasmic-import: 8QgUleY3Rjyy/icon
 
 createPlasmicElementProxy;
 
@@ -82,24 +80,34 @@ export const PlasmicNavigationSidebar__VariantProps =
   new Array<VariantPropType>();
 
 export type PlasmicNavigationSidebar__ArgsType = {
-  dropdown2?: React.ReactNode;
+  topContent?: React.ReactNode;
   items?: React.ReactNode;
+  showTopSection?: boolean;
+  showFooter?: boolean;
+  footerContent?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicNavigationSidebar__ArgsType;
 export const PlasmicNavigationSidebar__ArgProps = new Array<ArgPropType>(
-  "dropdown2",
-  "items"
+  "topContent",
+  "items",
+  "showTopSection",
+  "showFooter",
+  "footerContent"
 );
 
 export type PlasmicNavigationSidebar__OverridesType = {
   navigationMenu?: Flex__<"div">;
-  topContent?: Flex__<"div">;
+  topSection?: Flex__<"div">;
   menu?: Flex__<"div">;
+  footer?: Flex__<"div">;
 };
 
 export interface DefaultNavigationSidebarProps {
-  dropdown2?: React.ReactNode;
+  topContent?: React.ReactNode;
   items?: React.ReactNode;
+  showTopSection?: boolean;
+  showFooter?: boolean;
+  footerContent?: React.ReactNode;
   className?: string;
 }
 
@@ -120,7 +128,17 @@ function PlasmicNavigationSidebar__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {
+          showTopSection: true,
+          showFooter: true
+        },
+        props.args
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -151,58 +169,30 @@ function PlasmicNavigationSidebar__RenderFunc(props: {
         sty.navigationMenu
       )}
     >
-      <div
-        data-plasmic-name={"topContent"}
-        data-plasmic-override={overrides.topContent}
-        className={classNames(projectcss.all, sty.topContent)}
-      >
-        {renderPlasmicSlot({
-          defaultContents: (
-            <DropdownConfig
-              className={classNames("__wab_instance", sty.dropdown__xqkTb)}
-              content={
-                <Card
-                  className={classNames("__wab_instance", sty.card__j6Jzq)}
-                  content={
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox___1FNF)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__zTbI
-                        )}
-                      >
-                        {"Aplicaci\u00f3n"}
-                      </div>
-                      <CaretUpDownsvgIcon
-                        className={classNames(projectcss.all, sty.svg__wb2Kx)}
-                        role={"img"}
-                      />
-                    </Stack__>
-                  }
-                  description={"Card description"}
-                  loading={false}
-                  padding={"7px 12px"}
-                  shadow={"sm"}
-                  showTitle={false}
-                  title={"Card Title"}
-                  width={"100%"}
-                />
-              }
-              dropdownStyle={{ width: "100%", padding: "4px" }}
-              isLoading={false}
-              isSearchable={false}
-              trigger={"click"}
-            />
-          ),
-
-          value: args.dropdown2
-        })}
-      </div>
+      {(() => {
+        try {
+          return $props.showTopSection;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          data-plasmic-name={"topSection"}
+          data-plasmic-override={overrides.topSection}
+          className={classNames(projectcss.all, sty.topSection)}
+        >
+          {renderPlasmicSlot({
+            defaultContents: null,
+            value: args.topContent
+          })}
+        </div>
+      ) : null}
       <div
         data-plasmic-name={"menu"}
         data-plasmic-override={overrides.menu}
@@ -238,22 +228,48 @@ function PlasmicNavigationSidebar__RenderFunc(props: {
           value: args.items
         })}
       </div>
+      {(() => {
+        try {
+          return $props.showFooter;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          data-plasmic-name={"footer"}
+          data-plasmic-override={overrides.footer}
+          className={classNames(projectcss.all, sty.footer)}
+        >
+          {renderPlasmicSlot({
+            defaultContents: null,
+            value: args.footerContent
+          })}
+        </div>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  navigationMenu: ["navigationMenu", "topContent", "menu"],
-  topContent: ["topContent"],
-  menu: ["menu"]
+  navigationMenu: ["navigationMenu", "topSection", "menu", "footer"],
+  topSection: ["topSection"],
+  menu: ["menu"],
+  footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   navigationMenu: "div";
-  topContent: "div";
+  topSection: "div";
   menu: "div";
+  footer: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -316,8 +332,9 @@ export const PlasmicNavigationSidebar = Object.assign(
   makeNodeComponent("navigationMenu"),
   {
     // Helper components rendering sub-elements
-    topContent: makeNodeComponent("topContent"),
+    topSection: makeNodeComponent("topSection"),
     menu: makeNodeComponent("menu"),
+    footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicNavigationSidebar
     internalVariantProps: PlasmicNavigationSidebar__VariantProps,

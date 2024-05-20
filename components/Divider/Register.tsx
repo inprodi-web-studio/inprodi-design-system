@@ -4,6 +4,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
     isDefaultExport?: boolean;
     states?: Record<string, any>;
+    styleSections?: any[] | boolean;
 }
 
 const DividerConfig : ExtendedCodeComponentMeta = {
@@ -12,6 +13,7 @@ const DividerConfig : ExtendedCodeComponentMeta = {
     importPath  : "~/components/Divider/Divider.tsx",
     isDefaultExport : true,
     displayName : "Divider",
+    styleSections : true,
     props : {
         text : {
             type         : "string",
@@ -33,6 +35,11 @@ const DividerConfig : ExtendedCodeComponentMeta = {
             displayName  : "Direction",
             options      : ["horizontal", "vertical"],
             defaultValue : "horizontal",
+        },
+        margin : {
+            type         : "string",
+            displayName  : "Margin",
+            defaultValue : "0px",
         },
         orientationMargin : {
             type         : "string",

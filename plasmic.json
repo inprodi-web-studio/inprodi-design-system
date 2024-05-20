@@ -680,6 +680,32 @@
           "cssFilePath": "plasmic/inprodi_design_system/PlasmicMenuGroup.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XOGoYay1a3bq",
+          "name": "DropdownItem",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicDropdownItem.tsx",
+          "importSpec": {
+            "modulePath": "DropdownItem.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicDropdownItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "gM0_8AzGkHlf",
+          "name": "TopBar",
+          "type": "managed",
+          "projectId": "5nPYJMkHKsudqrrya3SLGq",
+          "renderModuleFilePath": "plasmic/inprodi_design_system/PlasmicTopBar.tsx",
+          "importSpec": {
+            "modulePath": "TopBar.tsx"
+          },
+          "cssFilePath": "plasmic/inprodi_design_system/PlasmicTopBar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -732,9 +758,130 @@
           "id": "HuxtV9vRFLhq",
           "name": "CaretUpDownsvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CaretUpDownsvg.tsx"
+        },
+        {
+          "id": "una6cYu9eGPt",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "8FjrKP2CTIXm",
+          "name": "SquaresFourDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__SquaresFourDuotonesvg.tsx"
+        },
+        {
+          "id": "Njq7Nbjds8eW",
+          "name": "BookOpenTextDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__BookOpenTextDuotonesvg.tsx"
+        },
+        {
+          "id": "cD8pbIid7Rh-",
+          "name": "CalculatorDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CalculatorDuotonesvg.tsx"
+        },
+        {
+          "id": "q9Sh3ZeAVlsZ",
+          "name": "InvoiceDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__InvoiceDuotonesvg.tsx"
+        },
+        {
+          "id": "OBLrHdlk3Kno",
+          "name": "GraphDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__GraphDuotonesvg.tsx"
+        },
+        {
+          "id": "sPpjVMXLxkg6",
+          "name": "PercentDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PercentDuotonesvg.tsx"
+        },
+        {
+          "id": "nkPU5o-flthE",
+          "name": "PulseDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PulseDuotonesvg.tsx"
+        },
+        {
+          "id": "WGk2WycioW8T",
+          "name": "UserFocusDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__UserFocusDuotonesvg.tsx"
+        },
+        {
+          "id": "6gwtn6ebVbnz",
+          "name": "TargetDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__TargetDuotonesvg.tsx"
+        },
+        {
+          "id": "55fAUvSpBiba",
+          "name": "UsersThreeDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__UsersThreeDuotonesvg.tsx"
+        },
+        {
+          "id": "YD4YzjuVEb7_",
+          "name": "UserCircleDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__UserCircleDuotonesvg.tsx"
+        },
+        {
+          "id": "3RDgosQL0atO",
+          "name": "PlugsDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PlugsDuotonesvg.tsx"
+        },
+        {
+          "id": "oIoAtmih06sL",
+          "name": "PaletteDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PaletteDuotonesvg.tsx"
+        },
+        {
+          "id": "PBuTz8azmpWO",
+          "name": "CaretRightsvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CaretRightsvg.tsx"
+        },
+        {
+          "id": "Mt5KOySFDT22",
+          "name": "BuildingsDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__BuildingsDuotonesvg.tsx"
+        },
+        {
+          "id": "DrCMysTtKfMm",
+          "name": "ArrowLeftsvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__ArrowLeftsvg.tsx"
+        },
+        {
+          "id": "udynwHm0S3r8",
+          "name": "PhoneCallDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PhoneCallDuotonesvg.tsx"
+        },
+        {
+          "id": "cMrv_WveJmMP",
+          "name": "MailboxDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__MailboxDuotonesvg.tsx"
+        },
+        {
+          "id": "W6oixRWCrp9h",
+          "name": "CheckCircleDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CheckCircleDuotonesvg.tsx"
+        },
+        {
+          "id": "BKdwVE9CoTra",
+          "name": "MoneyWavyDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__MoneyWavyDuotonesvg.tsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "uycShD4tIw3d",
+          "name": "9375274_avatars_accounts_female_woman_people_icon.png",
+          "filePath": "../public/plasmic/inprodi_design_system/images/_9375274AvatarsAccountsFemaleWomanPeopleIconpng.png"
+        },
+        {
+          "id": "a6LhCZ_HELH3",
+          "name": "pro180-logo.png",
+          "filePath": "../public/plasmic/inprodi_design_system/images/pro180Logopng.png"
+        },
+        {
+          "id": "_8bYQc1MVZgy",
+          "name": "COLOMOS_00_HUEVOS_DE_PASCUA_2024_24ff3f4472.jpg",
+          "filePath": "../public/plasmic/inprodi_design_system/images/colomos00HuevosDePascua202424Ff3F4472Jpg.jpg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/inprodi_design_system/PlasmicGlobalContextsProvider.tsx",
       "splitsProviderFilePath": "",
@@ -798,6 +945,18 @@
           "name": "DropdownConfig",
           "displayName": "DropdownConfig",
           "componentImportPath": "~/components/Dropdown/Dropdown.tsx"
+        },
+        {
+          "id": "AOR__s9wDoG_",
+          "name": "AppGlobalContext",
+          "displayName": "AppGlobalContext",
+          "componentImportPath": "./components/AppGlobalContext"
+        },
+        {
+          "id": "tNcz9rhbc3sz",
+          "name": "Avatar",
+          "displayName": "Avatar",
+          "componentImportPath": "~/components/Avatar/Avatar.tsx"
         }
       ],
       "customFunctions": [
@@ -813,6 +972,13 @@
           "id": "showNotification",
           "importPath": "~/helpers/showNotification",
           "name": "showNotification",
+          "namespace": null
+        },
+        {
+          "defaultExport": false,
+          "id": "getApps",
+          "importPath": "~/helpers/appsHelpers",
+          "name": "getApps",
           "namespace": null
         }
       ]

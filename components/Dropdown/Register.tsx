@@ -5,12 +5,14 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     props: Record<string, any>;
     isDefaultExport?: boolean;
     states?: Record<string, any>;
+    styleSections?: any[] | boolean;
 }
 
 const DropdownConfig : ExtendedCodeComponentMeta = {
     id            : "dropdown-config",
     name          : "DropdownConfig",
     importPath    : "~/components/Dropdown/Dropdown.tsx",
+    styleSections : true,
     isDefaultExport : true,
     displayName   : "Dropdown",
     states : {
@@ -28,8 +30,8 @@ const DropdownConfig : ExtendedCodeComponentMeta = {
             defaultValue : false,
         },
         content : {
-            type         : "slot",
-            displayName  : "Content",
+            type          : "slot",
+            displayName   : "Content",
         },
         dropdownContent : {
             type         : "slot",
@@ -39,7 +41,7 @@ const DropdownConfig : ExtendedCodeComponentMeta = {
             type         : "object",
             displayName  : "Dropdown Style",
             defaultValue : {
-                width   : "100%",
+                width   : "auto",
                 padding : "4px",
             }
         },
