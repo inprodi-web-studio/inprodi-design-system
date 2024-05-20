@@ -178,6 +178,25 @@ function PlasmicMenuItem__RenderFunc(props: {
         sty.menuItem,
         { [sty.menuItemisActive]: hasVariant($state, "isActive", "isActive") }
       )}
+      onClick={async event => {
+        const $steps = {};
+
+        $steps["runOnClick"] = true
+          ? (() => {
+              const actionArgs = { eventRef: $props["onClick"] };
+              return (({ eventRef, args }) => {
+                return eventRef?.(...(args ?? []));
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["runOnClick"] != null &&
+          typeof $steps["runOnClick"] === "object" &&
+          typeof $steps["runOnClick"].then === "function"
+        ) {
+          $steps["runOnClick"] = await $steps["runOnClick"];
+        }
+      }}
     >
       {renderPlasmicSlot({
         defaultContents: (
