@@ -85,12 +85,14 @@ export type PlasmicMenuItem__ArgsType = {
   onIsActiveChange?: (val: any) => void;
   icon2?: React.ReactNode;
   label?: React.ReactNode;
+  onClick?: () => void;
 };
 type ArgPropType = keyof PlasmicMenuItem__ArgsType;
 export const PlasmicMenuItem__ArgProps = new Array<ArgPropType>(
   "onIsActiveChange",
   "icon2",
-  "label"
+  "label",
+  "onClick"
 );
 
 export type PlasmicMenuItem__OverridesType = {
@@ -101,6 +103,7 @@ export interface DefaultMenuItemProps {
   onIsActiveChange?: (val: any) => void;
   icon2?: React.ReactNode;
   label?: React.ReactNode;
+  onClick?: () => void;
   isActive?: SingleBooleanChoiceArg<"isActive">;
   className?: string;
 }
