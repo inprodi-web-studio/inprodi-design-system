@@ -403,14 +403,19 @@
           "checksum": "b8557251a44ce6b083a2d4f9cbb19d6b"
         },
         {
+          "type": "icon",
+          "assetId": "L1X9CaHpNz_8",
+          "checksum": "cb18d834e050f55074fba14b2c8f5a20"
+        },
+        {
           "assetId": "5nPYJMkHKsudqrrya3SLGq",
           "type": "projectCss",
           "checksum": "edd127b90cf004362ea368fd3ac078b0"
         },
         {
           "type": "icon",
-          "assetId": "L1X9CaHpNz_8",
-          "checksum": "cb18d834e050f55074fba14b2c8f5a20"
+          "assetId": "Oid9fhxcpHn2",
+          "checksum": "e3b8e90e602abd1103bcc7a84917d619"
         }
       ],
       "codegenVersion": "0.0.1"

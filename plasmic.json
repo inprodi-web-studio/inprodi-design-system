@@ -868,6 +868,11 @@
           "id": "L1X9CaHpNz_8",
           "name": "CloudArrowUpDuotonesvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CloudArrowUpDuotonesvg.tsx"
+        },
+        {
+          "id": "Oid9fhxcpHn2",
+          "name": "CloudArrowUpsvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CloudArrowUpsvg.tsx"
         }
       ],
       "images": [
