@@ -91,6 +91,7 @@ export type PlasmicForms__OverridesType = {
   formField2?: Flex__<typeof FormField>;
   passwordInput?: Flex__<typeof PasswordInput>;
   button?: Flex__<typeof Button>;
+  textInput2?: Flex__<typeof TextInput>;
 };
 
 export interface DefaultFormsProps {}
@@ -153,12 +154,6 @@ function PlasmicForms__RenderFunc(props: {
         })
       },
       {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
-      },
-      {
         path: "formField.error",
         type: "private",
         variableType: "text",
@@ -198,6 +193,18 @@ function PlasmicForms__RenderFunc(props: {
       },
       {
         path: "passwordInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "textInput2.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -557,6 +564,47 @@ function PlasmicForms__RenderFunc(props: {
             validation={generateStateValueProp($state, ["form", "validation"])}
             values={generateStateValueProp($state, ["form", "values"])}
           />
+
+          <TextInput
+            data-plasmic-name={"textInput2"}
+            data-plasmic-override={overrides.textInput2}
+            allowClear={false}
+            className={classNames("__wab_instance", sty.textInput2)}
+            defaultValue={""}
+            disabled={false}
+            leftIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__a74VW
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            onChange={generateStateOnChangeProp($state, [
+              "textInput2",
+              "value"
+            ])}
+            placeholder={"Placeholder"}
+            rightIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qtXga
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            showLeftIcon={false}
+            showRightIcon={false}
+            size={"middle"}
+            value={generateStateValueProp($state, ["textInput2", "value"])}
+            variant={"outlined"}
+          />
         </Stack__>
       </div>
     </React.Fragment>
@@ -571,7 +619,8 @@ const PlasmicDescendants = {
     "textInput",
     "formField2",
     "passwordInput",
-    "button"
+    "button",
+    "textInput2"
   ],
   form: [
     "form",
@@ -585,7 +634,8 @@ const PlasmicDescendants = {
   textInput: ["textInput"],
   formField2: ["formField2", "passwordInput"],
   passwordInput: ["passwordInput"],
-  button: ["button"]
+  button: ["button"],
+  textInput2: ["textInput2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -598,6 +648,7 @@ type NodeDefaultElementType = {
   formField2: typeof FormField;
   passwordInput: typeof PasswordInput;
   button: typeof Button;
+  textInput2: typeof TextInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -666,6 +717,7 @@ export const PlasmicForms = Object.assign(
     formField2: makeNodeComponent("formField2"),
     passwordInput: makeNodeComponent("passwordInput"),
     button: makeNodeComponent("button"),
+    textInput2: makeNodeComponent("textInput2"),
 
     // Metadata about props expected for PlasmicForms
     internalVariantProps: PlasmicForms__VariantProps,
