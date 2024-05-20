@@ -843,6 +843,26 @@
           "id": "DrCMysTtKfMm",
           "name": "ArrowLeftsvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__ArrowLeftsvg.tsx"
+        },
+        {
+          "id": "udynwHm0S3r8",
+          "name": "PhoneCallDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PhoneCallDuotonesvg.tsx"
+        },
+        {
+          "id": "cMrv_WveJmMP",
+          "name": "MailboxDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__MailboxDuotonesvg.tsx"
+        },
+        {
+          "id": "W6oixRWCrp9h",
+          "name": "CheckCircleDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CheckCircleDuotonesvg.tsx"
+        },
+        {
+          "id": "BKdwVE9CoTra",
+          "name": "MoneyWavyDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__MoneyWavyDuotonesvg.tsx"
         }
       ],
       "images": [

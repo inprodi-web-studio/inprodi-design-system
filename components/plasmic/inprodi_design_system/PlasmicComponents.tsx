@@ -262,6 +262,7 @@ function PlasmicComponents__RenderFunc(props: {
             })}
             dashed={true}
             direction={"horizontal"}
+            margin={"0px"}
             orientation={"left"}
             orientationMargin={"0px"}
             plain={false}
