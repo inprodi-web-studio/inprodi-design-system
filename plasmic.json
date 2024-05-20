@@ -808,6 +808,41 @@
           "id": "6gwtn6ebVbnz",
           "name": "TargetDuotonesvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__TargetDuotonesvg.tsx"
+        },
+        {
+          "id": "55fAUvSpBiba",
+          "name": "UsersThreeDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__UsersThreeDuotonesvg.tsx"
+        },
+        {
+          "id": "YD4YzjuVEb7_",
+          "name": "UserCircleDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__UserCircleDuotonesvg.tsx"
+        },
+        {
+          "id": "3RDgosQL0atO",
+          "name": "PlugsDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PlugsDuotonesvg.tsx"
+        },
+        {
+          "id": "oIoAtmih06sL",
+          "name": "PaletteDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__PaletteDuotonesvg.tsx"
+        },
+        {
+          "id": "PBuTz8azmpWO",
+          "name": "CaretRightsvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CaretRightsvg.tsx"
+        },
+        {
+          "id": "Mt5KOySFDT22",
+          "name": "BuildingsDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__BuildingsDuotonesvg.tsx"
+        },
+        {
+          "id": "DrCMysTtKfMm",
+          "name": "ArrowLeftsvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__ArrowLeftsvg.tsx"
         }
       ],
       "images": [
