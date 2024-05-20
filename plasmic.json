@@ -957,6 +957,12 @@
           "name": "Avatar",
           "displayName": "Avatar",
           "componentImportPath": "~/components/Avatar/Avatar.tsx"
+        },
+        {
+          "id": "kui0sW16i0RA",
+          "name": "UploadAndCrop",
+          "displayName": "UploadAndCrop",
+          "componentImportPath": "~/components/UploadAndCrop/UploadAndCrop.tsx"
         }
       ],
       "customFunctions": [

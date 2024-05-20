@@ -60,8 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import TitleText from "../../TitleText"; // plasmic-import: NxJEJ3yCzHgk/component
-import PasswordInput from "~/components/PasswordInput/PasswordInput.tsx"; // plasmic-import: Tuix-QVl_vRD/codeComponent
-import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -91,8 +89,6 @@ export type PlasmicTypographies__OverridesType = {
   smText4?: Flex__<"div">;
   titles?: Flex__<"div">;
   titleText?: Flex__<"div">;
-  passwordInput?: Flex__<typeof PasswordInput>;
-  textInput?: Flex__<typeof TextInput>;
 };
 
 export interface DefaultTypographiesProps {}
@@ -127,30 +123,6 @@ function PlasmicTypographies__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "passwordInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
 
   return (
     <React.Fragment>
@@ -424,97 +396,6 @@ function PlasmicTypographies__RenderFunc(props: {
               }
             />
           </Stack__>
-          <PasswordInput
-            data-plasmic-name={"passwordInput"}
-            data-plasmic-override={overrides.passwordInput}
-            addonAfter={(() => {
-              try {
-                return undefined;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            allowClear={false}
-            className={classNames("__wab_instance", sty.passwordInput)}
-            defaultValue={""}
-            disabled={false}
-            leftIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___5Oha
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            onChange={generateStateOnChangeProp($state, [
-              "passwordInput",
-              "value"
-            ])}
-            placeholder={"••••••••••••"}
-            rightIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ahUHm
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            showLeftIcon={false}
-            showRightIcon={false}
-            size={"middle"}
-            value={generateStateValueProp($state, ["passwordInput", "value"])}
-            variant={"outlined"}
-          />
-
-          <TextInput
-            data-plasmic-name={"textInput"}
-            data-plasmic-override={overrides.textInput}
-            allowClear={false}
-            className={classNames("__wab_instance", sty.textInput)}
-            defaultValue={""}
-            disabled={false}
-            leftIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__uImH7
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            onChange={generateStateOnChangeProp($state, ["textInput", "value"])}
-            placeholder={"Placeholder"}
-            rightIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tPxer
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            showLeftIcon={false}
-            showRightIcon={false}
-            size={"middle"}
-            value={generateStateValueProp($state, ["textInput", "value"])}
-            variant={"outlined"}
-          />
         </Stack__>
       </div>
     </React.Fragment>
@@ -531,9 +412,7 @@ const PlasmicDescendants = {
     "smText3",
     "smText4",
     "titles",
-    "titleText",
-    "passwordInput",
-    "textInput"
+    "titleText"
   ],
   texts: ["texts", "xsText", "smText", "smText2", "smText3", "smText4"],
   xsText: ["xsText"],
@@ -542,9 +421,7 @@ const PlasmicDescendants = {
   smText3: ["smText3"],
   smText4: ["smText4"],
   titles: ["titles"],
-  titleText: ["titleText"],
-  passwordInput: ["passwordInput"],
-  textInput: ["textInput"]
+  titleText: ["titleText"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -559,8 +436,6 @@ type NodeDefaultElementType = {
   smText4: "div";
   titles: "div";
   titleText: "div";
-  passwordInput: typeof PasswordInput;
-  textInput: typeof TextInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -631,8 +506,6 @@ export const PlasmicTypographies = Object.assign(
     smText4: makeNodeComponent("smText4"),
     titles: makeNodeComponent("titles"),
     titleText: makeNodeComponent("titleText"),
-    passwordInput: makeNodeComponent("passwordInput"),
-    textInput: makeNodeComponent("textInput"),
 
     // Metadata about props expected for PlasmicTypographies
     internalVariantProps: PlasmicTypographies__VariantProps,

@@ -64,6 +64,7 @@ import FormField from "../../FormField"; // plasmic-import: yLHiIXcGvJuv/compone
 import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
 import PasswordInput from "~/components/PasswordInput/PasswordInput.tsx"; // plasmic-import: Tuix-QVl_vRD/codeComponent
 import Button from "~/components/Button/Button.tsx"; // plasmic-import: kQTcb2I1HqhX/codeComponent
+import UploadAndCrop from "~/components/UploadAndCrop/UploadAndCrop.tsx"; // plasmic-import: kui0sW16i0RA/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -92,6 +93,7 @@ export type PlasmicForms__OverridesType = {
   passwordInput?: Flex__<typeof PasswordInput>;
   button?: Flex__<typeof Button>;
   textInput2?: Flex__<typeof TextInput>;
+  uploadAndCrop?: Flex__<typeof UploadAndCrop>;
 };
 
 export interface DefaultFormsProps {}
@@ -208,6 +210,18 @@ function PlasmicForms__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "uploadAndCrop.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "uploadAndCrop.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -568,6 +582,19 @@ function PlasmicForms__RenderFunc(props: {
           <TextInput
             data-plasmic-name={"textInput2"}
             data-plasmic-override={overrides.textInput2}
+            addonAfter={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             allowClear={false}
             className={classNames("__wab_instance", sty.textInput2)}
             defaultValue={""}
@@ -605,6 +632,67 @@ function PlasmicForms__RenderFunc(props: {
             value={generateStateValueProp($state, ["textInput2", "value"])}
             variant={"outlined"}
           />
+
+          <UploadAndCrop
+            data-plasmic-name={"uploadAndCrop"}
+            data-plasmic-override={overrides.uploadAndCrop}
+            className={classNames("__wab_instance", sty.uploadAndCrop)}
+            disabled={false}
+            loading={generateStateValueProp($state, [
+              "uploadAndCrop",
+              "loading"
+            ])}
+            onChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "uploadAndCrop",
+                "value"
+              ]).apply(null, eventArgs);
+              (async () => {
+                const $steps = {};
+
+                $steps["updateUploadAndCropValue"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["uploadAndCrop", "value"]
+                        },
+                        operation: 0
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateUploadAndCropValue"] != null &&
+                  typeof $steps["updateUploadAndCropValue"] === "object" &&
+                  typeof $steps["updateUploadAndCropValue"].then === "function"
+                ) {
+                  $steps["updateUploadAndCropValue"] = await $steps[
+                    "updateUploadAndCropValue"
+                  ];
+                }
+              }).apply(null, eventArgs);
+            }}
+            onLoadingChange={generateStateOnChangeProp($state, [
+              "uploadAndCrop",
+              "loading"
+            ])}
+            type={"button"}
+            value={generateStateValueProp($state, ["uploadAndCrop", "value"])}
+          />
         </Stack__>
       </div>
     </React.Fragment>
@@ -620,7 +708,8 @@ const PlasmicDescendants = {
     "formField2",
     "passwordInput",
     "button",
-    "textInput2"
+    "textInput2",
+    "uploadAndCrop"
   ],
   form: [
     "form",
@@ -635,7 +724,8 @@ const PlasmicDescendants = {
   formField2: ["formField2", "passwordInput"],
   passwordInput: ["passwordInput"],
   button: ["button"],
-  textInput2: ["textInput2"]
+  textInput2: ["textInput2"],
+  uploadAndCrop: ["uploadAndCrop"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -649,6 +739,7 @@ type NodeDefaultElementType = {
   passwordInput: typeof PasswordInput;
   button: typeof Button;
   textInput2: typeof TextInput;
+  uploadAndCrop: typeof UploadAndCrop;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -718,6 +809,7 @@ export const PlasmicForms = Object.assign(
     passwordInput: makeNodeComponent("passwordInput"),
     button: makeNodeComponent("button"),
     textInput2: makeNodeComponent("textInput2"),
+    uploadAndCrop: makeNodeComponent("uploadAndCrop"),
 
     // Metadata about props expected for PlasmicForms
     internalVariantProps: PlasmicForms__VariantProps,
