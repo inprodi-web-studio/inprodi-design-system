@@ -169,16 +169,30 @@ function PlasmicNavigationSidebar__RenderFunc(props: {
         sty.navigationMenu
       )}
     >
-      <div
-        data-plasmic-name={"topSection"}
-        data-plasmic-override={overrides.topSection}
-        className={classNames(projectcss.all, sty.topSection)}
-      >
-        {renderPlasmicSlot({
-          defaultContents: null,
-          value: args.topContent
-        })}
-      </div>
+      {(() => {
+        try {
+          return $props.showTopSection;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          data-plasmic-name={"topSection"}
+          data-plasmic-override={overrides.topSection}
+          className={classNames(projectcss.all, sty.topSection)}
+        >
+          {renderPlasmicSlot({
+            defaultContents: null,
+            value: args.topContent
+          })}
+        </div>
+      ) : null}
       <div
         data-plasmic-name={"menu"}
         data-plasmic-override={overrides.menu}
@@ -214,16 +228,30 @@ function PlasmicNavigationSidebar__RenderFunc(props: {
           value: args.items
         })}
       </div>
-      <div
-        data-plasmic-name={"footer"}
-        data-plasmic-override={overrides.footer}
-        className={classNames(projectcss.all, sty.footer)}
-      >
-        {renderPlasmicSlot({
-          defaultContents: null,
-          value: args.footerContent
-        })}
-      </div>
+      {(() => {
+        try {
+          return $props.showFooter;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          data-plasmic-name={"footer"}
+          data-plasmic-override={overrides.footer}
+          className={classNames(projectcss.all, sty.footer)}
+        >
+          {renderPlasmicSlot({
+            defaultContents: null,
+            value: args.footerContent
+          })}
+        </div>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
