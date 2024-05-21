@@ -110,25 +110,6 @@
   color: var(--token-n3trVzkrA_FT);
   min-width: 0;
 }
-.textInput__wp59:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-}
-.text__mdE {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text__h4Ypg {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .errorContainer {
   display: flex;
   position: relative;

@@ -60,7 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
-import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -404,42 +403,7 @@ function PlasmicFormField__RenderFunc(props: {
         </div>
       ) : null}
       {renderPlasmicSlot({
-        defaultContents: (
-          <TextInput
-            allowClear={false}
-            className={classNames("__wab_instance", sty.textInput__wp59)}
-            defaultValue={""}
-            disabled={false}
-            leftIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__mdE
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            placeholder={"Placeholder"}
-            rightIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__h4Ypg
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            showLeftIcon={false}
-            showRightIcon={false}
-            size={"middle"}
-            variant={"outlined"}
-          />
-        ),
-
+        defaultContents: null,
         value: args.input
       })}
       {(() => {
