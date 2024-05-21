@@ -211,7 +211,7 @@ function PlasmicForms__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "cropper.value",
+        path: "cropper.file",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -631,7 +631,7 @@ function PlasmicForms__RenderFunc(props: {
               />
             }
             onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["cropper", "value"]).apply(
+              generateStateOnChangeProp($state, ["cropper", "file"]).apply(
                 null,
                 eventArgs
               );
@@ -677,7 +677,7 @@ function PlasmicForms__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            value={generateStateValueProp($state, ["cropper", "value"])}
+            value={generateStateValueProp($state, ["cropper", "file"])}
           />
         </Stack__>
       </div>

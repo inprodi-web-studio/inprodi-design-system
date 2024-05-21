@@ -873,6 +873,11 @@
           "id": "Oid9fhxcpHn2",
           "name": "CloudArrowUpsvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CloudArrowUpsvg.tsx"
+        },
+        {
+          "id": "atNgaTwxLJjU",
+          "name": "FloppyDiskBacksvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__FloppyDiskBacksvg.tsx"
         }
       ],
       "images": [
