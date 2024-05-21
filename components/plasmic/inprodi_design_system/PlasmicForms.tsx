@@ -573,7 +573,6 @@ function PlasmicForms__RenderFunc(props: {
           <TextInput
             data-plasmic-name={"textInput2"}
             data-plasmic-override={overrides.textInput2}
-            addonAfter={``}
             allowClear={false}
             className={classNames("__wab_instance", sty.textInput2)}
             defaultValue={""}
@@ -639,14 +638,17 @@ function PlasmicForms__RenderFunc(props: {
               (async file => {
                 const $steps = {};
 
-                $steps["updateFormValues"] = true
+                $steps["updateCropperValue"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
                           objRoot: $state,
-                          variablePath: ["form", "values"]
+                          variablePath: ["cropper", "value"]
                         },
-                        operation: 0
+                        operation: 0,
+                        value: {
+                          tester: "hello world"
+                        }
                       };
                       return (({
                         variable,
@@ -665,14 +667,17 @@ function PlasmicForms__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["updateFormValues"] != null &&
-                  typeof $steps["updateFormValues"] === "object" &&
-                  typeof $steps["updateFormValues"].then === "function"
+                  $steps["updateCropperValue"] != null &&
+                  typeof $steps["updateCropperValue"] === "object" &&
+                  typeof $steps["updateCropperValue"].then === "function"
                 ) {
-                  $steps["updateFormValues"] = await $steps["updateFormValues"];
+                  $steps["updateCropperValue"] = await $steps[
+                    "updateCropperValue"
+                  ];
                 }
               }).apply(null, eventArgs);
             }}
+            value={generateStateValueProp($state, ["cropper", "value"])}
           />
         </Stack__>
       </div>
