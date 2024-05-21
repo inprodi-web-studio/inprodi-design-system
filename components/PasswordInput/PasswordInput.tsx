@@ -41,12 +41,13 @@ export default function PasswordInput({
     showLeftIcon,
     showRightIcon,
 } : PasswordInputProps) {
+
     return (
         <Input.Password
             size={size}
             value={value}
-            variant={variant}
             status={status}
+            variant={variant}
             prefix={showLeftIcon && leftIcon}
             onChange={ (e : any ) => onChange( e.target.value ) }
             suffix={showRightIcon && rightIcon}

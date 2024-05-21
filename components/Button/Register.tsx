@@ -76,6 +76,12 @@ const ButtonConfig : ExtendedCodeComponentMeta = {
             defaultValue : false,
             advanced     : true,
         },
+        onClick : {
+            type         : "eventHandler",
+            argTypes     : [],
+            displayName  : "On Click",
+            advanced     : true,
+        },
     }
 };
 

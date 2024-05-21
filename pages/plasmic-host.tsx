@@ -4,6 +4,7 @@ import { PlasmicCanvasHost, registerComponent, registerFunction, registerGlobalC
 import Card                  from "@/components/Card/Card";
 import Button                from "@/components/Button/Button";
 import Avatar                from "@/components/Avatar/Avatar";
+import Cropper               from "@/components/Cropper/Cropper";
 import Divider               from "@/components/Divider/Divider";
 import Dropdown              from "@/components/Dropdown/Dropdown";
 import TextInput             from "@/components/TextInput/TextInput";
@@ -12,13 +13,15 @@ import AvatarConfig          from "@/components/Avatar/Register";
 import ButtonConfig          from "@/components/Button/Register";
 import DividerConfig         from "@/components/Divider/Register";
 import PasswordInput         from "@/components/PasswordInput/PasswordInput";
+import CropperConfig         from "@/components/Cropper/Register";
 import DropdownConfig        from "@/components/Dropdown/Register";
 import AnimatedNumber        from "@/components/AnimatedNumber/AnimatedNumber";
 import TextInputConfig       from "@/components/TextInput/Register";
 import PasswordInputConfig   from "@/components/PasswordInput/Register";
 import AnimatedNumberConfig  from "@/components/AnimatedNumber/Register";
-import { AuthGlobalContext } from "@/components/AuthGlobalContext";
 import { AppGlobalContext }  from "@/components/AppGlobalContext";
+import { AuthGlobalContext } from "@/components/AuthGlobalContext";
+
 import { showNotification, showNotificationConfig } from "@/helpers/showNotification";
 import { validateEmail, validateEmailConfig } from "@/helpers/validateEmail";
 import { getApps, getAppsConfig } from "@/helpers/appsHelpers";
@@ -31,6 +34,7 @@ registerComponent( Divider, DividerConfig );
 registerComponent( Dropdown, DropdownConfig );
 registerComponent( TextInput, TextInputConfig);
 registerComponent( PasswordInput, PasswordInputConfig );
+registerComponent( Cropper, CropperConfig );
 registerComponent( AnimatedNumber, AnimatedNumberConfig );
 
 // Functions

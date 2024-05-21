@@ -863,6 +863,21 @@
           "id": "BKdwVE9CoTra",
           "name": "MoneyWavyDuotonesvgIcon",
           "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__MoneyWavyDuotonesvg.tsx"
+        },
+        {
+          "id": "L1X9CaHpNz_8",
+          "name": "CloudArrowUpDuotonesvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CloudArrowUpDuotonesvg.tsx"
+        },
+        {
+          "id": "Oid9fhxcpHn2",
+          "name": "CloudArrowUpsvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__CloudArrowUpsvg.tsx"
+        },
+        {
+          "id": "atNgaTwxLJjU",
+          "name": "FloppyDiskBacksvgIcon",
+          "moduleFilePath": "plasmic/inprodi_design_system/icons/PlasmicIcon__FloppyDiskBacksvg.tsx"
         }
       ],
       "images": [
@@ -957,6 +972,12 @@
           "name": "Avatar",
           "displayName": "Avatar",
           "componentImportPath": "~/components/Avatar/Avatar.tsx"
+        },
+        {
+          "id": "8amRQDDyzNMI",
+          "name": "Cropper",
+          "displayName": "Cropper",
+          "componentImportPath": "~/components/Cropper/Cropper.tsx"
         }
       ],
       "customFunctions": [

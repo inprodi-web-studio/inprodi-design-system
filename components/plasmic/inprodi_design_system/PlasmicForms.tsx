@@ -64,6 +64,7 @@ import FormField from "../../FormField"; // plasmic-import: yLHiIXcGvJuv/compone
 import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
 import PasswordInput from "~/components/PasswordInput/PasswordInput.tsx"; // plasmic-import: Tuix-QVl_vRD/codeComponent
 import Button from "~/components/Button/Button.tsx"; // plasmic-import: kQTcb2I1HqhX/codeComponent
+import Cropper from "~/components/Cropper/Cropper.tsx"; // plasmic-import: 8amRQDDyzNMI/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -90,7 +91,8 @@ export type PlasmicForms__OverridesType = {
   textInput?: Flex__<typeof TextInput>;
   formField2?: Flex__<typeof FormField>;
   passwordInput?: Flex__<typeof PasswordInput>;
-  button?: Flex__<typeof Button>;
+  textInput2?: Flex__<typeof TextInput>;
+  cropper?: Flex__<typeof Cropper>;
 };
 
 export interface DefaultFormsProps {}
@@ -153,12 +155,6 @@ function PlasmicForms__RenderFunc(props: {
         })
       },
       {
-        path: "textInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
-      },
-      {
         path: "formField.error",
         type: "private",
         variableType: "text",
@@ -200,6 +196,24 @@ function PlasmicForms__RenderFunc(props: {
         path: "passwordInput.value",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "textInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "cropper.file",
+        type: "private",
+        variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -481,10 +495,8 @@ function PlasmicForms__RenderFunc(props: {
                 />
 
                 <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
                   block={true}
-                  className={classNames("__wab_instance", sty.button)}
+                  className={classNames("__wab_instance", sty.button__wqHp1)}
                   danger={false}
                   ghost={false}
                   icon={null}
@@ -557,6 +569,116 @@ function PlasmicForms__RenderFunc(props: {
             validation={generateStateValueProp($state, ["form", "validation"])}
             values={generateStateValueProp($state, ["form", "values"])}
           />
+
+          <TextInput
+            data-plasmic-name={"textInput2"}
+            data-plasmic-override={overrides.textInput2}
+            allowClear={false}
+            className={classNames("__wab_instance", sty.textInput2)}
+            defaultValue={""}
+            disabled={false}
+            leftIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__a74VW
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            onChange={generateStateOnChangeProp($state, [
+              "textInput2",
+              "value"
+            ])}
+            placeholder={"Placeholder"}
+            rightIcon={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qtXga
+                )}
+              >
+                {"Drop Icon"}
+              </div>
+            }
+            showLeftIcon={false}
+            showRightIcon={false}
+            size={"middle"}
+            value={generateStateValueProp($state, ["textInput2", "value"])}
+            variant={"outlined"}
+          />
+
+          <Cropper
+            data-plasmic-name={"cropper"}
+            data-plasmic-override={overrides.cropper}
+            className={classNames("__wab_instance", sty.cropper)}
+            content={
+              <Button
+                block={false}
+                className={classNames("__wab_instance", sty.button__e1Je2)}
+                danger={false}
+                ghost={false}
+                iconPosition={"start"}
+                isSubmit={false}
+                label={"Button"}
+                loading={false}
+                size={"middle"}
+                variant={"primary"}
+                withIcon={false}
+              />
+            }
+            onChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["cropper", "file"]).apply(
+                null,
+                eventArgs
+              );
+              (async file => {
+                const $steps = {};
+
+                $steps["updateCropperValue"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["cropper", "value"]
+                        },
+                        operation: 0,
+                        value: {
+                          tester: "hello world"
+                        }
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateCropperValue"] != null &&
+                  typeof $steps["updateCropperValue"] === "object" &&
+                  typeof $steps["updateCropperValue"].then === "function"
+                ) {
+                  $steps["updateCropperValue"] = await $steps[
+                    "updateCropperValue"
+                  ];
+                }
+              }).apply(null, eventArgs);
+            }}
+            value={generateStateValueProp($state, ["cropper", "file"])}
+          />
         </Stack__>
       </div>
     </React.Fragment>
@@ -571,21 +693,16 @@ const PlasmicDescendants = {
     "textInput",
     "formField2",
     "passwordInput",
-    "button"
+    "textInput2",
+    "cropper"
   ],
-  form: [
-    "form",
-    "formField",
-    "textInput",
-    "formField2",
-    "passwordInput",
-    "button"
-  ],
+  form: ["form", "formField", "textInput", "formField2", "passwordInput"],
   formField: ["formField", "textInput"],
   textInput: ["textInput"],
   formField2: ["formField2", "passwordInput"],
   passwordInput: ["passwordInput"],
-  button: ["button"]
+  textInput2: ["textInput2"],
+  cropper: ["cropper"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -597,7 +714,8 @@ type NodeDefaultElementType = {
   textInput: typeof TextInput;
   formField2: typeof FormField;
   passwordInput: typeof PasswordInput;
-  button: typeof Button;
+  textInput2: typeof TextInput;
+  cropper: typeof Cropper;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -665,7 +783,8 @@ export const PlasmicForms = Object.assign(
     textInput: makeNodeComponent("textInput"),
     formField2: makeNodeComponent("formField2"),
     passwordInput: makeNodeComponent("passwordInput"),
-    button: makeNodeComponent("button"),
+    textInput2: makeNodeComponent("textInput2"),
+    cropper: makeNodeComponent("cropper"),
 
     // Metadata about props expected for PlasmicForms
     internalVariantProps: PlasmicForms__VariantProps,

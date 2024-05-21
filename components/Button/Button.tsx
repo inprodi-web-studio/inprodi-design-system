@@ -13,6 +13,7 @@ export interface ButtonProps {
     isSubmit ?: boolean;
     size: "large" | "middle" | "small";
     variant: "primary" | "dashed" | "link" | "text" | "default";
+    className: string;
 };
 
 export default function Button({
@@ -28,9 +29,11 @@ export default function Button({
     loading,
     size,
     variant,
+    className,
 } : ButtonProps) {
     return (
         <AntButton
+            className={ className }
             htmlType={ isSubmit ? "submit" : "button" }
             block={block}
             danger={danger}

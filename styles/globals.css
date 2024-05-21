@@ -116,3 +116,8 @@ ul.ant-menu.ant-menu-root.ant-menu-vertical {
 .ant-tabs-tab {
     color: var(--plasmic-token-gray-6) !important;
 }
+
+.ant-btn {
+    display: flex;
+    align-items: center;
+}
