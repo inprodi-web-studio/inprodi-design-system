@@ -50,16 +50,6 @@
   object-fit: cover;
   position: relative;
 }
-.text___6J2B {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.textglobal_colorScheme_dark___6J2BOuga {
-  color: var(--token-DbGdjBpQ6R_X);
-}
 .animatedNumber:global(.__wab_instance) {
   font-size: 24px;
   line-height: 32px;

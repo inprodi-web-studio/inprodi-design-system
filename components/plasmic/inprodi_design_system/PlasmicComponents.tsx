@@ -269,22 +269,6 @@ function PlasmicComponents__RenderFunc(props: {
             text={"Text"}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___6J2B,
-              {
-                [sty.textglobal_colorScheme_dark___6J2BOuga]: hasVariant(
-                  globalVariants,
-                  "colorScheme",
-                  "dark"
-                )
-              }
-            )}
-          >
-            {"Enter some text"}
-          </div>
           <AnimatedNumber
             data-plasmic-name={"animatedNumber"}
             data-plasmic-override={overrides.animatedNumber}

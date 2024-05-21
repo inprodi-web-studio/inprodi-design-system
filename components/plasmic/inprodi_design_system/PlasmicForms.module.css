@@ -76,7 +76,7 @@
   max-width: 100%;
   min-width: 0;
 }
-.button:global(.__wab_instance) {
+.button__wqHp1:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
@@ -100,7 +100,12 @@
   max-width: 100%;
   min-width: 0;
 }
-.uploadAndCrop:global(.__wab_instance) {
+.cropper:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.button__e1Je2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;

@@ -969,10 +969,10 @@
           "componentImportPath": "~/components/Avatar/Avatar.tsx"
         },
         {
-          "id": "kui0sW16i0RA",
-          "name": "UploadAndCrop",
-          "displayName": "UploadAndCrop",
-          "componentImportPath": "~/components/UploadAndCrop/UploadAndCrop.tsx"
+          "id": "8amRQDDyzNMI",
+          "name": "Cropper",
+          "displayName": "Cropper",
+          "componentImportPath": "~/components/Cropper/Cropper.tsx"
         }
       ],
       "customFunctions": [

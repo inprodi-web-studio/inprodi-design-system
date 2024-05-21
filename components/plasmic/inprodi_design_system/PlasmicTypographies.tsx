@@ -89,6 +89,7 @@ export type PlasmicTypographies__OverridesType = {
   smText4?: Flex__<"div">;
   titles?: Flex__<"div">;
   titleText?: Flex__<"div">;
+  titleText2?: Flex__<typeof TitleText>;
 };
 
 export interface DefaultTypographiesProps {}
@@ -379,7 +380,9 @@ function PlasmicTypographies__RenderFunc(props: {
             className={classNames(projectcss.all, sty.titleText)}
           >
             <TitleText
-              className={classNames("__wab_instance", sty.titleText__qO2Gx)}
+              data-plasmic-name={"titleText2"}
+              data-plasmic-override={overrides.titleText2}
+              className={classNames("__wab_instance", sty.titleText2)}
               direction={"left"}
               secondaryText={"Complementary Text"}
               size={"md"}
@@ -412,7 +415,8 @@ const PlasmicDescendants = {
     "smText3",
     "smText4",
     "titles",
-    "titleText"
+    "titleText",
+    "titleText2"
   ],
   texts: ["texts", "xsText", "smText", "smText2", "smText3", "smText4"],
   xsText: ["xsText"],
@@ -421,7 +425,8 @@ const PlasmicDescendants = {
   smText3: ["smText3"],
   smText4: ["smText4"],
   titles: ["titles"],
-  titleText: ["titleText"]
+  titleText: ["titleText", "titleText2"],
+  titleText2: ["titleText2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -436,6 +441,7 @@ type NodeDefaultElementType = {
   smText4: "div";
   titles: "div";
   titleText: "div";
+  titleText2: typeof TitleText;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -506,6 +512,7 @@ export const PlasmicTypographies = Object.assign(
     smText4: makeNodeComponent("smText4"),
     titles: makeNodeComponent("titles"),
     titleText: makeNodeComponent("titleText"),
+    titleText2: makeNodeComponent("titleText2"),
 
     // Metadata about props expected for PlasmicTypographies
     internalVariantProps: PlasmicTypographies__VariantProps,
