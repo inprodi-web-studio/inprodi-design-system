@@ -1050,6 +1050,13 @@
           "importPath": "~/helpers/validatePhone",
           "name": "validatePhone",
           "namespace": null
+        },
+        {
+          "defaultExport": false,
+          "id": "validatePassword",
+          "importPath": "~/helpers/validatePassword",
+          "name": "validatePassword",
+          "namespace": null
         }
       ]
     }
