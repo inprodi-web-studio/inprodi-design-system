@@ -15,6 +15,8 @@ export interface DropdownProps {
     dropdownStyle: CSSProperties,
     isLoading: boolean,
     isSearchable: boolean,
+    onSearchValueChange: (val: any) => void,
+    searchValue?: string,
 };
 
 export default function Dropdown({
@@ -25,6 +27,8 @@ export default function Dropdown({
     dropdownStyle,
     isLoading,
     isSearchable,
+    searchValue,
+    onSearchValueChange,
 }: DropdownProps) {
     const { token } = useToken();
     const inputRef = useRef<InputRef>(null);
@@ -47,6 +51,11 @@ export default function Dropdown({
                 inputRef.current?.focus({ preventScroll: true });
             }, 0);
         }
+
+        if ( !open ) {
+            onSearchValueChange("");
+        }
+
         if (onOpenChange) {
             onOpenChange(open);
         }
@@ -68,10 +77,12 @@ export default function Dropdown({
                             <TextInput
                                 showLeftIcon
                                 size="small"
-                                ref={inputRef}
+                                // ref={inputRef}
+                                debounce={600}
+                                value={searchValue}
                                 leftIcon={<MagnifyingGlasssvgIcon color="rgba(0, 0, 0, 0.25)" />}
                                 variant="borderless"
-                                onChange={() => {}}
+                                onChange={(e) => onSearchValueChange( e )}
                                 placeholder="Buscar..."
                             />
                         </div>

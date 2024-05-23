@@ -18,18 +18,22 @@
     "@plasmicpkgs/antd5": "^0.0.234",
     "@plasmicpkgs/plasmic-basic-components": "^0.0.214",
     "@plasmicpkgs/plasmic-rich-components": "^1.0.184",
+    "@types/lodash.debounce": "^4.0.9",
     "antd": "^5.17.0",
     "antd-img-crop": "^4.22.0",
+    "lodash.debounce": "^4.0.8",
     "next": "^14.2.3",
     "react": "^18",
     "react-countup": "^6.5.3",
     "react-dom": "^18",
+    "react-input-mask": "^2.0.4",
     "sonner": "^1.4.41"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-input-mask": "^3.0.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "typescript": "^5"

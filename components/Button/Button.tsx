@@ -13,6 +13,7 @@ export interface ButtonProps {
     isSubmit ?: boolean;
     size: "large" | "middle" | "small";
     variant: "primary" | "dashed" | "link" | "text" | "default";
+    onClick ?: () => void;
     className: string;
 };
 
@@ -30,6 +31,7 @@ export default function Button({
     size,
     variant,
     className,
+    onClick,
 } : ButtonProps) {
     return (
         <AntButton
@@ -38,6 +40,7 @@ export default function Button({
             block={block}
             danger={danger}
             disabled={disabled}
+            onClick={onClick}
             ghost={ghost}
             icon={ withIcon ? icon : null }
             iconPosition={iconPosition}

@@ -6,16 +6,16 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
     states?: Record<string, any>;
 }
 
-const TextInputConfig : ExtendedCodeComponentMeta = {
-    id          : "text-input",
-    name        : "TextInput",
-    importPath  : "~/components/TextInput/TextInput.tsx",
+const NumberInputConfig : ExtendedCodeComponentMeta = {
+    id          : "number-input",
+    name        : "NumberInput",
+    importPath  : "~/components/NumberInput/NumberInput.tsx",
     isDefaultExport : true,
-    displayName : "Text Input",
+    displayName : "Number Input",
     states : {
         value : {
           type         : "writable",
-          variableType : "text",
+          variableType : "number",
           valueProp    : "value",
           onChangeProp : "onChange",
         },
@@ -24,7 +24,7 @@ const TextInputConfig : ExtendedCodeComponentMeta = {
         placeholder : {
             type         : "string",
             displayName  : "Placeholder",
-            defaultValue : "Placeholder",
+            defaultValue : "0.00",
         },
         size : {
             type         : "choice",
@@ -49,26 +49,12 @@ const TextInputConfig : ExtendedCodeComponentMeta = {
                     type: "text",
                     value: "Drop Icon",
                 },
-            ]
+            ],
+            hidden       : ({ showLeftIcon } : any) => !showLeftIcon,
         },
         addonAfter : {
             type        : "string",
             displayName : "Addon After",
-        },
-        showRightIcon : {
-            type        : "boolean",
-            displayName : "Show Right Icon",
-            defaultValue: false,
-        },
-        rightIcon : {
-            type        : "slot",
-            displayName : "Right Icon",
-            defaultValue: [
-                {
-                    type: "text",
-                    value: "Drop Icon",
-                },
-            ]
         },
         variant : {
             type         : "choice",
@@ -80,21 +66,15 @@ const TextInputConfig : ExtendedCodeComponentMeta = {
             ],
             defaultValue : "outlined",
         },
-        allowClear : {
-            type         : "boolean",
-            displayName  : "Allow Clear",
-            defaultValue : false,
-        },
-        debounce : {
+        precision : {
             type         : "number",
-            displayName  : "Debounce",
-            defaultValue : 0,
-            advanced     : true,
+            displayName  : "Precision",
+            defaultValue : 2,
         },
-        mask : {
-            type         : "string",
-            displayName  : "Mask",
-            advanced     : true,
+        step : {
+            type         : "number",
+            displayName  : "Step",
+            defaultValue : 1,
         },
         defaultValue : {
             type         : "string",
@@ -103,7 +83,7 @@ const TextInputConfig : ExtendedCodeComponentMeta = {
             advanced     : true,
         },
         value : {
-            type         : "string",
+            type         : "number",
             displayName  : "Value",
             advanced     : true,
         },
@@ -119,24 +99,13 @@ const TextInputConfig : ExtendedCodeComponentMeta = {
             defaultValue : false,
             advanced     : true,
         },
-        maxLength : {
-            type         : "number",
-            displayName  : "Max Length",
-            advanced     : true,
-        },
         onChange : {
             type        : "eventHandler",
             displayName : "On Change",
-            argTypes    : [{ name: "value", type: "string" }],
+            argTypes    : [{ name: "value", type: "number" }],
             advanced    : true,
         },
-        // onPressEnter : {
-        //     type        : "eventHandler",
-        //     displayName : "On Press Enter",
-        //     argTypes    : [{ name: "value", type: "string" }],
-        //     advanced    : true,
-        // }
     }
 };
 
-export default TextInputConfig;
+export default NumberInputConfig;

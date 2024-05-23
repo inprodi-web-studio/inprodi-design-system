@@ -9,7 +9,6 @@ export default function AnimatedNumber({
 } : AnimatedNumberProps) {
     return (
         <CountUp
-            redraw
             preserveValue
             enableScrollSpy
             decimal="."

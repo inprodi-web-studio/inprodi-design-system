@@ -26,6 +26,10 @@ export const AuthGlobalContext = ({ children }: React.PropsWithChildren) => {
             localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("currentApp", "crm");
         },
+        update : (user : {}) => {
+            setUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
+        },
         logout: () => {
             setToken("");
             setUser({});

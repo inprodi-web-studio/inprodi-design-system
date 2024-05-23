@@ -152,6 +152,12 @@ function PlasmicComponents__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dropdown.searchValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -280,6 +286,7 @@ function PlasmicComponents__RenderFunc(props: {
             data-plasmic-name={"statistic"}
             data-plasmic-override={overrides.statistic}
             className={classNames("__wab_instance", sty.statistic)}
+            prefix={``}
           />
 
           <AntdButton
@@ -343,7 +350,19 @@ function PlasmicComponents__RenderFunc(props: {
               "dropdownItem",
               "isSelected"
             ])}
-            leftSection={true}
+            leftSection={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
             onIsSelectedChange={generateStateOnChangeProp($state, [
               "dropdownItem",
               "isSelected"
@@ -381,6 +400,14 @@ function PlasmicComponents__RenderFunc(props: {
             onIsLoadingChange={generateStateOnChangeProp($state, [
               "dropdown",
               "isLoading"
+            ])}
+            onSearchValueChange={generateStateOnChangeProp($state, [
+              "dropdown",
+              "searchValue"
+            ])}
+            searchValue={generateStateValueProp($state, [
+              "dropdown",
+              "searchValue"
             ])}
             trigger={"click"}
           />

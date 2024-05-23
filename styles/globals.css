@@ -48,37 +48,47 @@ ul.ant-menu.ant-menu-root.ant-menu-vertical {
     border-radius: 6px !important;
 }
 
-.ant-input-group-wrapper {
-    margin: 0 !important;
+.ant-input-group-wrapper,
+.ant-input,
+.ant-input-number {
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 3px 0px, rgba(0, 0, 0, 0.02) 0px 1px 2px 0px;
 }
 
 .ant-input-group-wrapper-sm .ant-input,
 .ant-input-password-small,
-.ant-input-sm {
+.ant-input-sm,
+.ant-input-number-sm {
     line-height: 32px !important;
     font-size: 14px !important;
     padding-top: 0;
     padding-bottom: 0;
-    margin: 0 !important;
+    min-height: 34px;
+    max-height: 34px;
 }
 
 .ant-input-group-wrapper .ant-input,
 .ant-input-password-middle,
-.ant-input {
+.ant-input,
+.ant-input-number {
     line-height: 36px;
     font-size: 14px;
     padding-top: 0;
     padding-bottom: 0;
     border-radius: 6px;
+    min-height: 38px;
+    max-height: 38px;
 }
 
 .ant-input-group-wrapper-lg .ant-input,
 .ant-input-password-large,
-.ant-input-lg {
-    line-height: 40px !important;
+.ant-input-lg,
+.ant-input-number-lg {
+    line-height: 42px !important;
     font-size: 16px;
     padding-top: 0;
     padding-bottom: 0;
+    min-height: 44px;
+    max-height: 44px;
 }
 
 .ant-input-password input {
@@ -95,6 +105,15 @@ ul.ant-menu.ant-menu-root.ant-menu-vertical {
     font-size: 24px;
     line-height: 32px;
     color: var(--plasmic-token-black);
+}
+
+.vizion-select:hover {
+    border-color: var(--antd-colorInfoTextHover);
+}
+
+.vizion-select.focused {
+    border-color: var(--antd-colorInfo);
+    box-shadow : 0 0 0 2px rgba(5, 145, 255, 0.1);
 }
 
 .ant-card-body {
@@ -120,4 +139,5 @@ ul.ant-menu.ant-menu-root.ant-menu-vertical {
 .ant-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
 }

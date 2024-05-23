@@ -64,6 +64,9 @@ import FormField from "../../FormField"; // plasmic-import: yLHiIXcGvJuv/compone
 import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
 import PasswordInput from "~/components/PasswordInput/PasswordInput.tsx"; // plasmic-import: Tuix-QVl_vRD/codeComponent
 import Button from "~/components/Button/Button.tsx"; // plasmic-import: kQTcb2I1HqhX/codeComponent
+import SelectInput from "../../SelectInput"; // plasmic-import: fGNBuRZSQyEi/component
+import SelectItem from "../../SelectItem"; // plasmic-import: hGFiaPJ3TZ_p/component
+import NumberInput from "~/components/NumberInput/NumberInput.tsx"; // plasmic-import: FFfQSUkjlypg/codeComponent
 import Cropper from "~/components/Cropper/Cropper.tsx"; // plasmic-import: 8amRQDDyzNMI/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -72,6 +75,8 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 5nPYJMkHKsudqrrya3SLGq/projectcss
 import sty from "./PlasmicForms.module.css"; // plasmic-import: KNXf3kuM8MY0/css
+
+import WarningDiamondsvgIcon from "./icons/PlasmicIcon__WarningDiamondsvg"; // plasmic-import: qLqG6TErDgjs/icon
 
 createPlasmicElementProxy;
 
@@ -91,7 +96,9 @@ export type PlasmicForms__OverridesType = {
   textInput?: Flex__<typeof TextInput>;
   formField2?: Flex__<typeof FormField>;
   passwordInput?: Flex__<typeof PasswordInput>;
+  selectBeta?: Flex__<typeof SelectInput>;
   textInput2?: Flex__<typeof TextInput>;
+  numberInput?: Flex__<typeof NumberInput>;
   cropper?: Flex__<typeof Cropper>;
 };
 
@@ -202,18 +209,68 @@ function PlasmicForms__RenderFunc(props: {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
-      },
-      {
-        path: "textInput2.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.user.phone.number;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "undefined";
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "cropper.file",
         type: "private",
         variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "selectBeta.size",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "large"
+      },
+      {
+        path: "selectBeta.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "numberInput.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.user.phone.number;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "selectBeta.searchValue",
+        type: "private",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -281,15 +338,14 @@ function PlasmicForms__RenderFunc(props: {
                   description2={"Input Description"}
                   error={generateStateValueProp($state, ["formField", "error"])}
                   help={"This is help por the user"}
-                  input={
-                    <TextInput
-                      data-plasmic-name={"textInput"}
-                      data-plasmic-override={overrides.textInput}
-                      allowClear={false}
-                      className={classNames("__wab_instance", sty.textInput)}
-                      defaultValue={""}
-                      disabled={false}
-                      leftIcon={
+                  input={(() => {
+                    const child$Props = {
+                      allowClear: false,
+                      className: classNames("__wab_instance", sty.textInput),
+                      debounce: 0,
+                      defaultValue: "",
+                      disabled: false,
+                      leftIcon: (
                         <div
                           className={classNames(
                             projectcss.all,
@@ -299,8 +355,8 @@ function PlasmicForms__RenderFunc(props: {
                         >
                           {"Drop Icon"}
                         </div>
-                      }
-                      onChange={async (...eventArgs: any) => {
+                      ),
+                      onChange: async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
                           "textInput",
                           "value"
@@ -383,9 +439,9 @@ function PlasmicForms__RenderFunc(props: {
                             ];
                           }
                         }).apply(null, eventArgs);
-                      }}
-                      placeholder={"Placeholder"}
-                      rightIcon={
+                      },
+                      placeholder: "Placeholder",
+                      rightIcon: (
                         <div
                           className={classNames(
                             projectcss.all,
@@ -395,11 +451,11 @@ function PlasmicForms__RenderFunc(props: {
                         >
                           {"Drop Icon"}
                         </div>
-                      }
-                      showLeftIcon={false}
-                      showRightIcon={false}
-                      size={"large"}
-                      status={(() => {
+                      ),
+                      showLeftIcon: false,
+                      showRightIcon: false,
+                      size: "large",
+                      status: (() => {
                         try {
                           return (() => {
                             if ($state.formField.error) return "error";
@@ -413,14 +469,56 @@ function PlasmicForms__RenderFunc(props: {
                           }
                           throw e;
                         }
-                      })()}
-                      value={generateStateValueProp($state, [
+                      })(),
+                      value: generateStateValueProp($state, [
                         "textInput",
                         "value"
-                      ])}
-                      variant={"outlined"}
-                    />
-                  }
+                      ]),
+                      variant: "outlined"
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "textInput.value"
+                        }
+                      ],
+                      [],
+                      undefined ?? {},
+                      child$Props
+                    );
+                    initializePlasmicStates(
+                      $state,
+                      [
+                        {
+                          name: "textInput.value",
+                          initFunc: ({ $props, $state, $queries }) =>
+                            (() => {
+                              try {
+                                return $ctx.user.phone.number;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "undefined";
+                                }
+                                throw e;
+                              }
+                            })()
+                        }
+                      ],
+                      []
+                    );
+                    return (
+                      <TextInput
+                        data-plasmic-name={"textInput"}
+                        data-plasmic-override={overrides.textInput}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
                   isRequired={true}
                   label2={"Form Input 1"}
                   onErrorChange={generateStateOnChangeProp($state, [
@@ -505,7 +603,7 @@ function PlasmicForms__RenderFunc(props: {
                   label={"Submit Form"}
                   loading={false}
                   size={"middle"}
-                  variant={"default"}
+                  variant={"primary"}
                   withIcon={false}
                 />
               </React.Fragment>
@@ -570,47 +668,211 @@ function PlasmicForms__RenderFunc(props: {
             values={generateStateValueProp($state, ["form", "values"])}
           />
 
-          <TextInput
-            data-plasmic-name={"textInput2"}
-            data-plasmic-override={overrides.textInput2}
-            allowClear={false}
-            className={classNames("__wab_instance", sty.textInput2)}
-            defaultValue={""}
-            disabled={false}
-            leftIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__a74VW
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            onChange={generateStateOnChangeProp($state, [
-              "textInput2",
-              "value"
-            ])}
-            placeholder={"Placeholder"}
-            rightIcon={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qtXga
-                )}
-              >
-                {"Drop Icon"}
-              </div>
-            }
-            showLeftIcon={false}
-            showRightIcon={false}
-            size={"middle"}
-            value={generateStateValueProp($state, ["textInput2", "value"])}
-            variant={"outlined"}
-          />
+          <div className={classNames(projectcss.all, sty.freeBox__d9Skc)}>
+            <SelectInput
+              data-plasmic-name={"selectBeta"}
+              data-plasmic-override={overrides.selectBeta}
+              className={classNames("__wab_instance", sty.selectBeta)}
+              isLoading={false}
+              isSearchable={true}
+              menu={(_par =>
+                !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                (() => {
+                  try {
+                    return Array.from({ length: 30 });
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <SelectItem
+                    className={classNames(
+                      "__wab_instance",
+                      sty.selectItem___7BcHs
+                    )}
+                    key={currentIndex}
+                  />
+                );
+              })}
+              onOpenChange={async () => {
+                const $steps = {};
+              }}
+              onSearch={async value => {
+                const $steps = {};
 
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return console.log($state.selectBeta.searchValue);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+              onSearchValueChange={generateStateOnChangeProp($state, [
+                "selectBeta",
+                "searchValue"
+              ])}
+              onSizeChange={generateStateOnChangeProp($state, [
+                "selectBeta",
+                "size"
+              ])}
+              onValueChange={generateStateOnChangeProp($state, [
+                "selectBeta",
+                "value"
+              ])}
+              searchValue={generateStateValueProp($state, [
+                "selectBeta",
+                "searchValue"
+              ])}
+              size={generateStateValueProp($state, ["selectBeta", "size"])}
+              value={generateStateValueProp($state, ["selectBeta", "value"])}
+              width={"500px"}
+            />
+
+            {(() => {
+              const child$Props = {
+                allowClear: false,
+                className: classNames("__wab_instance", sty.textInput2),
+                debounce: 1000,
+                defaultValue: "",
+                disabled: false,
+                leftIcon: (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___33PZp
+                    )}
+                  >
+                    {"Drop Icon"}
+                  </div>
+                ),
+                mask: "99 9999 9999",
+                onChange: generateStateOnChangeProp($state, [
+                  "textInput2",
+                  "value"
+                ]),
+                placeholder: "Placeholder",
+                rightIcon: (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xkcyd
+                    )}
+                  >
+                    {"Drop Icon"}
+                  </div>
+                ),
+                showLeftIcon: false,
+                showRightIcon: false,
+                size: "large",
+                value: generateStateValueProp($state, ["textInput2", "value"]),
+                variant: "outlined"
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "textInput2.value"
+                  }
+                ],
+                [],
+                undefined ?? {},
+                child$Props
+              );
+              initializePlasmicStates(
+                $state,
+                [
+                  {
+                    name: "textInput2.value",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      (() => {
+                        try {
+                          return $ctx.user.phone.number;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                  }
+                ],
+                []
+              );
+              return (
+                <TextInput
+                  data-plasmic-name={"textInput2"}
+                  data-plasmic-override={overrides.textInput2}
+                  {...child$Props}
+                />
+              );
+            })()}
+            <NumberInput
+              data-plasmic-name={"numberInput"}
+              data-plasmic-override={overrides.numberInput}
+              className={classNames("__wab_instance", sty.numberInput)}
+              defaultValue={""}
+              disabled={false}
+              leftIcon={null}
+              onChange={generateStateOnChangeProp($state, [
+                "numberInput",
+                "value"
+              ])}
+              placeholder={"0.00"}
+              precision={2}
+              showLeftIcon={false}
+              size={"large"}
+              step={1}
+              value={generateStateValueProp($state, ["numberInput", "value"])}
+              variant={"outlined"}
+            />
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__fGbcu)}>
+            <SelectItem
+              className={classNames("__wab_instance", sty.selectItem__ir86N)}
+              isActive={true}
+              label={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ieyl4
+                  )}
+                >
+                  {"Select Item"}
+                </div>
+              }
+            />
+          </div>
           <Cropper
             data-plasmic-name={"cropper"}
             data-plasmic-override={overrides.cropper}
@@ -693,7 +955,9 @@ const PlasmicDescendants = {
     "textInput",
     "formField2",
     "passwordInput",
+    "selectBeta",
     "textInput2",
+    "numberInput",
     "cropper"
   ],
   form: ["form", "formField", "textInput", "formField2", "passwordInput"],
@@ -701,7 +965,9 @@ const PlasmicDescendants = {
   textInput: ["textInput"],
   formField2: ["formField2", "passwordInput"],
   passwordInput: ["passwordInput"],
+  selectBeta: ["selectBeta"],
   textInput2: ["textInput2"],
+  numberInput: ["numberInput"],
   cropper: ["cropper"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -714,7 +980,9 @@ type NodeDefaultElementType = {
   textInput: typeof TextInput;
   formField2: typeof FormField;
   passwordInput: typeof PasswordInput;
+  selectBeta: typeof SelectInput;
   textInput2: typeof TextInput;
+  numberInput: typeof NumberInput;
   cropper: typeof Cropper;
 };
 
@@ -783,7 +1051,9 @@ export const PlasmicForms = Object.assign(
     textInput: makeNodeComponent("textInput"),
     formField2: makeNodeComponent("formField2"),
     passwordInput: makeNodeComponent("passwordInput"),
+    selectBeta: makeNodeComponent("selectBeta"),
     textInput2: makeNodeComponent("textInput2"),
+    numberInput: makeNodeComponent("numberInput"),
     cropper: makeNodeComponent("cropper"),
 
     // Metadata about props expected for PlasmicForms

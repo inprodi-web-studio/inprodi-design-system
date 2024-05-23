@@ -22,6 +22,12 @@ const DropdownConfig : ExtendedCodeComponentMeta = {
           valueProp    : "isLoading",
           onChangeProp : "onIsLoadingChange",
         },
+        searchValue : {
+            type         : "writable",
+            variableType : "text",
+            valueProp    : "searchValue",
+            onChangeProp : "onSearchValueChange",
+        },
     },
     props : {
         isLoading : {
@@ -56,9 +62,19 @@ const DropdownConfig : ExtendedCodeComponentMeta = {
             displayName  : "Is Searchable",
             defaultValue : false,
         },
+        searchValue : {
+            type         : "string",
+            displayName  : "Search Value",
+        },
         onOpenChange : {
             type        : "eventHandler",
             displayName : "On Open Change",
+            argTypes    : [{ name: "value", type: "string" }],
+            advanced    : true,
+        },
+        onSearchValueChange : {
+            type        : "eventHandler",
+            displayName : "On Search",
             argTypes    : [{ name: "value", type: "string" }],
             advanced    : true,
         },
