@@ -43,6 +43,7 @@ export default function Dropdown({
 
     const triggerStyle: React.CSSProperties = {
         cursor: "pointer",
+        width : "100%",
     };
 
     const handleOpenChange = (open: boolean) => {

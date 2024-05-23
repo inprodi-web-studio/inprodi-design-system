@@ -24,10 +24,11 @@ import AnimatedNumberConfig  from "@/components/AnimatedNumber/Register";
 import { AppGlobalContext }  from "@/components/AppGlobalContext";
 import { AuthGlobalContext } from "@/components/AuthGlobalContext";
 
+import { getApps, getAppsConfig }                   from "@/helpers/appsHelpers";
+import { validatePone, validatePoneConfig }         from "@/helpers/validatePhone";
+import { validateEmail, validateEmailConfig }       from "@/helpers/validateEmail";
 import { showNotification, showNotificationConfig } from "@/helpers/showNotification";
-import { validateEmail, validateEmailConfig } from "@/helpers/validateEmail";
-import { getApps, getAppsConfig } from "@/helpers/appsHelpers";
-import { validatePone, validatePoneConfig } from "@/helpers/validatePhone";
+import { validatePassword, validatePasswordConfig } from "@/helpers/validatePassword";
 
 // Components
 registerComponent( Card, CardConfig );
@@ -46,6 +47,7 @@ registerFunction( getApps, getAppsConfig);
 registerFunction( validatePone, validatePoneConfig );
 registerFunction( validateEmail, validateEmailConfig);
 registerFunction( showNotification, showNotificationConfig);
+registerFunction( validatePassword, validatePasswordConfig );
 
 // Global Context
 registerGlobalContext( AuthGlobalContext, {

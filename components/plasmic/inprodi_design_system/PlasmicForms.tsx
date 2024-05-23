@@ -100,6 +100,7 @@ export type PlasmicForms__OverridesType = {
   textInput2?: Flex__<typeof TextInput>;
   numberInput?: Flex__<typeof NumberInput>;
   cropper?: Flex__<typeof Cropper>;
+  selectInput?: Flex__<typeof SelectInput>;
 };
 
 export interface DefaultFormsProps {}
@@ -269,6 +270,24 @@ function PlasmicForms__RenderFunc(props: {
       },
       {
         path: "selectBeta.searchValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "selectInput.size",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "selectInput.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "selectInput.searchValue",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -941,6 +960,31 @@ function PlasmicForms__RenderFunc(props: {
             }}
             value={generateStateValueProp($state, ["cropper", "file"])}
           />
+
+          <SelectInput
+            data-plasmic-name={"selectInput"}
+            data-plasmic-override={overrides.selectInput}
+            className={classNames("__wab_instance", sty.selectInput)}
+            onSearchValueChange={generateStateOnChangeProp($state, [
+              "selectInput",
+              "searchValue"
+            ])}
+            onSizeChange={generateStateOnChangeProp($state, [
+              "selectInput",
+              "size"
+            ])}
+            onValueChange={generateStateOnChangeProp($state, [
+              "selectInput",
+              "value"
+            ])}
+            searchValue={generateStateValueProp($state, [
+              "selectInput",
+              "searchValue"
+            ])}
+            size={generateStateValueProp($state, ["selectInput", "size"])}
+            value={generateStateValueProp($state, ["selectInput", "value"])}
+            width={"100%"}
+          />
         </Stack__>
       </div>
     </React.Fragment>
@@ -958,7 +1002,8 @@ const PlasmicDescendants = {
     "selectBeta",
     "textInput2",
     "numberInput",
-    "cropper"
+    "cropper",
+    "selectInput"
   ],
   form: ["form", "formField", "textInput", "formField2", "passwordInput"],
   formField: ["formField", "textInput"],
@@ -968,7 +1013,8 @@ const PlasmicDescendants = {
   selectBeta: ["selectBeta"],
   textInput2: ["textInput2"],
   numberInput: ["numberInput"],
-  cropper: ["cropper"]
+  cropper: ["cropper"],
+  selectInput: ["selectInput"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -984,6 +1030,7 @@ type NodeDefaultElementType = {
   textInput2: typeof TextInput;
   numberInput: typeof NumberInput;
   cropper: typeof Cropper;
+  selectInput: typeof SelectInput;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1055,6 +1102,7 @@ export const PlasmicForms = Object.assign(
     textInput2: makeNodeComponent("textInput2"),
     numberInput: makeNodeComponent("numberInput"),
     cropper: makeNodeComponent("cropper"),
+    selectInput: makeNodeComponent("selectInput"),
 
     // Metadata about props expected for PlasmicForms
     internalVariantProps: PlasmicForms__VariantProps,
