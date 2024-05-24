@@ -59,7 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
+import DropdownConfig from "/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 

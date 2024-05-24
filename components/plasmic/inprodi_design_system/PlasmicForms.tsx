@@ -61,13 +61,13 @@ import {
 
 import Form from "../../Form"; // plasmic-import: rb5_PS-3AnYe/component
 import FormField from "../../FormField"; // plasmic-import: yLHiIXcGvJuv/component
-import TextInput from "~/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
-import PasswordInput from "~/components/PasswordInput/PasswordInput.tsx"; // plasmic-import: Tuix-QVl_vRD/codeComponent
-import Button from "~/components/Button/Button.tsx"; // plasmic-import: kQTcb2I1HqhX/codeComponent
+import TextInput from "/components/TextInput/TextInput.tsx"; // plasmic-import: jViHg3nb4YL3/codeComponent
+import PasswordInput from "/components/PasswordInput/PasswordInput.tsx"; // plasmic-import: Tuix-QVl_vRD/codeComponent
+import Button from "/components/Button/Button.tsx"; // plasmic-import: kQTcb2I1HqhX/codeComponent
 import SelectInput from "../../SelectInput"; // plasmic-import: fGNBuRZSQyEi/component
 import SelectItem from "../../SelectItem"; // plasmic-import: hGFiaPJ3TZ_p/component
-import NumberInput from "~/components/NumberInput/NumberInput.tsx"; // plasmic-import: FFfQSUkjlypg/codeComponent
-import Cropper from "~/components/Cropper/Cropper.tsx"; // plasmic-import: 8amRQDDyzNMI/codeComponent
+import NumberInput from "/components/NumberInput/NumberInput.tsx"; // plasmic-import: FFfQSUkjlypg/codeComponent
+import Cropper from "/components/Cropper/Cropper.tsx"; // plasmic-import: 8amRQDDyzNMI/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 

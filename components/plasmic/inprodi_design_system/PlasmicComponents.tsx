@@ -59,14 +59,14 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Card from "~/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
-import Divider from "~/components/Divider/Divider.tsx"; // plasmic-import: 7-ylPAFdGTBs/codeComponent
-import AnimatedNumber from "~/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
+import Card from "/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
+import Divider from "/components/Divider/Divider.tsx"; // plasmic-import: 7-ylPAFdGTBs/codeComponent
+import AnimatedNumber from "/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
 import Statistic from "../../Statistic"; // plasmic-import: XTNsZrFRrZal/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
-import Avatar from "~/components/Avatar/Avatar.tsx"; // plasmic-import: tNcz9rhbc3sz/codeComponent
+import Avatar from "/components/Avatar/Avatar.tsx"; // plasmic-import: tNcz9rhbc3sz/codeComponent
 import DropdownItem from "../../DropdownItem"; // plasmic-import: XOGoYay1a3bq/component
-import DropdownConfig from "~/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
+import DropdownConfig from "/components/Dropdown/Dropdown.tsx"; // plasmic-import: 2FAf85kMy1wq/codeComponent
 
 import {
   ColorSchemeValue,
