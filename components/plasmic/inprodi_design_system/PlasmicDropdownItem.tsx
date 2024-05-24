@@ -164,6 +164,7 @@ function PlasmicDropdownItem__RenderFunc(props: {
         onChangeProp: "onIsSelectedChange"
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = useDollarState(stateSpecs, {
@@ -238,6 +239,7 @@ function PlasmicDropdownItem__RenderFunc(props: {
             {"Dropdown Item"}
           </div>
         ),
+
         value: args.label,
         className: classNames(sty.slotTargetLabel, {
           [sty.slotTargetLabelisSelected]: hasVariant(
@@ -278,6 +280,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicDropdownItem__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface FormFieldProps extends DefaultFormFieldProps {}
 
-function FormField_(props: FormFieldProps, ref: HTMLElementRefOf<"div">) {
+function FormField_(props: any, ref: HTMLElementRefOf<"div">) {
   // Use PlasmicFormField to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You

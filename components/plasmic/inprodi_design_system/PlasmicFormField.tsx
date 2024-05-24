@@ -182,6 +182,7 @@ function PlasmicFormField__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = useDollarState(stateSpecs, {
@@ -483,6 +484,7 @@ const PlasmicDescendants = {
     "errorIcon",
     "errorLabel"
   ],
+
   labelContainer: [
     "labelContainer",
     "container",
@@ -493,6 +495,7 @@ const PlasmicDescendants = {
     "icon",
     "description"
   ],
+
   container: [
     "container",
     "container2",
@@ -501,6 +504,7 @@ const PlasmicDescendants = {
     "popover",
     "icon"
   ],
+
   container2: ["container2", "label", "requiredIndicator"],
   label: ["label"],
   requiredIndicator: ["requiredIndicator"],
@@ -534,6 +538,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicFormField__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

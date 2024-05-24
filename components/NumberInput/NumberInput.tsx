@@ -1,14 +1,13 @@
 import React, { ChangeEventHandler, KeyboardEventHandler } from "react";
 import { Input, InputNumber } from "antd";
-import { MaskedInput } from "antd-mask-input";
 
 export interface NumberInputProps {
     addonAfter  : React.ReactNode,
     addonBefore : React.ReactNode,
     placeholder : string,
     disabled    : boolean,
-    min         : number,
-    max         : number,
+    min        ?: number,
+    max        ?: number,
     precision   : number,
     status		: "error" | "warning",
     leftIcon    : React.ReactNode,

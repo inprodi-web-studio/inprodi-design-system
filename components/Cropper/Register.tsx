@@ -10,7 +10,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const CropperConfig : ExtendedCodeComponentMeta = {
     id          : "cropper",
     name        : "Cropper",
-    importPath  : "~/components/Cropper/Cropper.tsx",
+    importPath  : "/components/Cropper/Cropper.tsx",
     isDefaultExport : true,
     displayName : "Cropper",
     styleSections : true,

@@ -150,6 +150,7 @@ function PlasmicLayout__RenderFunc(props: {
           })()
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = useDollarState(stateSpecs, {
@@ -237,6 +238,7 @@ function PlasmicLayout__RenderFunc(props: {
                           })()
                       }
                     ],
+
                     []
                   );
                   return (
@@ -277,6 +279,7 @@ const PlasmicDescendants = {
     "menuGroup",
     "topBar"
   ],
+
   navigationSidebar: ["navigationSidebar", "menuItem", "svg", "menuGroup"],
   menuItem: ["menuItem", "svg"],
   svg: ["svg"],
@@ -300,6 +303,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicLayout__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

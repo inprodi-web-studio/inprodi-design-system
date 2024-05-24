@@ -11,8 +11,8 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const DropdownConfig : ExtendedCodeComponentMeta = {
     id            : "dropdown-config",
     name          : "DropdownConfig",
-    importPath    : "~/components/Dropdown/Dropdown.tsx",
-    styleSections : true,
+    importPath    : "/components/Dropdown/Dropdown.tsx",
+    // styleSections : true,
     isDefaultExport : true,
     displayName   : "Dropdown",
     states : {

@@ -17,6 +17,7 @@ export interface DropdownProps {
     isSearchable: boolean,
     onSearchValueChange: (val: any) => void,
     searchValue?: string,
+    className?: string,
 };
 
 export default function Dropdown({
@@ -29,6 +30,7 @@ export default function Dropdown({
     isSearchable,
     searchValue,
     onSearchValueChange,
+    className,
 }: DropdownProps) {
     const { token } = useToken();
     const inputRef = useRef<InputRef>(null);
@@ -43,7 +45,6 @@ export default function Dropdown({
 
     const triggerStyle: React.CSSProperties = {
         cursor: "pointer",
-        width : "100%",
     };
 
     const handleOpenChange = (open: boolean) => {
@@ -64,7 +65,8 @@ export default function Dropdown({
 
     return (
         <AntDropdown
-            trigger={trigger}
+        trigger={trigger}
+        className={className}
             onOpenChange={handleOpenChange}
             dropdownRender={() =>
                 <div style={contentStyle}>

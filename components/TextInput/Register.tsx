@@ -9,7 +9,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const TextInputConfig : ExtendedCodeComponentMeta = {
     id          : "text-input",
     name        : "TextInput",
-    importPath  : "~/components/TextInput/TextInput.tsx",
+    importPath  : "/components/TextInput/TextInput.tsx",
     isDefaultExport : true,
     displayName : "Text Input",
     states : {

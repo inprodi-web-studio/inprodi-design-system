@@ -10,7 +10,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const ButtonConfig : ExtendedCodeComponentMeta = {
     id          : "button",
     name        : "Button",
-    importPath  : "~/components/Button/Button.tsx",
+    importPath  : "/components/Button/Button.tsx",
     isDefaultExport : true,
     displayName : "Button",
     styleSections : true,

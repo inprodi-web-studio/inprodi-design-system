@@ -9,7 +9,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const CardConfig : ExtendedCodeComponentMeta = {
     id          : "card",
     name        : "Card",
-    importPath  : "~/components/Card/Card.tsx",
+    importPath  : "/components/Card/Card.tsx",
     isDefaultExport : true,
     displayName : "Card",
     props : {

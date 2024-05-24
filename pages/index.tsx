@@ -3,7 +3,6 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../components/plasmic/inprodi_design_system/PlasmicGlobalContextsProvider";
-import { ScreenVariantProvider } from "../components/plasmic/inprodi_design_system/PlasmicGlobalVariant__Screen";
 import { PlasmicTypographies } from "../components/plasmic/inprodi_design_system/PlasmicTypographies";
 import { useRouter } from "next/router";
 

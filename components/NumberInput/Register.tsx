@@ -9,7 +9,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const NumberInputConfig : ExtendedCodeComponentMeta = {
     id          : "number-input",
     name        : "NumberInput",
-    importPath  : "~/components/NumberInput/NumberInput.tsx",
+    importPath  : "/components/NumberInput/NumberInput.tsx",
     isDefaultExport : true,
     displayName : "Number Input",
     states : {
@@ -70,6 +70,14 @@ const NumberInputConfig : ExtendedCodeComponentMeta = {
             type         : "number",
             displayName  : "Precision",
             defaultValue : 2,
+        },
+        min : {
+            type         : "number",
+            displayName  : "Min",
+        },
+        max : {
+            type         : "number",
+            displayName  : "Max",
         },
         step : {
             type         : "number",

@@ -293,6 +293,7 @@ function PlasmicForms__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
+
     [$props, $ctx, $refs]
   );
   const $state = useDollarState(stateSpecs, {
@@ -312,6 +313,7 @@ function PlasmicForms__RenderFunc(props: {
           property="og:title"
           content={PlasmicForms.pageMetadata.title}
         />
+
         <meta
           key="twitter:title"
           name="twitter:title"
@@ -375,6 +377,7 @@ function PlasmicForms__RenderFunc(props: {
                           {"Drop Icon"}
                         </div>
                       ),
+
                       onChange: async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
                           "textInput",
@@ -471,6 +474,7 @@ function PlasmicForms__RenderFunc(props: {
                           {"Drop Icon"}
                         </div>
                       ),
+
                       showLeftIcon: false,
                       showRightIcon: false,
                       size: "large",
@@ -503,6 +507,7 @@ function PlasmicForms__RenderFunc(props: {
                           plasmicStateName: "textInput.value"
                         }
                       ],
+
                       [],
                       undefined ?? {},
                       child$Props
@@ -528,6 +533,7 @@ function PlasmicForms__RenderFunc(props: {
                             })()
                         }
                       ],
+
                       []
                     );
                     return (
@@ -691,7 +697,11 @@ function PlasmicForms__RenderFunc(props: {
             <SelectInput
               data-plasmic-name={"selectBeta"}
               data-plasmic-override={overrides.selectBeta}
-              className={classNames("__wab_instance", sty.selectBeta)}
+              dropdownStyle={{
+                width: "100%",
+                padding: "4px",
+                overflow: "hidden"
+              }}
               isLoading={false}
               isSearchable={true}
               menu={(_par =>
@@ -768,7 +778,7 @@ function PlasmicForms__RenderFunc(props: {
               ])}
               size={generateStateValueProp($state, ["selectBeta", "size"])}
               value={generateStateValueProp($state, ["selectBeta", "value"])}
-              width={"500px"}
+              width={"100%"}
             />
 
             {(() => {
@@ -789,6 +799,7 @@ function PlasmicForms__RenderFunc(props: {
                     {"Drop Icon"}
                   </div>
                 ),
+
                 mask: "99 9999 9999",
                 onChange: generateStateOnChangeProp($state, [
                   "textInput2",
@@ -806,6 +817,7 @@ function PlasmicForms__RenderFunc(props: {
                     {"Drop Icon"}
                   </div>
                 ),
+
                 showLeftIcon: false,
                 showRightIcon: false,
                 size: "large",
@@ -820,6 +832,7 @@ function PlasmicForms__RenderFunc(props: {
                     plasmicStateName: "textInput2.value"
                   }
                 ],
+
                 [],
                 undefined ?? {},
                 child$Props
@@ -845,6 +858,7 @@ function PlasmicForms__RenderFunc(props: {
                       })()
                   }
                 ],
+
                 []
               );
               return (
@@ -1005,6 +1019,7 @@ const PlasmicDescendants = {
     "cropper",
     "selectInput"
   ],
+
   form: ["form", "formField", "textInput", "formField2", "passwordInput"],
   formField: ["formField", "textInput"],
   textInput: ["textInput"],
@@ -1038,6 +1053,7 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicForms__OverridesType,
   DescendantsType<T>
 >;
+
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

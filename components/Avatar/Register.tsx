@@ -9,7 +9,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const AvatarConfig : ExtendedCodeComponentMeta = {
     id          : "avatar",
     name        : "Avatar",
-    importPath  : "~/components/Avatar/Avatar.tsx",
+    importPath  : "/components/Avatar/Avatar.tsx",
     isDefaultExport : true,
     displayName : "Avatar",
     props : {

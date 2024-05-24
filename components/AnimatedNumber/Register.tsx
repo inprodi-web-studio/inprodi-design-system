@@ -9,7 +9,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const AnimatedNumberConfig : ExtendedCodeComponentMeta = {
     id            : "animated-number",
     name          : "AnimatedNumber",
-    importPath    : "~/components/AnimatedNumber/AnimatedNumber.tsx",
+    importPath    : "/components/AnimatedNumber/AnimatedNumber.tsx",
     isDefaultExport : true,
     displayName   : "Animated Number",
     props : {

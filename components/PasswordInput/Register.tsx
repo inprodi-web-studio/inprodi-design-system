@@ -9,7 +9,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const PasswordInputConfig : ExtendedCodeComponentMeta = {
     id          : "password-input",
     name        : "PasswordInput",
-    importPath  : "~/components/PasswordInput/PasswordInput.tsx",
+    importPath  : "/components/PasswordInput/PasswordInput.tsx",
     isDefaultExport : true,
     displayName : "Password Input",
     states : {

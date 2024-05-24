@@ -10,7 +10,7 @@ interface ExtendedCodeComponentMeta extends CodeComponentMeta {
 const DividerConfig : ExtendedCodeComponentMeta = {
     id          : "divider",
     name        : "Divider",
-    importPath  : "~/components/Divider/Divider.tsx",
+    importPath  : "/components/Divider/Divider.tsx",
     isDefaultExport : true,
     displayName : "Divider",
     styleSections : true,
