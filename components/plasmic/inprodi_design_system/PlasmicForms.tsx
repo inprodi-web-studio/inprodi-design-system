@@ -691,7 +691,11 @@ function PlasmicForms__RenderFunc(props: {
             <SelectInput
               data-plasmic-name={"selectBeta"}
               data-plasmic-override={overrides.selectBeta}
-              className={classNames("__wab_instance", sty.selectBeta)}
+              dropdownStyle={{
+                width: "100%",
+                padding: "4px",
+                overflow: "hidden"
+              }}
               isLoading={false}
               isSearchable={true}
               menu={(_par =>
@@ -768,7 +772,7 @@ function PlasmicForms__RenderFunc(props: {
               ])}
               size={generateStateValueProp($state, ["selectBeta", "size"])}
               value={generateStateValueProp($state, ["selectBeta", "value"])}
-              width={"500px"}
+              width={"100%"}
             />
 
             {(() => {
