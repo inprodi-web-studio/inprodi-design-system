@@ -61,7 +61,7 @@ import {
 
 import Card from "/components/Card/Card.tsx"; // plasmic-import: nDtozaD8mTAX/codeComponent
 import Divider from "/components/Divider/Divider.tsx"; // plasmic-import: 7-ylPAFdGTBs/codeComponent
-import AnimatedNumber from "/components/AnimatedNumber/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
+import { AnimatedNumber } from "/components/AnimatedNumber.tsx"; // plasmic-import: qbYBio9o21Vq/codeComponent
 import Statistic from "../../Statistic"; // plasmic-import: XTNsZrFRrZal/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import Avatar from "/components/Avatar/Avatar.tsx"; // plasmic-import: tNcz9rhbc3sz/codeComponent
@@ -160,7 +160,6 @@ function PlasmicComponents__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
-
     [$props, $ctx, $refs]
   );
   const $state = useDollarState(stateSpecs, {
@@ -184,7 +183,6 @@ function PlasmicComponents__RenderFunc(props: {
           property="og:title"
           content={PlasmicComponents.pageMetadata.title}
         />
-
         <meta
           key="twitter:title"
           name="twitter:title"
@@ -432,7 +430,6 @@ const PlasmicDescendants = {
     "dropdownItem",
     "dropdown"
   ],
-
   card: ["card"],
   divider: ["divider"],
   animatedNumber: ["animatedNumber"],
@@ -464,7 +461,6 @@ type NodeOverridesType<T extends NodeNameType> = Pick<
   PlasmicComponents__OverridesType,
   DescendantsType<T>
 >;
-
 type NodeComponentProps<T extends NodeNameType> =
   // Explicitly specify variants, args, and overrides as objects
   {

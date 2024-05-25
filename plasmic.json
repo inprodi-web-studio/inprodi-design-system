@@ -983,7 +983,7 @@
           "id": "qbYBio9o21Vq",
           "name": "AnimatedNumber",
           "displayName": "AnimatedNumber",
-          "componentImportPath": "/components/AnimatedNumber/AnimatedNumber.tsx"
+          "componentImportPath": "/components/AnimatedNumber.tsx"
         },
         {
           "id": "KV3-W_-eQ3R8",
